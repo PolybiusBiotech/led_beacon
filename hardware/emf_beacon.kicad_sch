@@ -1161,7 +1161,7 @@
 			)
 		)
 		(instances
-			(project "home_emf_beacon"
+			(project "emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
 					(page "3")
 				)
@@ -1203,7 +1203,7 @@
 			)
 		)
 		(instances
-			(project "home_emf_beacon"
+			(project "emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
 					(page "6")
 				)
@@ -1415,7 +1415,7 @@
 			)
 		)
 		(instances
-			(project "home_emf_beacon"
+			(project "emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
 					(page "2")
 				)
@@ -1517,7 +1517,7 @@
 			)
 		)
 		(instances
-			(project "home_emf_beacon"
+			(project "emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
 					(page "4")
 				)
@@ -1589,7 +1589,7 @@
 			)
 		)
 		(instances
-			(project "home_emf_beacon"
+			(project "emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
 					(page "5")
 				)
