@@ -5013,7 +5013,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_PH_B6B-PH-SM4-TB_1x06-1MP_P2.00mm_Vertical"
 			(at 38.1 78.74 0)
 			(effects
 				(font
@@ -5040,7 +5040,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C274409"
+		(property "LCSC" ""
 			(at 38.1 78.74 0)
 			(effects
 				(font
@@ -6401,7 +6401,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_PH_B6B-PH-SM4-TB_1x06-1MP_P2.00mm_Vertical"
 			(at 38.1 53.34 0)
 			(effects
 				(font
@@ -6428,7 +6428,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C274409"
+		(property "LCSC" ""
 			(at 38.1 53.34 0)
 			(effects
 				(font

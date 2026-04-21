@@ -470,7 +470,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "home_emf_beacon.kicad_pro",
+    "filename": "emf_beacon.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -684,10 +684,6 @@
     [
       "df4eb277-c130-4091-8da8-d7582d834ebe",
       "CTRL"
-    ],
-    [
-      "183333b4-3331-407a-bce0-2b4e56bf56af",
-      "ART-NET"
     ],
     [
       "ef912ffd-e5d9-46a9-9fff-0bf3d4ccd370",

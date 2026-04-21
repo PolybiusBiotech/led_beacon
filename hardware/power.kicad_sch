@@ -7508,7 +7508,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8e006d47-1fb4-48bc-9d66-94708615c3c3")
-		(property "Reference" "#PWR0113"
+		(property "Reference" "#PWR0114"
 			(at 109.22 72.39 0)
 			(effects
 				(font
@@ -7557,7 +7557,7 @@
 		(instances
 			(project "emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/47676e1e-c686-4542-ba08-5a0ba3501dcc"
-					(reference "#PWR0113")
+					(reference "#PWR0114")
 					(unit 1)
 				)
 			)
