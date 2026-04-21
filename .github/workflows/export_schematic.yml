@@ -1,0 +1,22 @@
+name: 'Generate schematic PDF'
+#desciption: 'Generate a pdf schematic of the KiCAD project'
+on: [push]
+
+jobs:
+  kicad_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name Checkout
+      - uses: actions/checkout@v4
+
+      - name: Export PDF
+        uses: sparkengineering/kicad-action@v4
+        with:
+	  kicad_sch: ./hardware/home_emf_beacon.kicad_sch
+	  sch_pdf: true
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: Schematic-PDF
+          path: '.docs/emf_beacon_schematic.pdf'
