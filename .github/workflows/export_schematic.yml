@@ -13,7 +13,7 @@ jobs:
       - name: Export PDF
         uses: sparkengineering/kicad-action@v4
         with:
-          kicad_sch: hardware/home_emf_beacon.kicad_sch
+          kicad_sch: hardware/emf_beacon.kicad_sch
           sch_pdf: true
 
       - name: Organize and Commit PDF
