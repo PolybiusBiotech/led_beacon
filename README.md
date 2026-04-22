@@ -1,4 +1,4 @@
-\# LED Beacon
+# LED Beacon
 
 
 
@@ -6,17 +6,16 @@ An LED Beacon.
 
 
 
-\## Specification
-
+## Specification
 
 
 Interfaces:
 
 * Ideally DMX512 (5pin XLR) and Art-Net (RJ45)
-
   * Want DMX to be robust so aim for 5kV isolated transceiver, TVS diodes and failsafe biasing
 * At least one, slight DMX512 preference
 * +12V DC input
+  * +12V is ±30% so 8.4V minimum, 15.6V maximum
 * weatherproof connections
 * 10x 6.4V 0.3A LED strips
 
@@ -28,7 +27,7 @@ Control:
 * be able to set normal brightness for each 'light'
 * but fast enough for strobe effect for each 'light'
 * Use a modern microcontroller
-
+  * ESP32 prefered
 
 
 Misc:
@@ -38,20 +37,15 @@ Misc:
 * Target cost is \~£15-20 per assembled PCBA
 
 
+## Repo Structure
 
-\## Repo Structure
-
-
-
-* /hardware : KiCAD schematics and board layout
-* /firmware : firmware for LED Beacon
 * /docs : calculations, diagrams and outputs
+* /firmware : firmware for LED Beacon
+* /hardware : KiCAD schematics and board layout
+* /mechanical : step files of enclosure, assembly diagrams
 
 
+## Licence
 
-\## Licence
-
-
-
-&#x20;To be decided
+To be decided
 

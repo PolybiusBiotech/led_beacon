@@ -2499,6 +2499,17 @@
 		)
 		(uuid "388244fc-f0f0-4d24-8607-959e500d19ee")
 	)
+	(text "Short press resets the ESP32\nLong press resets the ESP32\nand puts it in bootloader mode"
+		(exclude_from_sim no)
+		(at 45.72 161.798 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a280342b-cc23-4f05-857c-829fe8034f17")
+	)
 	(text "Temperature\nMonitoring"
 		(exclude_from_sim no)
 		(at 265.176 89.662 0)
@@ -3516,7 +3527,7 @@
 		)
 		(uuid "97b20608-5c86-4953-b59e-241506862c55")
 	)
-	(label "BOOT"
+	(label "ESP_~{BOOT}"
 		(at 85.09 135.89 0)
 		(effects
 			(font
@@ -3526,7 +3537,7 @@
 		)
 		(uuid "9b56458c-db06-43cd-891e-31bfaba65bd9")
 	)
-	(label "BOOT"
+	(label "ESP_~{BOOT}"
 		(at 161.29 102.87 0)
 		(effects
 			(font
@@ -3566,7 +3577,7 @@
 		)
 		(uuid "f2f6eee2-68a6-4ed7-8ced-44408dadbeb6")
 	)
-	(label "ESP_EN"
+	(label "ESP_~{RST}"
 		(at 52.07 135.89 0)
 		(effects
 			(font
@@ -3576,7 +3587,7 @@
 		)
 		(uuid "f676069a-dd66-42cd-9360-215a097c5c03")
 	)
-	(label "ESP_EN"
+	(label "ESP_~{RST}"
 		(at 161.29 74.93 0)
 		(effects
 			(font
