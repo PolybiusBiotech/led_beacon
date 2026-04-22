@@ -3248,7 +3248,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0007fc34-db25-4bf5-ba88-f6f5dcabe44f")
-		(property "Reference" "#PWR064"
+		(property "Reference" "#PWR036"
 			(at 52.07 139.7 0)
 			(effects
 				(font
@@ -3298,7 +3298,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR064")
+					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -3314,7 +3314,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0028b750-0fab-4f6f-b303-cd1df5453984")
-		(property "Reference" "J14"
+		(property "Reference" "J13"
 			(at 265.43 115.5699 0)
 			(effects
 				(font
@@ -3395,7 +3395,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "J14")
+					(reference "J13")
 					(unit 1)
 				)
 			)
@@ -3411,7 +3411,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "02f8736c-28f5-4f32-8644-2b18afffd014")
-		(property "Reference" "#PWR077"
+		(property "Reference" "#PWR049"
 			(at 238.76 162.56 0)
 			(effects
 				(font
@@ -3461,7 +3461,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR077")
+					(reference "#PWR049")
 					(unit 1)
 				)
 			)
@@ -3477,7 +3477,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "085792ce-5bd9-4aa6-a345-ca175b77d44f")
-		(property "Reference" "#PWR080"
+		(property "Reference" "#PWR052"
 			(at 255.27 30.48 0)
 			(effects
 				(font
@@ -3528,7 +3528,7 @@
 		(instances
 			(project ""
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR080")
+					(reference "#PWR052")
 					(unit 1)
 				)
 			)
@@ -3544,7 +3544,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "094d034f-9fb1-4d68-8a1e-325cc92f8076")
-		(property "Reference" "#PWR070"
+		(property "Reference" "#PWR042"
 			(at 177.8 162.56 0)
 			(effects
 				(font
@@ -3594,7 +3594,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR070")
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
@@ -3610,7 +3610,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0e09cf3a-0c22-4e51-8225-4262bccbe1ff")
-		(property "Reference" "R35"
+		(property "Reference" "R21"
 			(at 135.89 101.6 90)
 			(effects
 				(font
@@ -3680,7 +3680,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "R35")
+					(reference "R21")
 					(unit 1)
 				)
 			)
@@ -3696,7 +3696,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "129d0aae-8ddd-4558-939a-4006f05866c6")
-		(property "Reference" "#PWR068"
+		(property "Reference" "#PWR040"
 			(at 157.48 162.56 0)
 			(effects
 				(font
@@ -3746,7 +3746,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR068")
+					(reference "#PWR040")
 					(unit 1)
 				)
 			)
@@ -3762,7 +3762,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1891437f-25e9-4b82-8ac4-8e8cc52587b0")
-		(property "Reference" "Q4"
+		(property "Reference" "Q2"
 			(at 171.45 66.0399 0)
 			(effects
 				(font
@@ -3849,7 +3849,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "Q4")
+					(reference "Q2")
 					(unit 1)
 				)
 			)
@@ -3865,7 +3865,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1d54b995-b570-458b-a6dd-97a36ec9410e")
-		(property "Reference" "R31"
+		(property "Reference" "R17"
 			(at 135.89 60.96 90)
 			(effects
 				(font
@@ -3935,7 +3935,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "R31")
+					(reference "R17")
 					(unit 1)
 				)
 			)
@@ -3950,7 +3950,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1ec8b91e-e79b-4d2f-9b5b-a7b8fa9bdf8a")
-		(property "Reference" "R28"
+		(property "Reference" "R14"
 			(at 46.99 77.4699 0)
 			(effects
 				(font
@@ -4022,7 +4022,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "R28")
+					(reference "R14")
 					(unit 1)
 				)
 			)
@@ -4038,7 +4038,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2553726b-df4c-4bfb-be18-8e6f862c8137")
-		(property "Reference" "#PWR075"
+		(property "Reference" "#PWR047"
 			(at 228.6 162.56 0)
 			(effects
 				(font
@@ -4088,7 +4088,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR075")
+					(reference "#PWR047")
 					(unit 1)
 				)
 			)
@@ -4104,7 +4104,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "25fb03a7-2dcf-440c-b9c8-534f3b361e15")
-		(property "Reference" "Q12"
+		(property "Reference" "Q10"
 			(at 252.73 147.3199 0)
 			(effects
 				(font
@@ -4191,7 +4191,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "Q12")
+					(reference "Q10")
 					(unit 1)
 				)
 			)
@@ -4206,7 +4206,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "306ab28b-f297-4888-80e4-048fc1c3028b")
-		(property "Reference" "R32"
+		(property "Reference" "R18"
 			(at 135.89 71.12 90)
 			(effects
 				(font
@@ -4276,7 +4276,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "R32")
+					(reference "R18")
 					(unit 1)
 				)
 			)
@@ -4292,7 +4292,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "32caef6c-cb15-4da1-b564-da4a1fa05976")
-		(property "Reference" "Q11"
+		(property "Reference" "Q9"
 			(at 242.57 137.1599 0)
 			(effects
 				(font
@@ -4379,7 +4379,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "Q11")
+					(reference "Q9")
 					(unit 1)
 				)
 			)
@@ -4395,7 +4395,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "32cfea51-7375-4069-a71f-c5e2acdf7ad6")
-		(property "Reference" "R33"
+		(property "Reference" "R19"
 			(at 135.89 81.28 90)
 			(effects
 				(font
@@ -4465,7 +4465,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "R33")
+					(reference "R19")
 					(unit 1)
 				)
 			)
@@ -4481,7 +4481,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "346837ee-da02-47c0-ad2e-3d1beb5ba39a")
-		(property "Reference" "#PWR073"
+		(property "Reference" "#PWR045"
 			(at 208.28 162.56 0)
 			(effects
 				(font
@@ -4531,7 +4531,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR073")
+					(reference "#PWR045")
 					(unit 1)
 				)
 			)
@@ -4547,7 +4547,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "34e84f4b-f9be-4294-bebe-dde04f02703c")
-		(property "Reference" "#PWR066"
+		(property "Reference" "#PWR038"
 			(at 72.39 76.2 0)
 			(effects
 				(font
@@ -4597,7 +4597,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR066")
+					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -4613,7 +4613,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4b5ea2ac-9194-45e8-9b5e-e4fde1db721d")
-		(property "Reference" "Q6"
+		(property "Reference" "Q4"
 			(at 191.77 86.3599 0)
 			(effects
 				(font
@@ -4700,7 +4700,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "Q6")
+					(reference "Q4")
 					(unit 1)
 				)
 			)
@@ -4716,7 +4716,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5074265b-a89b-4ee9-bc90-59eecdcc1c2d")
-		(property "Reference" "Q8"
+		(property "Reference" "Q6"
 			(at 212.09 106.6799 0)
 			(effects
 				(font
@@ -4803,7 +4803,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "Q8")
+					(reference "Q6")
 					(unit 1)
 				)
 			)
@@ -4819,7 +4819,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "54586886-c11f-48c6-917c-f7092878a0b2")
-		(property "Reference" "Q3"
+		(property "Reference" "Q1"
 			(at 161.29 55.8799 0)
 			(effects
 				(font
@@ -4906,7 +4906,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "Q3")
+					(reference "Q1")
 					(unit 1)
 				)
 			)
@@ -4922,7 +4922,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5840d379-369d-4c23-910e-abd19dca1518")
-		(property "Reference" "U6"
+		(property "Reference" "U4"
 			(at 74.5333 77.47 0)
 			(effects
 				(font
@@ -5082,7 +5082,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "U6")
+					(reference "U4")
 					(unit 1)
 				)
 			)
@@ -5098,7 +5098,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5ac26ffc-f69a-48a7-80af-693c1e269270")
-		(property "Reference" "#PWR063"
+		(property "Reference" "#PWR035"
 			(at 49.53 76.2 0)
 			(effects
 				(font
@@ -5148,7 +5148,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR063")
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -5164,7 +5164,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "634cb409-a478-4ee4-a692-96b9526fd5a3")
-		(property "Reference" "J11"
+		(property "Reference" "J10"
 			(at 265.43 92.7099 0)
 			(effects
 				(font
@@ -5245,7 +5245,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "J11")
+					(reference "J10")
 					(unit 1)
 				)
 			)
@@ -5261,7 +5261,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "64ba6d34-ecf7-4e00-a6c4-74c2fce0ea55")
-		(property "Reference" "J13"
+		(property "Reference" "J12"
 			(at 265.43 107.9499 0)
 			(effects
 				(font
@@ -5342,7 +5342,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "J13")
+					(reference "J12")
 					(unit 1)
 				)
 			)
@@ -5358,7 +5358,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "64ef95a4-3474-453b-9927-6bc615250e54")
-		(property "Reference" "#PWR079"
+		(property "Reference" "#PWR051"
 			(at 250.19 48.26 0)
 			(effects
 				(font
@@ -5408,7 +5408,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR079")
+					(reference "#PWR051")
 					(unit 1)
 				)
 			)
@@ -5424,7 +5424,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "65e0cc74-ded8-4dd6-9326-bb01a6d8fd13")
-		(property "Reference" "J8"
+		(property "Reference" "J7"
 			(at 265.43 69.8499 0)
 			(effects
 				(font
@@ -5505,7 +5505,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "J8")
+					(reference "J7")
 					(unit 1)
 				)
 			)
@@ -5521,7 +5521,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6d0456d4-c3a9-42a5-a646-efd873a77148")
-		(property "Reference" "#PWR074"
+		(property "Reference" "#PWR046"
 			(at 218.44 162.56 0)
 			(effects
 				(font
@@ -5571,7 +5571,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR074")
+					(reference "#PWR046")
 					(unit 1)
 				)
 			)
@@ -5587,7 +5587,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "701b5ba1-1b17-45bc-8e87-26246130850a")
-		(property "Reference" "Q10"
+		(property "Reference" "Q8"
 			(at 232.41 126.9999 0)
 			(effects
 				(font
@@ -5674,7 +5674,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "Q10")
+					(reference "Q8")
 					(unit 1)
 				)
 			)
@@ -5690,7 +5690,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7589e4ca-4189-4090-9984-379b001096de")
-		(property "Reference" "J5"
+		(property "Reference" "J4"
 			(at 265.43 46.9899 0)
 			(effects
 				(font
@@ -5771,7 +5771,7 @@
 		(instances
 			(project ""
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "J5")
+					(reference "J4")
 					(unit 1)
 				)
 			)
@@ -5787,7 +5787,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8101aa4e-6827-4949-a5a8-cef3e391f3a1")
-		(property "Reference" "#PWR076"
+		(property "Reference" "#PWR048"
 			(at 237.49 48.26 0)
 			(effects
 				(font
@@ -5837,7 +5837,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR076")
+					(reference "#PWR048")
 					(unit 1)
 				)
 			)
@@ -5853,7 +5853,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "81d5606c-7a2f-4144-8bec-20e6b6f9d708")
-		(property "Reference" "J6"
+		(property "Reference" "J5"
 			(at 265.43 54.6099 0)
 			(effects
 				(font
@@ -5934,7 +5934,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "J6")
+					(reference "J5")
 					(unit 1)
 				)
 			)
@@ -5950,7 +5950,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8686535b-f477-4ef7-b867-56b133fa1e02")
-		(property "Reference" "R38"
+		(property "Reference" "R24"
 			(at 135.89 132.08 90)
 			(effects
 				(font
@@ -6020,7 +6020,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "R38")
+					(reference "R24")
 					(unit 1)
 				)
 			)
@@ -6036,7 +6036,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "87b3f179-6550-4e4a-8d48-fd7ac4d0ee62")
-		(property "Reference" "#PWR069"
+		(property "Reference" "#PWR041"
 			(at 167.64 162.56 0)
 			(effects
 				(font
@@ -6086,7 +6086,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR069")
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
@@ -6102,7 +6102,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "882f553e-3938-49e5-b76b-bf53d5da7d15")
-		(property "Reference" "J10"
+		(property "Reference" "J9"
 			(at 265.43 85.0899 0)
 			(effects
 				(font
@@ -6183,7 +6183,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "J10")
+					(reference "J9")
 					(unit 1)
 				)
 			)
@@ -6199,7 +6199,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8b0ce708-c565-420b-89c7-ed4aa32cb808")
-		(property "Reference" "Q7"
+		(property "Reference" "Q5"
 			(at 201.93 96.5199 0)
 			(effects
 				(font
@@ -6286,7 +6286,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "Q7")
+					(reference "Q5")
 					(unit 1)
 				)
 			)
@@ -6302,7 +6302,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8efce92d-54a7-432c-b66a-853b39f2580b")
-		(property "Reference" "#PWR071"
+		(property "Reference" "#PWR043"
 			(at 187.96 162.56 0)
 			(effects
 				(font
@@ -6352,7 +6352,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR071")
+					(reference "#PWR043")
 					(unit 1)
 				)
 			)
@@ -6368,7 +6368,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "99593e87-ee2d-4a17-b69c-c6bced449610")
-		(property "Reference" "R39"
+		(property "Reference" "R25"
 			(at 135.89 142.24 90)
 			(effects
 				(font
@@ -6438,7 +6438,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "R39")
+					(reference "R25")
 					(unit 1)
 				)
 			)
@@ -6454,7 +6454,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9d90a895-90b1-4d5b-b29f-0fac91c273d0")
-		(property "Reference" "J7"
+		(property "Reference" "J6"
 			(at 265.43 62.2299 0)
 			(effects
 				(font
@@ -6535,7 +6535,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "J7")
+					(reference "J6")
 					(unit 1)
 				)
 			)
@@ -6551,7 +6551,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a1202c01-4e18-4458-bfaa-a6c2952670f0")
-		(property "Reference" "#PWR078"
+		(property "Reference" "#PWR050"
 			(at 248.92 162.56 0)
 			(effects
 				(font
@@ -6601,7 +6601,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR078")
+					(reference "#PWR050")
 					(unit 1)
 				)
 			)
@@ -6617,7 +6617,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a153ccce-a9a8-446d-b3fe-3ba1dbcdc675")
-		(property "Reference" "R30"
+		(property "Reference" "R16"
 			(at 135.89 50.8 90)
 			(effects
 				(font
@@ -6687,7 +6687,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "R30")
+					(reference "R16")
 					(unit 1)
 				)
 			)
@@ -6703,7 +6703,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a86d2191-c97e-4f95-9e00-a74f1e25614d")
-		(property "Reference" "Q5"
+		(property "Reference" "Q3"
 			(at 181.61 76.1999 0)
 			(effects
 				(font
@@ -6790,7 +6790,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "Q5")
+					(reference "Q3")
 					(unit 1)
 				)
 			)
@@ -6806,7 +6806,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "aaf31ae3-7ffe-4a47-a307-f7f045222c54")
-		(property "Reference" "#PWR072"
+		(property "Reference" "#PWR044"
 			(at 198.12 162.56 0)
 			(effects
 				(font
@@ -6856,7 +6856,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR072")
+					(reference "#PWR044")
 					(unit 1)
 				)
 			)
@@ -6871,7 +6871,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ad69e6e3-275a-4b93-ac08-2249a36137fa")
-		(property "Reference" "C26"
+		(property "Reference" "C13"
 			(at 246.38 34.2899 0)
 			(effects
 				(font
@@ -6943,7 +6943,7 @@
 		(instances
 			(project ""
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "C26")
+					(reference "C13")
 					(unit 1)
 				)
 			)
@@ -6959,7 +6959,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b59aef5a-c0da-40b3-8400-eb1f9db50da2")
-		(property "Reference" "J9"
+		(property "Reference" "J8"
 			(at 265.43 77.4699 0)
 			(effects
 				(font
@@ -7040,7 +7040,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "J9")
+					(reference "J8")
 					(unit 1)
 				)
 			)
@@ -7056,7 +7056,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bed15bd2-444c-45cf-a25a-087c35d9590c")
-		(property "Reference" "#PWR065"
+		(property "Reference" "#PWR037"
 			(at 53.34 74.93 0)
 			(effects
 				(font
@@ -7107,7 +7107,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR065")
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -7123,7 +7123,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c1df8bbb-8486-4204-bb6f-90c1d2428b8b")
-		(property "Reference" "C24"
+		(property "Reference" "C11"
 			(at 66.04 67.31 90)
 			(effects
 				(font
@@ -7193,7 +7193,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "C24")
+					(reference "C11")
 					(unit 1)
 				)
 			)
@@ -7209,7 +7209,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c721479b-c55a-495d-8d87-66310d8923e7")
-		(property "Reference" "#PWR067"
+		(property "Reference" "#PWR039"
 			(at 72.39 139.7 0)
 			(effects
 				(font
@@ -7259,7 +7259,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR067")
+					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -7275,7 +7275,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d0901332-6da5-4d3c-8a37-603e7441c1c3")
-		(property "Reference" "Q9"
+		(property "Reference" "Q7"
 			(at 222.25 116.8399 0)
 			(effects
 				(font
@@ -7362,7 +7362,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "Q9")
+					(reference "Q7")
 					(unit 1)
 				)
 			)
@@ -7378,7 +7378,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dbfb05a7-f0bc-4578-9fc8-f5163493eab7")
-		(property "Reference" "J12"
+		(property "Reference" "J11"
 			(at 265.43 100.3299 0)
 			(effects
 				(font
@@ -7459,7 +7459,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "J12")
+					(reference "J11")
 					(unit 1)
 				)
 			)
@@ -7475,7 +7475,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "dde487b1-fc7d-4e2b-b316-e4a4152007e3")
-		(property "Reference" "R29"
+		(property "Reference" "R15"
 			(at 49.53 100.3299 0)
 			(effects
 				(font
@@ -7547,7 +7547,7 @@
 		(instances
 			(project ""
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "R29")
+					(reference "R15")
 					(unit 1)
 				)
 			)
@@ -7562,7 +7562,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ef962808-bb7a-4217-8917-00a5ab84cc01")
-		(property "Reference" "C25"
+		(property "Reference" "C12"
 			(at 233.68 34.2899 0)
 			(effects
 				(font
@@ -7634,7 +7634,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "C25")
+					(reference "C12")
 					(unit 1)
 				)
 			)
@@ -7650,7 +7650,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "efe77a08-7be9-476a-82b7-7e77175932b1")
-		(property "Reference" "R34"
+		(property "Reference" "R20"
 			(at 135.89 91.44 90)
 			(effects
 				(font
@@ -7720,7 +7720,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "R34")
+					(reference "R20")
 					(unit 1)
 				)
 			)
@@ -7736,7 +7736,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f4ae9afd-5369-41bd-8f39-3cfe49cf2eed")
-		(property "Reference" "R36"
+		(property "Reference" "R22"
 			(at 135.89 111.76 90)
 			(effects
 				(font
@@ -7806,7 +7806,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "R36")
+					(reference "R22")
 					(unit 1)
 				)
 			)
@@ -7822,7 +7822,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ffb2b88b-4bd5-4fda-9061-f01a04cdefec")
-		(property "Reference" "R37"
+		(property "Reference" "R23"
 			(at 135.89 121.92 90)
 			(effects
 				(font
@@ -7892,7 +7892,7 @@
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "R37")
+					(reference "R23")
 					(unit 1)
 				)
 			)

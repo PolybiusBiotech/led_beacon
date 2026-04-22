@@ -94,43 +94,31 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "Spec:\n\nInterfaces:\nIdeally DMX512 (5pin XLR) and Art-Net (RJ45)\nAt least one, slight DMX512 preference\n+12V DC input\nweatherproof connections\n10x 6.4V 0.3A LED strips\n\nControl:\nTreat as 10x lights per beacon\nbe able to set normal brightness for each 'light'\nbut fast enough for strobe effect for each 'light'\n\nMisc:\nJLC Assembly\nTarget quantity is 15"
+	(text "LED Beacon"
 		(exclude_from_sim no)
-		(at 13.462 13.716 0)
+		(at 137.414 23.622 0)
 		(effects
 			(font
-				(size 2.54 2.54)
-			)
-			(justify left top)
-		)
-		(uuid "3de168d6-35f5-4a73-83c5-572793364f3d")
-	)
-	(text "DMX512's XLRs and\nArt-Net's RJ45 may \nget spun out to \nexternal PCBs"
-		(exclude_from_sim no)
-		(at 101.092 156.718 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-				(color 255 0 0 1)
+				(size 5.08 5.08)
 			)
 		)
-		(uuid "df2cfee6-6080-4dee-9b14-cf543b8a4dd5")
+		(uuid "ecfccf4e-8f10-49d2-8b5f-422c7f0d57db")
 	)
 	(junction
-		(at 212.09 59.69)
+		(at 161.29 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6da752eb-05b9-4683-a778-7d5f7239a759")
 	)
 	(junction
-		(at 209.55 62.23)
+		(at 158.75 62.23)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e8081311-b787-40f0-a5fb-56de1f67b094")
 	)
 	(wire
 		(pts
-			(xy 214.63 64.77) (xy 214.63 90.17)
+			(xy 163.83 64.77) (xy 163.83 92.71)
 		)
 		(stroke
 			(width 0)
@@ -140,7 +128,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 87.63) (xy 209.55 87.63)
+			(xy 152.4 87.63) (xy 158.75 87.63)
 		)
 		(stroke
 			(width 0)
@@ -150,7 +138,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 78.74) (xy 177.8 78.74)
+			(xy 116.84 78.74) (xy 127 78.74)
 		)
 		(stroke
 			(width 0)
@@ -160,7 +148,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 59.69) (xy 207.01 59.69)
+			(xy 101.6 59.69) (xy 156.21 59.69)
 		)
 		(stroke
 			(width 0)
@@ -170,7 +158,7 @@
 	)
 	(wire
 		(pts
-			(xy 207.01 59.69) (xy 207.01 92.71)
+			(xy 156.21 59.69) (xy 156.21 90.17)
 		)
 		(stroke
 			(width 0)
@@ -180,7 +168,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 72.39) (xy 162.56 72.39)
+			(xy 101.6 72.39) (xy 111.76 72.39)
 		)
 		(stroke
 			(width 0)
@@ -190,7 +178,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 57.15) (xy 209.55 57.15)
+			(xy 101.6 57.15) (xy 158.75 57.15)
 		)
 		(stroke
 			(width 0)
@@ -200,7 +188,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 54.61) (xy 212.09 54.61)
+			(xy 101.6 54.61) (xy 161.29 54.61)
 		)
 		(stroke
 			(width 0)
@@ -210,7 +198,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 92.71) (xy 207.01 92.71)
+			(xy 152.4 90.17) (xy 156.21 90.17)
 		)
 		(stroke
 			(width 0)
@@ -220,7 +208,7 @@
 	)
 	(wire
 		(pts
-			(xy 177.8 81.28) (xy 165.1 81.28)
+			(xy 127 81.28) (xy 114.3 81.28)
 		)
 		(stroke
 			(width 0)
@@ -230,7 +218,7 @@
 	)
 	(wire
 		(pts
-			(xy 212.09 54.61) (xy 212.09 59.69)
+			(xy 161.29 54.61) (xy 161.29 59.69)
 		)
 		(stroke
 			(width 0)
@@ -240,7 +228,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 62.23) (xy 209.55 87.63)
+			(xy 158.75 62.23) (xy 158.75 87.63)
 		)
 		(stroke
 			(width 0)
@@ -250,7 +238,7 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 72.39) (xy 162.56 83.82)
+			(xy 111.76 72.39) (xy 111.76 83.82)
 		)
 		(stroke
 			(width 0)
@@ -260,7 +248,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 62.23) (xy 228.6 62.23)
+			(xy 158.75 62.23) (xy 177.8 62.23)
 		)
 		(stroke
 			(width 0)
@@ -270,7 +258,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 81.28) (xy 165.1 69.85)
+			(xy 114.3 81.28) (xy 114.3 69.85)
 		)
 		(stroke
 			(width 0)
@@ -280,7 +268,7 @@
 	)
 	(wire
 		(pts
-			(xy 214.63 90.17) (xy 203.2 90.17)
+			(xy 163.83 92.71) (xy 152.4 92.71)
 		)
 		(stroke
 			(width 0)
@@ -290,7 +278,7 @@
 	)
 	(wire
 		(pts
-			(xy 212.09 59.69) (xy 228.6 59.69)
+			(xy 161.29 59.69) (xy 177.8 59.69)
 		)
 		(stroke
 			(width 0)
@@ -300,7 +288,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 67.31) (xy 167.64 78.74)
+			(xy 116.84 67.31) (xy 116.84 78.74)
 		)
 		(stroke
 			(width 0)
@@ -310,7 +298,7 @@
 	)
 	(wire
 		(pts
-			(xy 212.09 59.69) (xy 212.09 85.09)
+			(xy 161.29 59.69) (xy 161.29 85.09)
 		)
 		(stroke
 			(width 0)
@@ -320,7 +308,7 @@
 	)
 	(wire
 		(pts
-			(xy 214.63 64.77) (xy 228.6 64.77)
+			(xy 163.83 64.77) (xy 177.8 64.77)
 		)
 		(stroke
 			(width 0)
@@ -330,7 +318,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 57.15) (xy 209.55 62.23)
+			(xy 158.75 57.15) (xy 158.75 62.23)
 		)
 		(stroke
 			(width 0)
@@ -340,7 +328,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 85.09) (xy 212.09 85.09)
+			(xy 152.4 85.09) (xy 161.29 85.09)
 		)
 		(stroke
 			(width 0)
@@ -350,7 +338,7 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 83.82) (xy 177.8 83.82)
+			(xy 111.76 83.82) (xy 127 83.82)
 		)
 		(stroke
 			(width 0)
@@ -360,7 +348,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 69.85) (xy 152.4 69.85)
+			(xy 114.3 69.85) (xy 101.6 69.85)
 		)
 		(stroke
 			(width 0)
@@ -370,7 +358,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 67.31) (xy 167.64 67.31)
+			(xy 101.6 67.31) (xy 116.84 67.31)
 		)
 		(stroke
 			(width 0)
@@ -747,7 +735,7 @@
 		)
 	)
 	(sheet
-		(at 228.6 101.6)
+		(at 177.8 101.6)
 		(size 25.4 25.4)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -763,7 +751,7 @@
 		)
 		(uuid "47676e1e-c686-4542-ba08-5a0ba3501dcc")
 		(property "Sheetname" "POWER"
-			(at 228.6 100.8884 0)
+			(at 177.8 100.8884 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -772,7 +760,7 @@
 			)
 		)
 		(property "Sheetfile" "power.kicad_sch"
-			(at 228.6 127.5846 0)
+			(at 177.8 127.5846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -783,13 +771,13 @@
 		(instances
 			(project "emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
-					(page "6")
+					(page "5")
 				)
 			)
 		)
 	)
 	(sheet
-		(at 177.8 76.2)
+		(at 127 76.2)
 		(size 25.4 50.8)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -805,7 +793,7 @@
 		)
 		(uuid "df4eb277-c130-4091-8da8-d7582d834ebe")
 		(property "Sheetname" "CTRL"
-			(at 177.8 75.4884 0)
+			(at 127 75.4884 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -814,7 +802,7 @@
 			)
 		)
 		(property "Sheetfile" "ctrl.kicad_sch"
-			(at 177.8 127.5846 0)
+			(at 127 127.5846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -823,7 +811,7 @@
 			)
 		)
 		(pin "DMX_DE{slash}~{RE}" output
-			(at 177.8 83.82 180)
+			(at 127 83.82 180)
 			(uuid "9dff5d34-2945-4d4c-a4f1-cca0a325612a")
 			(effects
 				(font
@@ -833,7 +821,7 @@
 			)
 		)
 		(pin "DMX_RX" input
-			(at 177.8 81.28 180)
+			(at 127 81.28 180)
 			(uuid "6da033bb-e7ba-4fdf-9c53-82241f5607b6")
 			(effects
 				(font
@@ -843,7 +831,7 @@
 			)
 		)
 		(pin "DMX_TX" output
-			(at 177.8 78.74 180)
+			(at 127 78.74 180)
 			(uuid "f0a30e8c-7e04-4413-a1a9-35de14157d3c")
 			(effects
 				(font
@@ -853,7 +841,7 @@
 			)
 		)
 		(pin "I2C_SCL" output
-			(at 203.2 85.09 0)
+			(at 152.4 85.09 0)
 			(uuid "82fe4e30-28a2-40f7-b6a8-d675a0ac908a")
 			(effects
 				(font
@@ -863,7 +851,7 @@
 			)
 		)
 		(pin "I2C_SDA" bidirectional
-			(at 203.2 87.63 0)
+			(at 152.4 87.63 0)
 			(uuid "9ebc1f48-58c0-407b-bf4e-8f58e760bf24")
 			(effects
 				(font
@@ -873,7 +861,7 @@
 			)
 		)
 		(pin "LED_~{OE}" output
-			(at 203.2 90.17 0)
+			(at 152.4 92.71 0)
 			(uuid "965de7d4-6dbc-49bc-bd05-012ca68b4644")
 			(effects
 				(font
@@ -883,7 +871,7 @@
 			)
 		)
 		(pin "I2C_~{INT}" input
-			(at 203.2 92.71 0)
+			(at 152.4 90.17 0)
 			(uuid "d3505c04-a63b-4d51-810c-8545591b1732")
 			(effects
 				(font
@@ -901,7 +889,7 @@
 		)
 	)
 	(sheet
-		(at 127 50.8)
+		(at 76.2 50.8)
 		(size 25.4 25.4)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -917,7 +905,7 @@
 		)
 		(uuid "ef912ffd-e5d9-46a9-9fff-0bf3d4ccd370")
 		(property "Sheetname" "DMX512"
-			(at 127 50.0884 0)
+			(at 76.2 50.0884 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -926,7 +914,7 @@
 			)
 		)
 		(property "Sheetfile" "dmx512.kicad_sch"
-			(at 127 76.7846 0)
+			(at 76.2 76.7846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -935,7 +923,7 @@
 			)
 		)
 		(pin "DMX_DE{slash}~{RE}" input
-			(at 152.4 72.39 0)
+			(at 101.6 72.39 0)
 			(uuid "d1444ace-3b81-4913-9d82-28ae2dd07b1e")
 			(effects
 				(font
@@ -945,7 +933,7 @@
 			)
 		)
 		(pin "DMX_RX" output
-			(at 152.4 69.85 0)
+			(at 101.6 69.85 0)
 			(uuid "7879aa59-a603-4e71-bd5d-c0d670006e40")
 			(effects
 				(font
@@ -955,7 +943,7 @@
 			)
 		)
 		(pin "DMX_TX" input
-			(at 152.4 67.31 0)
+			(at 101.6 67.31 0)
 			(uuid "f55908dd-161e-40d3-982d-e031d70703e8")
 			(effects
 				(font
@@ -965,7 +953,7 @@
 			)
 		)
 		(pin "I2C_SDA" bidirectional
-			(at 152.4 57.15 0)
+			(at 101.6 57.15 0)
 			(uuid "96d1d7e6-27eb-49a4-a225-b793c3e4864c")
 			(effects
 				(font
@@ -975,7 +963,7 @@
 			)
 		)
 		(pin "I2C_~{INT}" output
-			(at 152.4 59.69 0)
+			(at 101.6 59.69 0)
 			(uuid "19497705-e97b-44bd-a136-92748fd3ff6c")
 			(effects
 				(font
@@ -985,7 +973,7 @@
 			)
 		)
 		(pin "I2C_SCL" input
-			(at 152.4 54.61 0)
+			(at 101.6 54.61 0)
 			(uuid "0765aa06-fd6d-42c0-b3c6-48b12f0fed27")
 			(effects
 				(font
@@ -997,13 +985,13 @@
 		(instances
 			(project "emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
-					(page "4")
+					(page "3")
 				)
 			)
 		)
 	)
 	(sheet
-		(at 228.6 50.8)
+		(at 177.8 50.8)
 		(size 25.4 25.4)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1019,7 +1007,7 @@
 		)
 		(uuid "f07fa6ef-11ec-477e-b20c-3e1b35e089ca")
 		(property "Sheetname" "LEDS"
-			(at 228.6 50.0884 0)
+			(at 177.8 50.0884 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1028,7 +1016,7 @@
 			)
 		)
 		(property "Sheetfile" "leds.kicad_sch"
-			(at 228.6 76.7846 0)
+			(at 177.8 76.7846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1037,7 +1025,7 @@
 			)
 		)
 		(pin "I2C_SCL" input
-			(at 228.6 59.69 180)
+			(at 177.8 59.69 180)
 			(uuid "cab59234-4f4e-4e2f-8f40-3b92707524fb")
 			(effects
 				(font
@@ -1047,7 +1035,7 @@
 			)
 		)
 		(pin "I2C_SDA" bidirectional
-			(at 228.6 62.23 180)
+			(at 177.8 62.23 180)
 			(uuid "522c9017-4310-43a1-85c5-2cfe880bd364")
 			(effects
 				(font
@@ -1057,7 +1045,7 @@
 			)
 		)
 		(pin "LED_~{OE}" input
-			(at 228.6 64.77 180)
+			(at 177.8 64.77 180)
 			(uuid "021cd594-fe1a-4218-9048-7147c5a70a90")
 			(effects
 				(font
@@ -1069,7 +1057,7 @@
 		(instances
 			(project "emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
-					(page "5")
+					(page "4")
 				)
 			)
 		)
