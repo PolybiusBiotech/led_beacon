@@ -71,6 +71,7 @@ void setup(void) {
   Wire.setClock(400000); // because of crap breadboard
   Serial.println("I²C initialised...");
 
+  /*
   uint8_t error;
   Serial.println("\r\nScanning for I²C devices...");
   for (uint8_t address = 1; address < 127; address++) {
@@ -88,6 +89,7 @@ void setup(void) {
     }
   }
   Serial.println("Finished scanning for I²C devices!\r\n");
+  */
 
   // init MCP23017
   mcp.begin_I2C(0x20, &Wire);
