@@ -1,3 +1,4 @@
+
 #include <Arduino.h>
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
@@ -12,8 +13,8 @@
 /** Settings **/
 const uint32_t led_count = 10;
 const uint32_t slot_count = led_count * 2; // 2 slots per LED
-const uint32_t led_loop = 100;
-const uint32_t ctrl_loop = 100;
+const uint32_t led_loop = 100; // LED loop duration in ms
+const uint32_t ctrl_loop = 100; // control loop duration in ms
 
 /** Pin Map **/
 #define PIN_TEMP_MON  (0)
@@ -65,9 +66,28 @@ void setup(void) {
   Serial.println("GPIO initialised...");
 
   // init I2C
-  Wire.begin();
-  Wire.setClock(1000000);
+  Wire.begin(PIN_SDA, PIN_SCL);
+  //Wire.setClock(1000000);
+  Wire.setClock(400000); // because of crap breadboard
   Serial.println("I²C initialised...");
+
+  uint8_t error;
+  Serial.println("\r\nScanning for I²C devices...");
+  for (uint8_t address = 1; address < 127; address++) {
+    Wire.beginTransmission(address);
+    error = Wire.endTransmission();
+
+    if (error == 0) {
+      Serial.print("I²C device found at 0x");
+      if (address < 0x10) Serial.print("0");
+      Serial.println(address, HEX);
+    } else if (error == 4) {
+      Serial.print("Unknown error at 0x");
+      if (address < 0x10) Serial.print("0");
+      Serial.println(address, HEX);
+    }
+  }
+  Serial.println("Finished scanning for I²C devices!\r\n");
 
   // init MCP23017
   mcp.begin_I2C(0x20, &Wire);
@@ -77,6 +97,7 @@ void setup(void) {
     if (i == 7 or i > 9) continue; // only configures 0→6 & 8→9
     mcp.setupInterruptPin(i, CHANGE);
   }
+  Serial.println("MCP23017 initialised...");
 
   // init PCA9685
   leds.begin();
@@ -84,7 +105,7 @@ void setup(void) {
   leds.setOutputMode(true); // LEDs driven by external NMOS
   for (int i = 0; i < led_count; i++) leds.setPWM(i, 410*i, 0);
   digitalWrite(PIN_LED_OE, LOW); // enable LEDs!
-  
+  Serial.println("PCA9685 initialised...");
 
   // init DMX
   dmx_config_t config = DMX_CONFIG_DEFAULT;
