@@ -14,7 +14,7 @@
 const uint32_t led_count = 10;
 const uint32_t slot_count = led_count * 2; // 2 slots per LED
 const uint32_t led_loop = 100; // LED loop duration in ms
-const uint32_t ctrl_loop = 100; // control loop duration in ms
+const uint32_t ctrl_loop = 5000; // control loop duration in ms
 
 /** Pin Map **/
 #define PIN_TEMP_MON  (0)
@@ -39,12 +39,14 @@ AsyncWebServer server(80);
 // OTA
 uint32_t last_led_update = 0x00;
 uint32_t last_ctrl_update = 0x00;
-uint32_t currentTemp = 0x00, currentVolts = 0x00;
+int32_t current_temp = 0x00, min_temp, max_temp;
+uint32_t current_volts = 0x00, min_volts, max_volts;
 uint8_t dmxData[slot_count];
 uint32_t dmx_address = 0x00;
 
 // put function declarations here:
-uint8_t update_analogue(uint32_t*, uint32_t*);
+int32_t get_temp(void);
+uint32_t get_volts(void);
 
 char init_string[] = "\r\nLED Beacon\r\nCompiled on " __DATE__ " " __TIME__ "\r\n";
 
@@ -63,6 +65,7 @@ void setup(void) {
   digitalWrite(PIN_LED_OE, HIGH);
   digitalWrite(PIN_DMX_EN, LOW);
   digitalWrite(PIN_LED, LOW);
+  analogSetAttenuation(ADC_11db);
   Serial.println("GPIO initialised...");
 
   // init I2C
@@ -130,13 +133,22 @@ void setup(void) {
     Serial.println("Request received!");
     String html = "<h1>LED Beacon Diagnostics</h1>";
     html += "<p>DMX Address: " + String(dmx_address) + "</p>";
-    html += "<p>VCC: " + String(currentVolts, 2) + "V</p>";
-    html += "<p>Temp: " + String(currentTemp, 2) + "V</p>";
+    html += "<p>VCC: " + String(current_volts, 2) + "V</p>";
+    html += "<p>Temp: " + String(current_temp, 2) + "&deg;C</p>";
     request->send(200, "text/html", html); 
   });
   server.begin();
 
   // init OTA
+
+
+  // set min & max
+  current_temp = get_temp();
+  min_temp = current_temp;
+  max_temp = current_temp;
+  current_volts = get_volts();
+  min_volts = current_volts;
+  max_volts = current_volts;
 
 }
 
@@ -162,7 +174,7 @@ void loop(void) {
           // if yes then update and raise 'changed' flag
           // map to 12bit brightness
       } else {
-        // check to see if stobe has changed
+        // check to see if strobe has changed
           // if yes then update and raise 'changed' flag
       }
     }
@@ -178,9 +190,14 @@ void loop(void) {
     last_ctrl_update = millis();
 
     // do control stuff
-    update_analogue(&currentVolts, &currentTemp);
+    current_volts = get_volts();
+    current_temp = get_temp();
 
     // update min/max temp/volts
+    min_temp = min(min_temp, current_temp);
+    max_temp = max(max_temp, current_temp);
+    min_volts = min(min_volts, current_volts);
+    max_volts = max(max_volts, current_volts);
 
     // optional warnings for:
       // excessive temp
@@ -195,9 +212,7 @@ void loop(void) {
     }
 
     // update USB status
-    
-    // update webpage (optional)
-   
+      
   }
 
 }
@@ -224,38 +239,66 @@ static const uint16_t gamma12_table[] = {
 };
 
 
+/** 
+ * Lookup table for NCP15XH103F03RC 
+ * Based on 10k pull-down (to GND) and 12-bit ADC (0-4095)
+ * Format: {ADC_Value, Temp_in_C}
+ */
+struct TempPoint {
+    int16_t adc;
+    int16_t temp;
+};
 
-uint8_t update_analogue(uint32_t *voltage, uint32_t *temperature) {
-    
-    const uint32_t lsb_2_uvolts = 10; // DO THE MATHS
-    static const uint16_t ntc_adc_table[] =  {3381, 2990, 2530, 2056, 1618, 1243, 943, 711, 536}; // maps from 0°C to 80°C in 10°C steps
-    
-    uint32_t raw_volts = 0x00;
-    uint32_t raw_temp = 0x00;
-    
-    for (int i = 0; i < 8; i++) {
-        raw_volts += analogRead(PIN_VCC_MON);
-        raw_temp += analogRead(PIN_TEMP_MON);
+const TempPoint lut[] = {
+    {3115, -10}, {2703, 0},  {2263, 10}, {1850, 20}, 
+    {1485, 30},  {1176, 40}, {924, 50},  {724, 60}, 
+    {568, 70},   {449, 80},  {356, 90},  {286, 100}
+};
+const size_t LUT_SIZE = sizeof(lut) / sizeof(lut[0]);
+
+int32_t get_temp(void) {
+
+  int32_t raw_temp = 0x00;
+
+  for (int i = 0; i < 8; i++) {
+    raw_temp += analogRead(PIN_TEMP_MON);
+    delay(1);
+  }
+  raw_temp /= 8;
+
+  // Failsafe: Thermistor shorted to 3.3V (Vout low)
+  if (raw_temp  < 50) return 300000; 
+  // Failsafe: Thermistor open/disconnected (Vout high)
+  if (raw_temp > 4050) return -300000;
+
+  // Linear Interpolation
+  for (size_t i = 0; i < LUT_SIZE - 1; i++) {
+    if (raw_temp <= lut[i+1].adc) {
+      int32_t x0 = lut[i].adc;
+      int32_t x1 = lut[i+1].adc;
+      int32_t y0 = lut[i].temp * 1000; // Convert to millidegrees
+      int32_t y1 = lut[i+1].temp * 1000;
+
+      // millidegrees = y0 + (raw_temp - x0) * (y1 - y0) / (x1 - x0)
+      return y0 + (raw_temp - x0) * (y1 - y0) / (x1 - x0);
     }
-    raw_volts /= 8;
-    raw_temp /= 8;
-    
-    // convert volts
-    raw_volts = ((raw_volts * lsb_2_uvolts) + 500) / 1000; // outputs millivolts
-    
-    // convert temp
-    if (raw_temp >= ntc_adc_table[0] || raw_temp <= ntc_adc_table[8]) raw_temp = 255000;
-    else {
-        for (int i = 0; i < 8; i++) {
-            if (raw_temp < ntc_adc_table[i] && raw_temp > ntc_adc_table[i+1]) {
-                raw_temp = map(raw_temp, ntc_adc_table[i], ntc_adc_table[i+1], i*10000, (i+1)*10000);
-            }
-        }
-    }
-    
-    // save out to the pointers
-    *voltage = raw_volts;
-    *temperature = raw_temp;
-    
-    return 0;
+  }
+
+  return 300000; // Out of range high
+}
+
+uint32_t get_volts(void) {
+  const uint32_t lsb_2_uvolts = 5802; // Vadc × ((62kΩ + 10kΩ) ÷ 10kΩ) = VCC
+  uint32_t raw_volts = 0x00;
+
+  for (int i = 0; i < 8; i++) {
+    raw_volts += analogRead(PIN_VCC_MON);
+    delay(1);
+  }
+  raw_volts /= 8;
+
+  // convert volts
+  raw_volts = ((raw_volts * lsb_2_uvolts) + 500) / 1000; // outputs millivolts
+
+  return raw_volts;
 }
