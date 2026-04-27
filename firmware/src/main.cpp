@@ -111,6 +111,14 @@ const char index_html[] PROGMEM = R"rawliteral(
       </div>
     </div>
     <div class="card">
+      <h3>🧠 Memory</h3>
+      <div class="val">%HEAP_FREE%</div>
+      <div class="stats">
+        <span><span class="stat-label">Min:</span>%HEAP_MIN%</span>
+        <span><span class="stat-label">Stack:</span>%STACK_FREE%</span>
+      </div>
+    </div>
+    <div class="card">
       <h3>⚙️ System</h3>
       <div class="system-list">
         <div><span class="stat-label">Uptime:</span> %UPTIME%</div>
@@ -445,6 +453,9 @@ String processor(const String& var) {
   if(var == "TEMP_MIN") return String(((float)min_temp/1000), 2) + "&deg;C";
   if(var == "TEMP_MAX") return String(((float)max_temp/1000), 2) + "&deg;C";
   if(var == "BUILD")    return String(__DATE__) + " " + String(__TIME__);
+  if(var == "HEAP_FREE") return String(ESP.getFreeHeap() / 1024.0, 1) + " KB";
+  if(var == "HEAP_MIN")  return String(ESP.getMinFreeHeap() / 1024.0, 1) + " KB";
+  if(var == "STACK_FREE") return String(uxTaskGetStackHighWaterMark(NULL)) + " bytes";
   if(var == "UPTIME") {
     uint32_t t = current_uptime;
     uint32_t s = t % 60;
