@@ -156,6 +156,7 @@ void setup(void) {
     html += "<p>VCC: " + String(((float)current_volts/1000), 2) + "V</p>";
     html += "<p>Temp: " + String(((float)current_temp/1000), 2) + "&deg;C</p>";
     html += "<p>Uptime: " + String(current_uptime) + "s</p>";
+    html += "<p>Last DMX packet received: " + String(last_valid_dmx/1000, 0) + "s</p>";
     request->send(200, "text/html", html); 
   });
   server.begin();
