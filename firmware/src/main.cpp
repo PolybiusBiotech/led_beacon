@@ -13,7 +13,6 @@
 /** Settings **/
 const uint32_t led_count = 10;
 const uint32_t slot_count = led_count * 2; // 2 slots per LED
-const uint32_t led_loop = 100; // LED loop duration in ms
 const uint32_t ctrl_loop = 5000; // control loop duration in ms
 const int32_t warning_temp = 500000; // temp to disable LEDs in millicelcius
 
@@ -35,24 +34,31 @@ const int32_t warning_temp = 500000; // temp to disable LEDs in millicelcius
 /** Hardware instantiations  **/
 Adafruit_PWMServoDriver leds = Adafruit_PWMServoDriver(0x40);
 Adafruit_MCP23X17 mcp;
+hw_timer_t *led_timer = NULL;
 dmx_port_t dmx_num = DMX_NUM_1;
 AsyncWebServer server(80);
 // OTA
-uint32_t last_led_update = 0x00;
 uint32_t last_ctrl_update = 0x00;
+uint32_t last_valid_dmx;
 int32_t current_temp = 0x00, min_temp, max_temp;
 uint32_t current_volts = 0x00, min_volts, max_volts;
-uint32_t current_uptime = 0x00UL;
+uint32_t current_uptime = 0x00;
 uint32_t dmx_address = 0x00;
-uint8_t dmxData[slot_count];
-uint16_t led_brightness[led_count];
-uint8_t led_strobe[led_count];
+uint8_t dmx_data[slot_count] = {0x00};
+uint16_t led_brightness[led_count] = {0x00};
+uint32_t led_periods[led_count] = {0x00};
+volatile uint32_t led_strobe_cnt[led_count] = {0x00};
+volatile bool led_state[led_count] = {false};
+volatile bool led_update_req[led_count] = {false};
+
 
 
 // put function declarations here:
 int32_t get_temp(void);
 uint32_t get_volts(void);
 uint16_t map_led_brightness(uint8_t);
+uint32_t map_led_period(uint8_t);
+void onTimer(void);
 
 char init_string[] = "\r\nLED Beacon\r\nCompiled on " __DATE__ " " __TIME__ "\r\n";
 
@@ -73,6 +79,13 @@ void setup(void) {
   digitalWrite(PIN_LED, LOW);
   analogSetAttenuation(ADC_11db);
   Serial.println("GPIO initialised...");
+
+  // init Timer
+  led_timer = timerBegin(0, 80, true); // 80Mhz/80 = 1M ticks/sec for 1us resolution
+  timerAttachInterrupt(led_timer, &onTimer, true);
+  timerAlarmWrite(led_timer, 1000, true); // trigger every 1000us
+  timerAlarmEnable(led_timer);
+  Serial.println("Timer initialised...");
 
   // init I2C
   Wire.begin(PIN_SDA, PIN_SCL);
@@ -127,7 +140,7 @@ void setup(void) {
   dmx_driver_install(dmx_num, &config, personalities, personality_count);
   dmx_set_pin(dmx_num, PIN_DMX_TX, PIN_DMX_RX, PIN_DMX_EN);
   Serial.println("DMX initialised...");
-
+  
   // init Watchdog
   
   // init WiFi
@@ -148,7 +161,6 @@ void setup(void) {
 
   // init OTA
 
-
   // set starting min & max
   current_temp = get_temp();
   min_temp = current_temp;
@@ -164,43 +176,56 @@ void loop(void) {
   
   // DMX stuff
   dmx_packet_t packet;
-  if (dmx_receive(dmx_num, &packet, DMX_TIMEOUT_TICK)) {
+  if (dmx_receive(dmx_num, &packet, 0)) {
     if (!packet.err) {
-        dmx_read_offset(dmx_num, dmx_address, dmxData, slot_count);
-        //lastValidDmxTime = millis();
+        dmx_read_offset(dmx_num, dmx_address, dmx_data, slot_count);
+        last_valid_dmx = millis();
         //dmxSignalLost = false;
+
+        uint16_t new_brightness;
+        uint32_t new_period;
+        for (int i = 0; i < led_count; i++) {
+          new_brightness = map_led_brightness(dmx_data[i]);
+          if (led_brightness[i] != new_brightness) {
+            led_brightness[i] = new_brightness;
+            led_update_req[i] = true;
+          }
+
+          new_period = map_led_period(dmx_data[i*2]);
+          if (led_periods[i] != new_period) {
+            led_periods[i] = new_period;
+            // update gets handled as part of the timer
+          }
+        }
 
         // check if it's changing a value, if so set a flag for that LED
         // update new value
     }
   }
-  
-  if (millis() - last_led_update >= led_loop) {
-    last_led_update = millis();
 
-    // do led stuff
-    for (int i = 0; i < slot_count; i++) {
-      if (i < slot_count/2) {
-        // check to see if brightness has changed
-          // if yes then update and raise 'changed' flag
-          // map to 12bit brightness
+  // update LEDs
+  for (int i = 0; i < led_count; i++) {
+    if (led_update_req[i]) {
+      led_update_req[i] = false;
+
+      uint16_t on_time = 410 * i;
+      uint16_t off_time;
+      
+      if (led_state[i] && led_brightness[i] > 0x00) {
+        if(led_brightness[i] == 4095) {
+          // special PCA9685 'always on' mode
+          on_time = 4096;
+          off_time = 0;
+        } else {
+          off_time = (on_time + led_brightness[i]) % 4096;
+        }
       } else {
-        // check to see if strobe has changed
-          // if yes then update and raise 'changed' flag
+        // 'always off' mode
+        off_time = on_time;
       }
+     
+      leds.setPWM(i, on_time, off_time);
     }
-
-    // animations
-
-    // how to handle strobes?
-    // freq: 1-30Hz, 0.289-16.667Hz
-    // msg: 0 = solid, 1 = slow, 255 = fast
-    // DMX 1   = 5.000 seconds
-    // DMX 255 = 0.033 seconds
-    // probably going to have to move this to an interrupt ISR.
-
-
-
   }
   
   if (millis() - last_ctrl_update >= ctrl_loop) {
@@ -246,30 +271,53 @@ void loop(void) {
 
 }
 
+void IRAM_ATTR onTimer(void) {
+  for (int i = 0; i < 10; i++) {
+    led_strobe_cnt[i]++;
+    if (led_strobe_cnt[i] >= led_periods[i]) {
+      led_strobe_cnt[i] = 0;
+      led_state[i] = !led_state[i];
+      led_update_req[i] = true;
+    }
+  }
+}
+
 /** 8bit to 12bit gamma look up table
  * uint16_t = (uint8_t / (2^8 - 1)) ^ 2.8 * (2^12 - 1)
  */
-static const uint16_t gamma12_table[] = {
+static const uint16_t gamma12_table[] PROGMEM = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
-    2, 2, 2, 2, 3, 3, 3, 4, 4, 5, 5, 6, 6, 7, 8, 8,
-    9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 24, 25, 27,
-    29, 31, 33, 35, 37, 39, 42, 44, 47, 49, 52, 55, 58, 61, 64, 68,
-    71, 75, 78, 82, 86, 90, 94, 99, 103, 108, 113, 118, 123, 128, 133, 139,
-    144, 150, 156, 162, 169, 175, 182, 189, 196, 203, 211, 218, 226, 234, 242, 251,
-    260, 269, 278, 287, 297, 307, 317, 327, 338, 348, 359, 370, 382, 393, 405, 417,
-    430, 442, 455, 468, 482, 495, 509, 524, 538, 553, 568, 583, 599, 615, 631, 647,
-    664, 681, 698, 716, 734, 752, 770, 789, 808, 828, 847, 867, 888, 908, 929, 951,
-    972, 994, 1017, 1039, 1063, 1086, 1110, 1134, 1159, 1183, 1209, 1234, 1260, 1287, 1313, 1341,
-    1368, 1396, 1424, 1453, 1482, 1511, 1541, 1571, 1601, 1632, 1663, 1695, 1727, 1759, 1792, 1825,
-    1858, 1892, 1926, 1961, 1996, 2032, 2068, 2104, 2141, 2178, 2216, 2254, 2292, 2331, 2370, 2410,
-    2450, 2490, 2531, 2572, 2614, 2656, 2699, 2742, 2785, 2829, 2873, 2918, 2963, 3008, 3054, 3101,
-    3148, 3195, 3243, 3291, 3340, 3389, 3438, 3488, 3539, 3589, 3641, 3693, 3745, 3798, 3851, 3905,
-    3959, 4014, 4069, 4095
+    2, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11,
+    12, 13, 15, 16, 17, 18, 20, 21, 23, 25, 26, 28, 30, 32, 34, 36,
+    38, 40, 43, 45, 48, 50, 53, 56, 59, 62, 65, 68, 71, 75, 78, 82,
+    85, 89, 93, 97, 101, 105, 110, 114, 119, 123, 128, 133, 138, 143, 149, 154,
+    159, 165, 171, 177, 183, 189, 195, 202, 208, 215, 222, 229, 236, 243, 250, 258,
+    266, 273, 281, 290, 298, 306, 315, 324, 332, 341, 351, 360, 369, 379, 389, 399,
+    409, 419, 430, 440, 451, 462, 473, 485, 496, 508, 520, 532, 544, 556, 569, 582,
+    594, 608, 621, 634, 648, 662, 676, 690, 704, 719, 734, 749, 764, 779, 795, 811,
+    827, 843, 859, 876, 893, 910, 927, 944, 962, 980, 998, 1016, 1034, 1053, 1072, 1091,
+    1110, 1130, 1150, 1170, 1190, 1210, 1231, 1252, 1273, 1294, 1316, 1338, 1360, 1382, 1404, 1427,
+    1450, 1473, 1497, 1520, 1544, 1568, 1593, 1617, 1642, 1667, 1693, 1718, 1744, 1770, 1797, 1823,
+    1850, 1877, 1905, 1932, 1960, 1988, 2017, 2045, 2074, 2103, 2133, 2162, 2192, 2223, 2253, 2284,
+    2315, 2346, 2378, 2410, 2442, 2474, 2507, 2540, 2573, 2606, 2640, 2674, 2708, 2743, 2778, 2813,
+    2849, 2884, 2920, 2957, 2993, 3030, 3067, 3105, 3143, 3181, 3219, 3258, 3297, 3336, 3376, 3416,
+    3456, 3496, 3537, 3578, 3619, 3661, 3703, 3745, 3788, 3831, 3874, 3918, 3962, 4006, 4050, 4095
 };
 
 uint16_t map_led_brightness(uint8_t brightness) {
   
   return gamma12_table[brightness];
+}
+
+uint32_t map_led_period(uint8_t period) {
+
+  // FILL ME OUT!
+  // freq: 1-30Hz, 0.289-16.667Hz
+  // msg: 0 = solid, 1 = slow, 255 = fast
+  // DMX 1   = 5.000 seconds
+  // DMX 255 = 0.033 seconds
+  
+  return 0;
 }
 
 
