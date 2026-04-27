@@ -210,15 +210,12 @@ void setup(void) {
   Serial.println(IP);
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     Serial.println("Request received!");
-    String html = "<h1>LED Beacon Diagnostics</h1>";
-    html += "<p>DMX Address: " + String(dmx_address) + "</p>";
-    html += "<p>VCC: " + String(((float)current_volts/1000), 2) + "V</p>";
-    html += "<p>Temp: " + String(((float)current_temp/1000), 2) + "&deg;C</p>";
-    html += "<p>Uptime: " + String(current_uptime) + "s</p>";
-    html += "<p>Last DMX packet received: " + String(last_valid_dmx/1000, 0) + "s</p>";
-    request->send(200, "text/html", html); 
+    // The 'processor' argument tells the server to swap out the %VARIABLES%
+    request->send_P(200, "text/html", index_html, processor);
   });
   server.begin();
+
+
 
   // init OTA
 
