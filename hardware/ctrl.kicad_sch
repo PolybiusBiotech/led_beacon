@@ -2689,16 +2689,6 @@
 	)
 	(wire
 		(pts
-			(xy 261.62 52.07) (xy 232.41 52.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "18a78348-8d04-46d5-8628-45305fb6a926")
-	)
-	(wire
-		(pts
 			(xy 267.97 49.53) (xy 267.97 52.07)
 		)
 		(stroke
@@ -2716,6 +2706,16 @@
 			(type default)
 		)
 		(uuid "1e1c7aec-c119-4fbd-ad40-d600bcb4f5d9")
+	)
+	(wire
+		(pts
+			(xy 261.62 52.07) (xy 267.97 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2656bcf9-1a18-49ac-9a40-0a657a6b79b8")
 	)
 	(wire
 		(pts
@@ -2836,6 +2836,16 @@
 			(type default)
 		)
 		(uuid "477e3f47-92de-4922-bec3-e58dd289e474")
+	)
+	(wire
+		(pts
+			(xy 251.46 52.07) (xy 261.62 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4894ba40-66e1-498f-b898-ac749b153a5a")
 	)
 	(wire
 		(pts
@@ -3239,6 +3249,16 @@
 	)
 	(wire
 		(pts
+			(xy 158.75 92.71) (xy 161.29 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd3fb77b-4792-4ed3-8e8c-024b05fe64c0")
+	)
+	(wire
+		(pts
 			(xy 143.51 46.99) (xy 143.51 49.53)
 		)
 		(stroke
@@ -3439,16 +3459,6 @@
 	)
 	(wire
 		(pts
-			(xy 267.97 52.07) (xy 261.62 52.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f362486b-2962-4568-bbfe-a7bf3ef1198b")
-	)
-	(wire
-		(pts
 			(xy 62.23 176.53) (xy 62.23 179.07)
 		)
 		(stroke
@@ -3548,7 +3558,7 @@
 		(uuid "a39564ba-370c-4a60-9237-b1b7f1b6bc62")
 	)
 	(label "VCC_MON"
-		(at 256.54 52.07 180)
+		(at 259.08 52.07 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3618,6 +3628,17 @@
 			(justify left)
 		)
 		(uuid "1850bf5b-ea2d-4a58-9366-b6de16ec52ac")
+	)
+	(hierarchical_label "WIFI_~{ENABLE}"
+		(shape input)
+		(at 161.29 92.71 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9c7ab9c4-36de-4688-83ca-9897852b4e5f")
 	)
 	(hierarchical_label "DMX_TX"
 		(shape input)

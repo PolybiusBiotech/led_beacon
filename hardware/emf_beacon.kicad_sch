@@ -138,7 +138,7 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 78.74) (xy 127 78.74)
+			(xy 116.84 85.09) (xy 127 85.09)
 		)
 		(stroke
 			(width 0)
@@ -148,7 +148,7 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 59.69) (xy 156.21 59.69)
+			(xy 101.6 58.42) (xy 156.21 58.42)
 		)
 		(stroke
 			(width 0)
@@ -158,7 +158,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 59.69) (xy 156.21 90.17)
+			(xy 156.21 58.42) (xy 156.21 90.17)
 		)
 		(stroke
 			(width 0)
@@ -168,7 +168,7 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 72.39) (xy 111.76 72.39)
+			(xy 101.6 73.66) (xy 111.76 73.66)
 		)
 		(stroke
 			(width 0)
@@ -178,7 +178,7 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 57.15) (xy 158.75 57.15)
+			(xy 101.6 55.88) (xy 158.75 55.88)
 		)
 		(stroke
 			(width 0)
@@ -188,7 +188,7 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 54.61) (xy 161.29 54.61)
+			(xy 101.6 53.34) (xy 161.29 53.34)
 		)
 		(stroke
 			(width 0)
@@ -208,7 +208,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 81.28) (xy 114.3 81.28)
+			(xy 127 87.63) (xy 114.3 87.63)
 		)
 		(stroke
 			(width 0)
@@ -218,13 +218,23 @@
 	)
 	(wire
 		(pts
-			(xy 161.29 54.61) (xy 161.29 59.69)
+			(xy 161.29 53.34) (xy 161.29 59.69)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "5c318980-4be3-4020-bbd4-a161167f0d32")
+	)
+	(wire
+		(pts
+			(xy 121.92 63.5) (xy 101.6 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8096792e-292b-4f8c-8ff2-e1585ff66e63")
 	)
 	(wire
 		(pts
@@ -238,7 +248,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 72.39) (xy 111.76 83.82)
+			(xy 111.76 73.66) (xy 111.76 90.17)
 		)
 		(stroke
 			(width 0)
@@ -258,7 +268,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 81.28) (xy 114.3 69.85)
+			(xy 114.3 87.63) (xy 114.3 71.12)
 		)
 		(stroke
 			(width 0)
@@ -288,7 +298,17 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 67.31) (xy 116.84 78.74)
+			(xy 121.92 80.01) (xy 121.92 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bbf360db-b5a2-41e3-b9ac-139fc2f5df19")
+	)
+	(wire
+		(pts
+			(xy 116.84 68.58) (xy 116.84 85.09)
 		)
 		(stroke
 			(width 0)
@@ -318,7 +338,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 57.15) (xy 158.75 62.23)
+			(xy 158.75 55.88) (xy 158.75 62.23)
 		)
 		(stroke
 			(width 0)
@@ -338,7 +358,17 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 83.82) (xy 127 83.82)
+			(xy 127 80.01) (xy 121.92 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ef8b4310-644d-4f52-bd27-b3f93da75996")
+	)
+	(wire
+		(pts
+			(xy 111.76 90.17) (xy 127 90.17)
 		)
 		(stroke
 			(width 0)
@@ -348,7 +378,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 69.85) (xy 101.6 69.85)
+			(xy 114.3 71.12) (xy 101.6 71.12)
 		)
 		(stroke
 			(width 0)
@@ -358,7 +388,7 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 67.31) (xy 116.84 67.31)
+			(xy 101.6 68.58) (xy 116.84 68.58)
 		)
 		(stroke
 			(width 0)
@@ -811,7 +841,7 @@
 			)
 		)
 		(pin "DMX_DE{slash}~{RE}" output
-			(at 127 83.82 180)
+			(at 127 90.17 180)
 			(uuid "9dff5d34-2945-4d4c-a4f1-cca0a325612a")
 			(effects
 				(font
@@ -821,7 +851,7 @@
 			)
 		)
 		(pin "DMX_RX" input
-			(at 127 81.28 180)
+			(at 127 87.63 180)
 			(uuid "6da033bb-e7ba-4fdf-9c53-82241f5607b6")
 			(effects
 				(font
@@ -831,7 +861,7 @@
 			)
 		)
 		(pin "DMX_TX" output
-			(at 127 78.74 180)
+			(at 127 85.09 180)
 			(uuid "f0a30e8c-7e04-4413-a1a9-35de14157d3c")
 			(effects
 				(font
@@ -880,6 +910,16 @@
 				(justify right)
 			)
 		)
+		(pin "WIFI_~{ENABLE}" input
+			(at 127 80.01 180)
+			(uuid "c8c4197e-a5af-4907-a263-100be2c4236b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 		(instances
 			(project "emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
@@ -923,7 +963,7 @@
 			)
 		)
 		(pin "DMX_DE{slash}~{RE}" input
-			(at 101.6 72.39 0)
+			(at 101.6 73.66 0)
 			(uuid "d1444ace-3b81-4913-9d82-28ae2dd07b1e")
 			(effects
 				(font
@@ -933,7 +973,7 @@
 			)
 		)
 		(pin "DMX_RX" output
-			(at 101.6 69.85 0)
+			(at 101.6 71.12 0)
 			(uuid "7879aa59-a603-4e71-bd5d-c0d670006e40")
 			(effects
 				(font
@@ -943,7 +983,7 @@
 			)
 		)
 		(pin "DMX_TX" input
-			(at 101.6 67.31 0)
+			(at 101.6 68.58 0)
 			(uuid "f55908dd-161e-40d3-982d-e031d70703e8")
 			(effects
 				(font
@@ -953,7 +993,7 @@
 			)
 		)
 		(pin "I2C_SDA" bidirectional
-			(at 101.6 57.15 0)
+			(at 101.6 55.88 0)
 			(uuid "96d1d7e6-27eb-49a4-a225-b793c3e4864c")
 			(effects
 				(font
@@ -963,7 +1003,7 @@
 			)
 		)
 		(pin "I2C_~{INT}" output
-			(at 101.6 59.69 0)
+			(at 101.6 58.42 0)
 			(uuid "19497705-e97b-44bd-a136-92748fd3ff6c")
 			(effects
 				(font
@@ -973,8 +1013,18 @@
 			)
 		)
 		(pin "I2C_SCL" input
-			(at 101.6 54.61 0)
+			(at 101.6 53.34 0)
 			(uuid "0765aa06-fd6d-42c0-b3c6-48b12f0fed27")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "WIFI_~{ENABLE}" output
+			(at 101.6 63.5 0)
+			(uuid "4f547761-38dc-42f0-8355-62da3d54ef6a")
 			(effects
 				(font
 					(size 1.27 1.27)
