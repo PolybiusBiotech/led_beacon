@@ -291,6 +291,167 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:C_Polarized"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_Polarized"
+				(at 0.635 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Polarized capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "CP_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_Polarized_0_1"
+				(rectangle
+					(start -2.286 0.508)
+					(end 2.286 1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 2.286) (xy -0.762 2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 2.794) (xy -1.27 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 2.286 -0.508)
+					(end -2.286 -1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "C_Polarized_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:R"
 			(pin_numbers
 				(hide yes)
@@ -1715,28 +1876,6 @@
 		)
 		(uuid "85dd6b2a-a39b-4fcf-ab95-c12a715da69c")
 	)
-	(text "Decoupling"
-		(exclude_from_sim no)
-		(at 238.252 25.146 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-				(color 255 0 0 1)
-			)
-		)
-		(uuid "be0cadd4-125e-4b1d-96f5-896b86ddc971")
-	)
-	(text "Snubbers?\n10R 0402 & 10nF 0402 across Vds"
-		(exclude_from_sim no)
-		(at 234.95 131.064 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-				(color 255 0 0 1)
-			)
-		)
-		(uuid "ecbb50b7-abd1-49cc-b4f6-f162ed15f2fd")
-	)
 	(junction
 		(at 255.27 77.47)
 		(diameter 0)
@@ -1898,12 +2037,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f89f4cf2-f8c4-4144-af29-ad22f6cc869e")
-	)
-	(junction
-		(at 250.19 29.21)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fd616106-2c83-483c-9cd8-07de1c74470d")
 	)
 	(junction
 		(at 50.8 68.58)
@@ -2507,16 +2640,6 @@
 	)
 	(wire
 		(pts
-			(xy 237.49 29.21) (xy 250.19 29.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "53ff0903-3dbe-4036-bca4-5e1b64f756ef")
-	)
-	(wire
-		(pts
 			(xy 236.22 53.34) (xy 241.3 53.34)
 		)
 		(stroke
@@ -3017,16 +3140,6 @@
 	)
 	(wire
 		(pts
-			(xy 237.49 29.21) (xy 237.49 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aad4001b-0935-41e5-9b0c-70be5f8e3cae")
-	)
-	(wire
-		(pts
 			(xy 30.48 104.14) (xy 30.48 106.68)
 		)
 		(stroke
@@ -3274,16 +3387,6 @@
 			(type default)
 		)
 		(uuid "d0d86400-4ea3-4279-9d3a-730de6ae4987")
-	)
-	(wire
-		(pts
-			(xy 237.49 39.37) (xy 237.49 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d1e64881-9f1a-4def-a4d7-b83bff1eaf5d")
 	)
 	(wire
 		(pts
@@ -3946,6 +4049,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 262.89 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e8d21931-970d-4e1e-90fb-dd0b70eff2de")
 		)
@@ -4007,6 +4119,24 @@
 		)
 		(property "Description" "Unpolarized capacitor"
 			(at 222.25 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1589"
+			(at 222.25 121.92 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 222.25 121.92 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4141,6 +4271,24 @@
 		)
 		(property "Description" "Resistor"
 			(at 232.41 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22859"
+			(at 232.41 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 232.41 114.3 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4501,6 +4649,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C22775"
+			(at 92.71 107.95 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 92.71 107.95 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "dcd508a0-60a6-47cf-8120-6f3f33edd911")
 		)
@@ -4667,6 +4833,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 114.3 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "78d65d76-ab90-46ae-9c8b-da02f9bdb18e")
 		)
@@ -4731,6 +4906,24 @@
 		)
 		(property "Description" "Unpolarized capacitor"
 			(at 222.25 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1589"
+			(at 222.25 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 222.25 53.34 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4824,6 +5017,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C22775"
+			(at 92.71 67.31 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 92.71 67.31 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3a056ee0-5ad1-49ff-b1c3-a77c503caf8f")
 		)
@@ -4903,6 +5114,24 @@
 			)
 		)
 		(property "MPN" ""
+			(at 27.94 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C21190"
+			(at 27.94 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 27.94 72.39 0)
 			(effects
 				(font
@@ -5077,6 +5306,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 195.58 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "8d539609-6e0e-4608-94de-8c5645a20d46")
 		)
@@ -5148,6 +5386,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C22859"
+			(at 232.41 99.06 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 232.41 99.06 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ccf7add5-f23b-45b8-b0f9-856a03b18e9c")
 		)
@@ -5209,6 +5465,24 @@
 		)
 		(property "Description" "Unpolarized capacitor"
 			(at 222.25 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1589"
+			(at 222.25 83.82 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 222.25 83.82 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5368,6 +5642,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C22775"
+			(at 92.71 77.47 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 92.71 77.47 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "70167259-8160-431d-a460-74aecb46b89f")
 		)
@@ -5468,6 +5760,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 185.42 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "0809da42-9abc-4a66-b52b-7cf7e28cd90e")
 		)
@@ -5549,6 +5850,24 @@
 			)
 		)
 		(property "MPN" ""
+			(at 92.71 87.63 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22775"
+			(at 92.71 87.63 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 92.71 87.63 90)
 			(effects
 				(font
@@ -5824,6 +6143,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1589"
+			(at 222.25 91.44 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 222.25 91.44 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "605cce9e-3dfa-47b4-afa8-e31a3b42c261")
 		)
@@ -5916,6 +6253,15 @@
 			)
 		)
 		(property "MPN" ""
+			(at 134.62 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 134.62 87.63 0)
 			(effects
 				(font
@@ -6062,6 +6408,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1589"
+			(at 222.25 106.68 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 222.25 106.68 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "7d042878-b94b-4da4-ab9a-a0fe9a7ea9d5")
 		)
@@ -6154,6 +6518,15 @@
 			)
 		)
 		(property "MPN" ""
+			(at 154.94 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 154.94 107.95 0)
 			(effects
 				(font
@@ -6265,6 +6638,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 104.14 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "5db47f95-f7c7-4f1e-bb11-056971452614")
 		)
@@ -6358,6 +6740,15 @@
 			)
 		)
 		(property "MPN" ""
+			(at 50.8 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 50.8 96.52 0)
 			(effects
 				(font
@@ -6579,6 +6970,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C22859"
+			(at 232.41 83.82 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 232.41 83.82 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "91e965ae-a7b1-4dea-a5e1-ef7fe9b2e187")
 		)
@@ -6640,6 +7049,24 @@
 		)
 		(property "Description" "Unpolarized capacitor"
 			(at 222.25 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1589"
+			(at 222.25 68.58 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 222.25 68.58 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6877,6 +7304,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 262.89 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f561f225-6b57-49d6-a803-1392b03d4d62")
 		)
@@ -6966,6 +7402,15 @@
 			)
 		)
 		(property "MPN" ""
+			(at 262.89 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 262.89 107.95 0)
 			(effects
 				(font
@@ -7137,6 +7582,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 262.89 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "45f675f0-8b66-4b9d-be35-907bb630b7ad")
 		)
@@ -7205,6 +7659,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C22859"
+			(at 232.41 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 232.41 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "77393f1a-ef97-439a-ad86-2508c75c1bf8")
 		)
@@ -7266,6 +7738,24 @@
 		)
 		(property "Description" "Resistor"
 			(at 232.41 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22859"
+			(at 232.41 76.2 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 232.41 76.2 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7439,6 +7929,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 175.26 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "1d8e4f77-4c23-4eae-b365-e61762f42c05")
 		)
@@ -7539,6 +8038,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 262.89 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ea5b3f14-fe3e-4064-a618-b2c2c7ec954d")
 		)
@@ -7549,72 +8057,6 @@
 			(project ""
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
 					(reference "J4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 237.49 41.91 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8101aa4e-6827-4949-a5a8-cef3e391f3a1")
-		(property "Reference" "#PWR048"
-			(at 237.49 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 237.49 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 237.49 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 237.49 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 237.49 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "49759ce9-9df2-4831-9d86-aa1fe485c202")
-		)
-		(instances
-			(project "home_emf_beacon"
-				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "#PWR048")
 					(unit 1)
 				)
 			)
@@ -7694,6 +8136,15 @@
 			)
 		)
 		(property "MPN" ""
+			(at 262.89 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 262.89 54.61 0)
 			(effects
 				(font
@@ -7788,6 +8239,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C22775"
+			(at 92.71 138.43 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 92.71 138.43 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "369368ec-c86e-4345-be51-8e2fae6ece54")
 		)
@@ -7849,6 +8318,24 @@
 		)
 		(property "Description" "Unpolarized capacitor"
 			(at 222.25 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1589"
+			(at 222.25 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 222.25 114.3 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8019,6 +8506,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 262.89 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "8e56a6fd-cd9b-4d71-9eec-b6353424fad3")
 		)
@@ -8080,6 +8576,24 @@
 		)
 		(property "Description" "Unpolarized capacitor"
 			(at 222.25 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1589"
+			(at 222.25 60.96 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 222.25 60.96 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8187,6 +8701,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 144.78 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "948cd98f-c7f3-4e50-924f-68f940cc3a37")
 		)
@@ -8251,6 +8774,24 @@
 		)
 		(property "Description" "Resistor"
 			(at 232.41 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22859"
+			(at 232.41 60.96 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 232.41 60.96 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8392,6 +8933,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1589"
+			(at 222.25 99.06 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 222.25 99.06 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b9a62110-39cb-4df8-a4d0-9475650c4c17")
 		)
@@ -8478,6 +9037,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C22775"
+			(at 92.71 148.59 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 92.71 148.59 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5fddc4a8-a9f8-4a7d-a04e-5af1a6c12f2d")
 		)
@@ -8539,6 +9116,24 @@
 		)
 		(property "Description" "Resistor"
 			(at 232.41 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22859"
+			(at 232.41 91.44 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 232.41 91.44 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8635,6 +9230,15 @@
 			)
 		)
 		(property "MPN" ""
+			(at 262.89 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 262.89 62.23 0)
 			(effects
 				(font
@@ -8795,6 +9399,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C22775"
+			(at 92.71 57.15 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 92.71 57.15 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3a5ee24c-6924-4e2a-bba6-10b9c3ba0d38")
 		)
@@ -8856,6 +9478,24 @@
 		)
 		(property "Description" "Resistor"
 			(at 232.41 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22859"
+			(at 232.41 121.92 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 232.41 121.92 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8955,6 +9595,15 @@
 			)
 		)
 		(property "MPN" ""
+			(at 124.46 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 124.46 77.47 0)
 			(effects
 				(font
@@ -9100,6 +9749,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C22859"
+			(at 232.41 68.58 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 232.41 68.58 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "07799bb9-098a-4c2f-b356-4141f3d44eda")
 		)
@@ -9183,34 +9850,35 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "Device:C_Polarized")
 		(at 250.19 35.56 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ad69e6e3-275a-4b93-ac08-2249a36137fa")
-		(property "Reference" "C13"
-			(at 246.38 34.2899 0)
+		(uuid "b3aa8e77-6559-48bb-a9b8-39e6015731c7")
+		(property "Reference" "C16"
+			(at 247.269 33.7625 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
-		(property "Value" "C"
-			(at 246.38 36.8299 0)
+		(property "Value" "100uF 10V"
+			(at 247.269 36.5376 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 251.1552 39.37 0)
+			(at 249.2248 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9227,25 +9895,15 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" ""
 			(at 250.19 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "MFR" ""
-			(at 250.19 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" ""
+		(property "Rotation_offset" ""
 			(at 250.19 35.56 0)
 			(effects
 				(font
@@ -9255,15 +9913,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "e9072a1a-d242-407c-9e0d-b457aa8cf441")
+			(uuid "45d18e79-cf17-432d-96aa-12b7f4a6823b")
 		)
 		(pin "2"
-			(uuid "d3f99344-a638-4bf7-a473-c514b5dc3111")
+			(uuid "4176495e-49a1-4b6e-a7fa-5aa07f825688")
 		)
 		(instances
-			(project ""
+			(project "emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "C13")
+					(reference "C16")
 					(unit 1)
 				)
 			)
@@ -9343,6 +10001,15 @@
 			)
 		)
 		(property "MPN" ""
+			(at 262.89 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 262.89 77.47 0)
 			(effects
 				(font
@@ -9638,6 +10305,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C14663"
+			(at 44.45 68.58 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 44.45 68.58 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "623abb1e-67a7-4d55-9c56-f329a9303738")
 		)
@@ -9699,6 +10384,24 @@
 		)
 		(property "Description" "Resistor"
 			(at 232.41 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22859"
+			(at 232.41 106.68 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 232.41 106.68 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9872,6 +10575,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 165.1 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "4c9decee-f84d-49fe-b737-442a7ecd5471")
 		)
@@ -9972,6 +10684,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 262.89 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "678360e4-fb4b-4de3-afe8-fc3bd71943f5")
 		)
@@ -10060,6 +10781,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C21189"
+			(at 30.48 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 30.48 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1d11f9f5-b1a0-4834-874a-aa0fdca30d4e")
 		)
@@ -10128,6 +10867,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1589"
+			(at 222.25 76.2 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 222.25 76.2 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "181b4e4f-8718-498f-bc30-80bec53de45c")
 		)
@@ -10138,93 +10895,6 @@
 			(project "emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
 					(reference "C31")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 237.49 35.56 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ef962808-bb7a-4217-8917-00a5ab84cc01")
-		(property "Reference" "C12"
-			(at 233.68 34.2899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "C"
-			(at 233.68 36.8299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 238.4552 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 237.49 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 237.49 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MFR" ""
-			(at 237.49 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" ""
-			(at 237.49 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3a150213-d7e6-4fc2-86f1-1784ed41bdff")
-		)
-		(pin "2"
-			(uuid "d0048cc2-2b93-4fb3-a13c-05dfec849e86")
-		)
-		(instances
-			(project "home_emf_beacon"
-				(path "/0654b480-d862-4382-88d5-1ac411bf5574/f07fa6ef-11ec-477e-b20c-3e1b35e089ca"
-					(reference "C12")
 					(unit 1)
 				)
 			)
@@ -10293,6 +10963,24 @@
 			)
 		)
 		(property "MPN" ""
+			(at 92.71 97.79 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22775"
+			(at 92.71 97.79 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 92.71 97.79 90)
 			(effects
 				(font
@@ -10387,6 +11075,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C22775"
+			(at 92.71 118.11 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 92.71 118.11 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c94260fb-9294-4789-a14c-9787346610aa")
 		)
@@ -10465,6 +11171,24 @@
 			)
 		)
 		(property "MPN" ""
+			(at 92.71 128.27 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22775"
+			(at 92.71 128.27 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 92.71 128.27 90)
 			(effects
 				(font

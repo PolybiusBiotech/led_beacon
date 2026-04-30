@@ -1164,6 +1164,180 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:LED"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "LED"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Light emitting diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "LED diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "LED_0_1"
+				(polyline
+					(pts
+						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -1.27) (xy -1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "LED_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:R"
 			(pin_numbers
 				(hide yes)
@@ -2467,6 +2641,17 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "Difficult to place!"
+		(exclude_from_sim no)
+		(at 23.876 56.642 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+				(color 255 0 0 1)
+			)
+		)
+		(uuid "0b3ae618-c6cc-4147-8aa9-1730966e2a2e")
+	)
 	(text "Auto reset"
 		(exclude_from_sim no)
 		(at 43.434 153.924 0)
@@ -2499,6 +2684,28 @@
 		)
 		(uuid "388244fc-f0f0-4d24-8607-959e500d19ee")
 	)
+	(text "Status LED"
+		(exclude_from_sim no)
+		(at 121.92 153.924 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "699357dc-2878-41da-a8cf-0985b210a7e6")
+	)
+	(text "ROTATE"
+		(exclude_from_sim no)
+		(at 18.288 173.99 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+				(color 255 0 0 1)
+			)
+		)
+		(uuid "a02fd164-4872-44dd-bcfa-7889b8a2ee84")
+	)
 	(text "Short press resets the ESP32\nLong press resets the ESP32\nand puts it in bootloader mode"
 		(exclude_from_sim no)
 		(at 25.4 192.278 0)
@@ -2519,6 +2726,17 @@
 			)
 		)
 		(uuid "abac5efd-4ff1-4409-b276-ab68dd11c174")
+	)
+	(text "Does this need to be a switch?\nCheaper switch?\nSide actuation?"
+		(exclude_from_sim no)
+		(at 68.326 185.166 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+				(color 255 0 0 1)
+			)
+		)
+		(uuid "bb3a72cb-9153-4d6b-a0dd-124f9cd7e858")
 	)
 	(text "USB Programming"
 		(exclude_from_sim no)
@@ -2666,6 +2884,16 @@
 			(type default)
 		)
 		(uuid "035bb84e-1115-46fa-aeab-aacd0daa2866")
+	)
+	(wire
+		(pts
+			(xy 133.35 161.29) (xy 133.35 163.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06b07f70-485f-4ee6-bfa5-f83086148566")
 	)
 	(wire
 		(pts
@@ -3059,6 +3287,16 @@
 	)
 	(wire
 		(pts
+			(xy 133.35 171.45) (xy 133.35 173.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "819ba56f-291f-49cb-8742-268aea49b115")
+	)
+	(wire
+		(pts
 			(xy 158.75 95.25) (xy 161.29 95.25)
 		)
 		(stroke
@@ -3266,6 +3504,16 @@
 			(type default)
 		)
 		(uuid "c32cf171-e163-4687-aa85-701259982e76")
+	)
+	(wire
+		(pts
+			(xy 133.35 181.61) (xy 133.35 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c50e0ec8-420a-4b6d-a707-df9b9613653e")
 	)
 	(wire
 		(pts
@@ -3895,6 +4143,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C14663"
+			(at 39.37 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 39.37 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "657f4f66-1400-46ac-b0d8-4c9ad1ec7dce")
 		)
@@ -3989,6 +4255,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C14663"
+			(at 261.62 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 261.62 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f28170fd-cf56-41a2-8967-eca826a1ecf4")
 		)
@@ -4075,6 +4359,24 @@
 			)
 		)
 		(property "MPN" ""
+			(at 76.2 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 76.2 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 76.2 45.72 0)
 			(effects
 				(font
@@ -4194,7 +4496,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "NCP15XH103F03RC"
+		(property "Value" "NCP18XH103F03RB"
 			(at 265.43 120.9674 0)
 			(effects
 				(font
@@ -4239,7 +4541,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "NCP15XH103F03RC"
+		(property "MPN" "NCP18XH103F03RB"
 			(at 262.89 119.38 0)
 			(effects
 				(font
@@ -4248,7 +4550,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C77131"
+		(property "LCSC" "C13564"
+			(at 262.89 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 262.89 119.38 0)
 			(effects
 				(font
@@ -4488,6 +4799,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C15850"
+			(at 62.23 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 62.23 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c1138b60-8029-44bf-b9f3-4e97e54cb385")
 		)
@@ -4504,6 +4833,71 @@
 			(project "ctrl"
 				(path "/441a5727-d80c-4da7-a011-5f7d0820533d"
 					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 133.35 184.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3a064730-098a-4528-8e01-ff6a598fcb0a")
+		(property "Reference" "#PWR079"
+			(at 133.35 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 133.35 188.7125 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 133.35 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "44ce4321-533e-48aa-b6d6-987789ba44fe")
+		)
+		(instances
+			(project "emf_beacon"
+				(path "/0654b480-d862-4382-88d5-1ac411bf5574/df4eb277-c130-4091-8da8-d7582d834ebe"
+					(reference "#PWR079")
 					(unit 1)
 				)
 			)
@@ -4636,6 +5030,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C231329"
+			(at 21.59 173.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 21.59 173.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f48d821d-86ac-4632-892c-303bfabed24e")
 		)
@@ -4724,6 +5136,111 @@
 			(project "ctrl"
 				(path "/441a5727-d80c-4da7-a011-5f7d0820533d"
 					(reference "#PWR05")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 133.35 167.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "51573bc3-b4d8-4605-aecd-c180f38d67ff")
+		(property "Reference" "R40"
+			(at 135.128 166.7315 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R"
+			(at 135.128 169.5066 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 131.572 167.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 133.35 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 133.35 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 133.35 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" ""
+			(at 133.35 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 133.35 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "051b4edc-fa07-438c-a1f5-b5ba940c55a2")
+		)
+		(pin "2"
+			(uuid "e0649821-a01c-450f-81af-1c8364626850")
+		)
+		(instances
+			(project "emf_beacon"
+				(path "/0654b480-d862-4382-88d5-1ac411bf5574/df4eb277-c130-4091-8da8-d7582d834ebe"
+					(reference "R40")
 					(unit 1)
 				)
 			)
@@ -5000,6 +5517,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C23186"
+			(at 53.34 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 53.34 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "25e4177d-d565-4838-abe7-d19fec240a49")
 		)
@@ -5148,6 +5683,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C21190"
+			(at 21.59 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 21.59 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b5bdb829-98b7-4f54-b242-5eae421cd58e")
 		)
@@ -5234,6 +5787,24 @@
 			)
 		)
 		(property "MPN" ""
+			(at 137.16 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 137.16 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 137.16 55.88 0)
 			(effects
 				(font
@@ -5336,6 +5907,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C21190"
+			(at 267.97 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 267.97 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e79f465d-c433-4562-8efb-42cf99e62ed7")
 		)
@@ -5422,6 +6011,24 @@
 			)
 		)
 		(property "MPN" ""
+			(at 256.54 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C15849"
+			(at 256.54 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 256.54 119.38 0)
 			(effects
 				(font
@@ -5668,6 +6275,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C23221"
+			(at 267.97 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 267.97 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8742039b-1412-421c-a94e-017a19a3bac0")
 		)
@@ -5753,6 +6378,24 @@
 			)
 		)
 		(property "MPN" ""
+			(at 262.89 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C21190"
+			(at 262.89 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 262.89 106.68 0)
 			(effects
 				(font
@@ -5902,6 +6545,15 @@
 			)
 		)
 		(property "LCSC" "C8678"
+			(at 82.55 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 82.55 39.37 0)
 			(effects
 				(font
@@ -6120,6 +6772,24 @@
 		)
 		(property "Description" "Resistor"
 			(at 175.26 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C21190"
+			(at 175.26 100.33 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 175.26 100.33 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6366,6 +7036,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C15850"
+			(at 124.46 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 124.46 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "4b1e9a11-35e1-4828-9654-e90d4673903a")
 		)
@@ -6382,6 +7070,111 @@
 			(project "ctrl"
 				(path "/441a5727-d80c-4da7-a011-5f7d0820533d"
 					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 133.35 177.8 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c11bad25-a9cf-44c7-a96e-564f6c19521c")
+		(property "Reference" "LED1"
+			(at 136.271 178.479 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "KT-0603R"
+			(at 136.271 181.2541 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
+			(at 133.35 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1810231112_Hubei-KENTO-Elec-KT-0603R_C2286.pdf"
+			(at 133.35 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2286"
+			(at 133.35 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 133.35 177.8 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" ""
+			(at 133.35 177.8 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 133.35 177.8 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e0ff723e-9da4-419a-9b7c-537137a1c661")
+		)
+		(pin "2"
+			(uuid "c5a264c8-44bb-476b-be97-40b7df78e32c")
+		)
+		(instances
+			(project "emf_beacon"
+				(path "/0654b480-d862-4382-88d5-1ac411bf5574/df4eb277-c130-4091-8da8-d7582d834ebe"
+					(reference "LED1")
 					(unit 1)
 				)
 			)
@@ -6667,6 +7460,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 30.48 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "B1"
 			(uuid "c78fb77f-e912-4edb-b13e-889871411cb5")
 		)
@@ -6787,6 +7589,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C23186"
+			(at 50.8 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 50.8 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e5edf017-3087-4b38-a1c8-7ff8a730242c")
 		)
@@ -6865,6 +7685,15 @@
 			)
 		)
 		(property "LCSC" "C2934560"
+			(at 143.51 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 143.51 92.71 0)
 			(effects
 				(font
@@ -6971,7 +7800,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SOD-123"
 			(at 50.8 166.37 0)
 			(effects
 				(font
@@ -7008,6 +7837,15 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
+			(at 50.8 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 50.8 166.37 0)
 			(effects
 				(font
@@ -7110,6 +7948,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C21190"
+			(at 184.15 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
+			(at 184.15 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "7e1a85fe-eca4-4f28-b60e-615b1c4676ae")
 		)
@@ -7195,6 +8051,24 @@
 			)
 		)
 		(property "MPN" ""
+			(at 179.07 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C21190"
+			(at 179.07 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 179.07 78.74 0)
 			(effects
 				(font

@@ -479,6 +479,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 172.72 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
@@ -563,6 +572,15 @@
 			)
 		)
 		(property "MPN" ""
+			(at 172.72 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 172.72 171.45 0)
 			(effects
 				(font
@@ -663,6 +681,15 @@
 				(hide yes)
 			)
 		)
+		(property "Rotation_offset" ""
+			(at 172.72 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
@@ -747,6 +774,15 @@
 			)
 		)
 		(property "MPN" ""
+			(at 172.72 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rotation_offset" ""
 			(at 172.72 190.5 0)
 			(effects
 				(font
