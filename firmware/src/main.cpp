@@ -55,8 +55,6 @@ volatile bool led_state[led_count] = {false};
 volatile bool led_update_req[led_count] = {false};
 bool wifi_ap_active = false;
 
-
-
 // put function declarations here:
 int32_t get_temp(void);
 uint32_t get_volts(void);
@@ -122,6 +120,7 @@ const char index_html[] PROGMEM = R"rawliteral(
       <h3>⚙️ System</h3>
       <div class="system-list">
         <div><span class="stat-label">Uptime:</span> %UPTIME%</div>
+        <div><span class="stat-label">Reset:</span> %RESET_REASON%</div>
         <div><span class="stat-label">Build:</span> %BUILD%</div>
       </div>
     </div>
@@ -218,7 +217,7 @@ void setup(void) {
   Serial.print("AP IP Address: ");
   Serial.println(IP);
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
-    Serial.println("Request received!");
+    //Serial.println("Request received!");
     // The 'processor' argument tells the server to swap out the %VARIABLES%
     request->send(200, "text/html", index_html, processor);
   });
@@ -246,6 +245,9 @@ void loop(void) {
       dmx_read_offset(dmx_num, dmx_address, dmx_data, slot_count);
       last_valid_dmx = millis();
       //dmxSignalLost = false;
+
+      Serial.write(0xFE);
+      Serial.write(dmx_data, slot_count);
 
       uint16_t new_brightness;
       uint32_t new_half_period;
@@ -469,6 +471,20 @@ String processor(const String& var) {
     if (m > 0 || h > 0 || d > 0) res += String(m) + "m ";
     res += String(s) + "s";
     return res;
+  }
+  if(var == "RESET_REASON") {
+    esp_reset_reason_t reason = esp_reset_reason();
+    switch (reason) {
+      case ESP_RST_POWERON: return "Power On";
+      case ESP_RST_EXT:     return "External Pin";
+      case ESP_RST_SW:      return "Software Reset";
+      case ESP_RST_PANIC:   return "Exception/Crash";
+      case ESP_RST_INT_WDT: return "Interrupt Watchdog";
+      case ESP_RST_TASK_WDT: return "Task Watchdog";
+      case ESP_RST_DEEPSLEEP: return "Deep Sleep Wake";
+      case ESP_RST_BROWNOUT: return "Brownout (Power Dip)";
+      default:               return "Unknown";
+    }
   }
   return String();
 }
