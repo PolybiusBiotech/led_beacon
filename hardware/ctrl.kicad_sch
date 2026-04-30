@@ -2641,7 +2641,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "Difficult to place!"
+	(text "Difficult to place!\nMissing 3D model"
 		(exclude_from_sim no)
 		(at 23.876 56.642 0)
 		(effects
@@ -2662,9 +2662,9 @@
 		)
 		(uuid "294100ab-055a-4e73-b075-5649cebf0b72")
 	)
-	(text "Status LEDs?\nEEPROM?"
+	(text "Status LEDs?"
 		(exclude_from_sim no)
-		(at 250.19 150.622 0)
+		(at 134.62 156.21 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -2729,7 +2729,7 @@
 	)
 	(text "Does this need to be a switch?\nCheaper switch?\nSide actuation?"
 		(exclude_from_sim no)
-		(at 68.326 185.166 0)
+		(at 91.694 160.782 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -5683,7 +5683,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C21190"
+		(property "LCSC" "C25804"
 			(at 21.59 160.02 0)
 			(effects
 				(font
@@ -5907,7 +5907,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C21190"
+		(property "LCSC" "C25804"
 			(at 267.97 58.42 0)
 			(effects
 				(font
@@ -6386,7 +6386,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C21190"
+		(property "LCSC" "C25804"
 			(at 262.89 106.68 0)
 			(effects
 				(font
@@ -6779,7 +6779,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C21190"
+		(property "LCSC" "C25804"
 			(at 175.26 100.33 90)
 			(effects
 				(font
@@ -7792,7 +7792,7 @@
 				)
 			)
 		)
-		(property "Value" "1N4148"
+		(property "Value" "BAT54WS"
 			(at 50.8 162.56 0)
 			(effects
 				(font
@@ -7800,7 +7800,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123"
+		(property "Footprint" "Diode_SMD:D_SOD-323"
 			(at 50.8 166.37 0)
 			(effects
 				(font
@@ -7846,6 +7846,15 @@
 			)
 		)
 		(property "Rotation_offset" ""
+			(at 50.8 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C7502694"
 			(at 50.8 166.37 0)
 			(effects
 				(font

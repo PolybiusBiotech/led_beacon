@@ -4126,7 +4126,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1589"
+		(property "LCSC" "C57112"
 			(at 222.25 121.92 90)
 			(effects
 				(font
@@ -4913,7 +4913,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1589"
+		(property "LCSC" "C57112"
 			(at 222.25 53.34 90)
 			(effects
 				(font
@@ -5122,7 +5122,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C21190"
+		(property "LCSC" "C25804"
 			(at 27.94 72.39 0)
 			(effects
 				(font
@@ -5472,7 +5472,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1589"
+		(property "LCSC" "C57112"
 			(at 222.25 83.82 90)
 			(effects
 				(font
@@ -6143,7 +6143,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1589"
+		(property "LCSC" "C57112"
 			(at 222.25 91.44 90)
 			(effects
 				(font
@@ -6408,7 +6408,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1589"
+		(property "LCSC" "C57112"
 			(at 222.25 106.68 90)
 			(effects
 				(font
@@ -7056,7 +7056,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1589"
+		(property "LCSC" "C57112"
 			(at 222.25 68.58 90)
 			(effects
 				(font
@@ -8325,7 +8325,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1589"
+		(property "LCSC" "C57112"
 			(at 222.25 114.3 90)
 			(effects
 				(font
@@ -8583,7 +8583,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1589"
+		(property "LCSC" "C57112"
 			(at 222.25 60.96 90)
 			(effects
 				(font
@@ -8933,7 +8933,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1589"
+		(property "LCSC" "C57112"
 			(at 222.25 99.06 90)
 			(effects
 				(font
@@ -9868,7 +9868,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100uF 10V"
+		(property "Value" "100uF 16V"
 			(at 247.269 36.5376 0)
 			(effects
 				(font
@@ -9877,7 +9877,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
 			(at 249.2248 39.37 0)
 			(effects
 				(font
@@ -9904,6 +9904,15 @@
 			)
 		)
 		(property "Rotation_offset" ""
+			(at 250.19 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C72475"
 			(at 250.19 35.56 0)
 			(effects
 				(font
@@ -10867,7 +10876,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1589"
+		(property "LCSC" "C57112"
 			(at 222.25 76.2 90)
 			(effects
 				(font
