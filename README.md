@@ -1,5 +1,6 @@
 # 🚨 LED Beacon 🚨
-> Upgrading cheap LED beacons for professional DMX/Art-Net stage control.
+
+Upgrading cheap LED beacons for professional DMX/Art-Net stage control.
 
 ![Hardware Render](./docs/render.png) <!-- Tip: Export a nice 3D render from KiCAD -->
 
