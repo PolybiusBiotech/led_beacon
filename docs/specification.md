@@ -9,9 +9,9 @@ Using the [MoSCoW method](https://en.wikipedia.org/wiki/MoSCoW_method) to priori
 *   **DMX512-A Input:** 5-pin XLR interface with 5kV galvanic isolation and TVS protection.
 *   **Robust Power Input:** Operation between +12V DC ±30% (8.4V – 15.6V).
 *   **Strobe Functionality:** Support for 0.2Hz to 20Hz strobe speeds via DMX512.
-  *   `0x00`: Static ON
-  *   `0x01`: 0.2Hz Strobe.
-  *   `0xFF`: 30Hz Strobe.
+    *   `0x00`: Static ON
+    *   `0x01`: 0.2Hz Strobe.
+    *   `0xFF`: 30Hz Strobe.
 *   **Gamma Correction:** Implementation of a gamma brightness curve for human-eye linearity of LED PWM.
 *   **Weatherproof Connections:** IP65/67 connectors suitable for outdoor festival use.
 
