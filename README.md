@@ -1,17 +1,18 @@
-# LED Beacon 🚀
+# 🚨 LED Beacon 🚨
 > Upgrading cheap LED beacons for professional DMX/Art-Net stage control.
 
 ![Hardware Render](./docs/render.png) <!-- Tip: Export a nice 3D render from KiCAD -->
 
 ## 🚀 Manufacturing Status
-- [ ] **Design:** Completed
-- [ ] **Prototyping:** In Progress
-- [ ] **Production:** Pending
+- **Design:** Completed
+- **Prototyping:** In Progress
+- **Production:** Pending
 
 
 ## 📋 Quick Specs
-- **MCU:** ESP32-C3-WROOM-02
 - **Power:** +12V ±30% @ 2A
+- **LEDS:** 10x strings of 6 LEDs
+- **MCU:** ESP32-C3-WROOM-02
 - **Connectivity:** DMX512 via 5 pin XLRs and WiFi
 
 ## 📂 Project Structure
@@ -32,7 +33,7 @@
 2. Ensure the **PlatformIO** extension is installed.
 3. Connect your hardware via USB C port and click **Upload**.
 
-## User Guide
+## 📝 User Guide
 
 1. Apply power via DC connector, 12V ±30% from a 3A capable supply.
 2. Attach to DMX chain with 2x XLR 5pin cables
