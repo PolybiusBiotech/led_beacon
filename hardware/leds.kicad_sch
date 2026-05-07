@@ -6684,7 +6684,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "PCA9685PW"
+		(property "Value" "PCA9685PW,118"
 			(at 52.9433 73.66 0)
 			(effects
 				(font
@@ -6721,7 +6721,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C92206"
+		(property "LCSC" "C2678753"
 			(at 50.8 96.52 0)
 			(effects
 				(font
@@ -9877,7 +9877,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x5.7"
 			(at 249.2248 39.37 0)
 			(effects
 				(font
@@ -9912,7 +9912,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C72475"
+		(property "LCSC" "C3646798"
 			(at 250.19 35.56 0)
 			(effects
 				(font
