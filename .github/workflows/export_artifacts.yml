@@ -27,6 +27,7 @@ jobs:
         with:
           kicad_pcb: hardware/emf_beacon.kicad_pcb
           pcb_image: true
+          pcb_image_path: ./
 
       - name: Organize and Commit PDF
         run: |
