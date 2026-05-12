@@ -15,17 +15,24 @@ jobs:
         with:
           kicad_sch: hardware/emf_beacon.kicad_sch
           sch_pdf: true
+      
+      - name: Generate 3D STEP
+        uses: sparkengineering/kicad-action@v4
+        with:
+          kicad_pcb: hardware/emf_beacon.kicad_pcb
+          pcb_step: true  # Exports board as a .step file
 
       - name: Organize and Commit PDF
         run: |
           mkdir -p docs
           mv hardware/sch.pdf docs/emf_beacon_schematic.pdf
+          mv hardware/emf_beacon.step docs/emf_beacon_3d.step
           
           # Configure Git
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@://github.com"
           
           # Stage and push the changes
-          git add docs/emf_beacon_schematic.pdf
-          git commit -m "docs: auto-generate schematic PDF" || echo "No changes to commit"
+          git add docs/*
+          git commit -m "docs: auto-generate schematic PDF and 3D model" || echo "No changes to commit"
           git push
