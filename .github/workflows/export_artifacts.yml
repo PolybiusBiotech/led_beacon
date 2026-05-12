@@ -21,12 +21,22 @@ jobs:
         with:
           kicad_pcb: hardware/emf_beacon.kicad_pcb
           pcb_step: true  # Exports board as a .step file
+      
+      - name: Render Rear PCB Image
+        uses: linalinn/kicad-render@main
+        with:
+          pcb_file: hardware/emf_beacon.kicad_pcb
+          output_path: ${{ github.workspace }}
+        env:
+          RENDER_FRONT: 'false'  # Disables front render
+          RENDER_BACK: 'true'    # Enables back render
 
       - name: Organize and Commit PDF
         run: |
           mkdir -p docs
           mv hardware/sch.pdf docs/emf_beacon_schematic.pdf
-          mv hardware/emf_beacon.step docs/emf_beacon_3d.step
+          mv emf_beacon.step docs/emf_beacon_3d.step
+          mv bottom.png docs/emf_beacon_img.png
           
           # Configure Git
           git config --global user.name "github-actions[bot]"
@@ -34,5 +44,5 @@ jobs:
           
           # Stage and push the changes
           git add docs/*
-          git commit -m "docs: auto-generate schematic PDF and 3D model" || echo "No changes to commit"
+          git commit -m "docs: auto-generate schematic PDF, 3D model, and rear render" || echo "No changes to commit"
           git push
