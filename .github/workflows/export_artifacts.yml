@@ -1,4 +1,4 @@
-name: Export Schematic PDF
+name: Export Artifacts
 on: [push]
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
         uses: sparkengineering/kicad-action@v4
         with:
           kicad_pcb: hardware/emf_beacon.kicad_pcb
-          pcb_model: true  # Exports board as a .step file
+          pcb_model: true
       
       - name: Render PCB Image
         uses: sparkengineering/kicad-action@v4
@@ -32,9 +32,9 @@ jobs:
         run: |
           mkdir -p docs
           mv hardware/sch.pdf docs/emf_beacon_schematic.pdf
-          mv pcb.step docs/emf_beacon_3d.step
-          mv top.png docs/emf_beacon_top_img.png
-          mv bottom.png docs/emf_beacon_bot_img.png
+          mv hardware/pcb.step docs/emf_beacon_3d.step
+          mv hardware/top.png docs/emf_beacon_top_img.png
+          mv hardware/bottom.png docs/emf_beacon_bot_img.png
           
           # Configure Git
           git config --global user.name "github-actions[bot]"
