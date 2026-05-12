@@ -20,7 +20,7 @@ jobs:
         uses: sparkengineering/kicad-action@v4
         with:
           kicad_pcb: hardware/emf_beacon.kicad_pcb
-          pcb_step: true  # Exports board as a .step file
+          pcb_model: true  # Exports board as a .step file
       
       - name: Render Rear PCB Image
         uses: linalinn/kicad-render@main
@@ -35,7 +35,7 @@ jobs:
         run: |
           mkdir -p docs
           mv hardware/sch.pdf docs/emf_beacon_schematic.pdf
-          mv emf_beacon.step docs/emf_beacon_3d.step
+          mv pcb.step docs/emf_beacon_3d.step
           mv bottom.png docs/emf_beacon_img.png
           
           # Configure Git
