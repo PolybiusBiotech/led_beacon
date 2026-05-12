@@ -27,14 +27,15 @@ jobs:
         with:
           kicad_pcb: hardware/emf_beacon.kicad_pcb
           pcb_image: true
+          pcb_image_path: ""
 
       - name: Organize and Commit Artifacts
         run: |
           mkdir -p docs
           mv hardware/sch.pdf docs/emf_beacon_schematic.pdf
           mv hardware/pcb.step docs/emf_beacon_3d.step
-          mv hardware/images/top.png docs/emf_beacon_top_img.png
-          mv hardware/images/bottom.png docs/emf_beacon_bot_img.png
+          mv hardware/top.png docs/emf_beacon_top_img.png
+          mv hardware/bottom.png docs/emf_beacon_bot_img.png
           
           # Configure Git
           git config --global user.name "github-actions[bot]"
