@@ -1,0 +1,54 @@
+metadata:
+  title: DMX512 Output
+  revisions:
+    "1":
+        name: Robert K
+        date: 2026-05-12
+        changelog: Initial Version
+  template:
+    name: din-6771
+    sheetsize: A4
+
+connectors:
+  X:
+    type: XLR 5way
+    subtype: Socket
+    manufacturer: '<a href="https://www.rean-connectors.com/en">Neutrik REAN</a>'
+    mpn: '<a href="https://www.rean-connectors.com/en/product/rrx5f-z">RRX5F-Z-002-0</a>'
+    pinlabels: [GND,DMX+,DMX-,AUX-,AUX+,SHIELD]
+    show_pincount: false
+    #image:
+    additional_components:
+      -
+        type: heatshrink
+        subtype: 1.6mm dia, 5mm long
+        qty_multiplier: populated
+
+  J:
+    type: JST PH 6way
+    subtype: Housing
+    pinlabels: [GND,DMX+,DMX-,AUX-,AUX+,SHIELD]
+    manufacturer: '<a href="https://www.jst-mfg.com/index_e.php">JST</a>'
+    mpn: '<a href="https://www.jst-mfg.com/product/index.php?series=199">PHR-6</a>'
+    #image:
+    additional_components:
+      - 
+        type: Crimp
+        subtype: JST PH, 30-24 AWG
+        qty_multiplier: populated
+        manufacturer: '<a href="https://www.jst-mfg.com/index_e.php">JST</a>'
+        mpn: '<a href="https://www.jst-mfg.com/product/index.php?series=199">SPH-002T-P0.5S</a>'
+
+cables:
+  W:
+    category: bundle
+    gauge: 26 AWG
+    length: 10 cm
+    colors: [BK,RD,WH,YE,OG,GN]
+    notes: "Twist wires 2 &amp; 3 together.\nTwist wires 4 &amp; 5 together."
+
+connections:
+  -
+   - X: [1-6]
+   - W: [1-6]
+   - J: [1-6]
