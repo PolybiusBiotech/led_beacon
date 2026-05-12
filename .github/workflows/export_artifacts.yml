@@ -22,21 +22,19 @@ jobs:
           kicad_pcb: hardware/emf_beacon.kicad_pcb
           pcb_model: true  # Exports board as a .step file
       
-      - name: Render Rear PCB Image
-        uses: linalinn/kicad-render@main
+      - name: Render PCB Image
+        uses: sparkengineering/kicad-action@v4
         with:
-          pcb_file: hardware/emf_beacon.kicad_pcb
-          output_path: ${{ github.workspace }}
-        env:
-          RENDER_FRONT: 'false'  # Disables front render
-          RENDER_BACK: 'true'    # Enables back render
+          kicad_pcb: hardware/emf_beacon.kicad_pcb
+          pcb_image: true
 
       - name: Organize and Commit PDF
         run: |
           mkdir -p docs
           mv hardware/sch.pdf docs/emf_beacon_schematic.pdf
           mv pcb.step docs/emf_beacon_3d.step
-          mv bottom.png docs/emf_beacon_img.png
+          mv top.png docs/emf_beacon_top_img.png
+          mv bottom.png docs/emf_beacon_bot_img.png
           
           # Configure Git
           git config --global user.name "github-actions[bot]"
