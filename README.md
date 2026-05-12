@@ -2,7 +2,7 @@
 
 Upgrading cheap LED beacons for professional DMX/Art-Net stage control.
 
-![Hardware Render](./docs/render.png) <!-- Tip: Export a nice 3D render from KiCAD -->
+![Hardware Render](./docs/emf_beacon_bot_img.png) <!-- Tip: Export a nice 3D render from KiCAD -->
 
 ## 🚀 Manufacturing Status
 - **Design:** Completed
