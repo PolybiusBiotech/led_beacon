@@ -33,8 +33,8 @@ jobs:
           mkdir -p docs
           mv hardware/sch.pdf docs/emf_beacon_schematic.pdf
           mv hardware/pcb.step docs/emf_beacon_3d.step
-          mv hardware/top.png docs/emf_beacon_top_img.png
-          mv hardware/bottom.png docs/emf_beacon_bot_img.png
+          mv top.png docs/emf_beacon_top_img.png
+          mv bottom.png docs/emf_beacon_bot_img.png
           
           # Configure Git
           git config --global user.name "github-actions[bot]"
