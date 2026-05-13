@@ -1848,7 +1848,7 @@
 	)
 	(text "LED Enable"
 		(exclude_from_sim no)
-		(at 185.166 43.434 0)
+		(at 155.194 44.958 0)
 		(effects
 			(font
 				(size 2.54 2.54)
