@@ -2,7 +2,7 @@
 
 Upgrading cheap LED beacons for professional DMX/Art-Net stage control.
 
-![Hardware Render - Top](./docs/emf_beacon_top_img.png) ![Hardware Render - Bottom](./docs/emf_beacon_bot_img.png)
+![Hardware Render - Bottom](./docs/emf_beacon_bot_img.png)
 
 ## 🚀 Manufacturing Status
 - **Design:** Completed
