@@ -16,6 +16,7 @@ const uint32_t slot_count = led_count * 2; // 2 slots per LED
 const uint32_t ctrl_loop = 5000; // control loop duration in ms
 const uint32_t hold_last = 4000; // how long to keep last value in ms
 const int32_t warning_temp = 500000; // temp to disable LEDs in millicelcius
+const bool wifi_override_enable = true; // ignores the WiFi disable switch
 const int wifi_channel = 1;
 
 /** Pin Map **/
@@ -48,6 +49,7 @@ uint32_t current_volts = 0x00, min_volts, max_volts;
 uint32_t current_uptime = 0x00;
 uint32_t dmx_address = 0x00;
 uint8_t dmx_data[slot_count] = {0x00};
+bool wifi_enable = true;
 uint16_t led_brightness[led_count] = {0x00};
 uint32_t led_half_period[led_count] = {0x00};
 volatile uint32_t led_strobe_cnt[led_count] = {0x00};
@@ -305,23 +307,6 @@ void loop(void) {
   if (millis() - last_ctrl_update >= ctrl_loop) {
     last_ctrl_update = millis();
 
-    //enable/disable WiFi AP
-    
-    bool wifi_enable = ~digitalRead(PIN_WIFI_EN);
-    /*
-    if (wifi_enable && !wifi_ap_active) {
-      WiFi.softAP("LED_Beacon_Ctrl", "password123");
-      server.begin();
-      apActive = true;
-    } 
-    else if (!wifi_enable && wifi_ap_active) {
-      server.end();
-      WiFi.softAPdisconnect(true);
-      WiFi.mode(WIFI_OFF);
-      apActive = false;
-    }
-    */
-
     // get current VCC in and temperature
     current_volts = get_volts();
     current_temp = get_temp();
@@ -339,7 +324,7 @@ void loop(void) {
     if (current_temp >= warning_temp) {
       digitalWrite(PIN_LED_OE, HIGH); // disable LEDs while too hot!
     } else if (current_temp <= (warning_temp - 5000)) {
-      digitalWrite(PIN_LED_OE, LOW); // enable LEDs now it's cooler!
+      digitalWrite(PIN_LED_OE, LOW); // enable LEDs now it's cooler
     }
     
     // not sure what actions to take on:      
@@ -348,12 +333,32 @@ void loop(void) {
     
     current_uptime = esp_timer_get_time() / 1000000;
        
-    // check DMX address
+    // check MCP and update DMX address & WiFi AP
     if (digitalRead(PIN_I2C_INT) == LOW) {
-      uint16_t dmx_adr_switches = ~mcp.readGPIOAB(); // read and flip switch states from ACTIVE_LOW to ACTIVE_HIGH
-      dmx_adr_switches = (dmx_adr_switches & 0x7F) | ((dmx_adr_switches & 0x0300) >> 1);  // keep 0→6 & 8→9 and concatenate to remove 7
+      uint16_t dmx_adr_switches, wifi_en_switches;
+      uint16_t mcp_pin_values = ~mcp.readGPIOAB(); // read and flip switch states from ACTIVE_LOW to ACTIVE_HIGH
+      
+      dmx_adr_switches = (mcp_pin_values & 0x7F) | ((mcp_pin_values & 0x0300) >> 1);  // keep 0→6 & 8→9 and concatenate to remove 7
       dmx_address = dmx_adr_switches + 1; // offset and save DMX address
+
+      wifi_en_switches = (mcp_pin_values >> ?) & 0x01;
+
+      if (wifi_override_enable || wifi_en_switches) wifi_enable = true;
+      else wifi_enable = false;
     }
+
+    // enable/disable WiFi AP
+    if (wifi_enable && !wifi_ap_active) {
+      WiFi.softAP("LED_Beacon_Ctrl", "password123");
+      server.begin();
+      apActive = true;
+    } 
+    else if (!wifi_enable && wifi_ap_active) {
+      server.end();
+      WiFi.softAPdisconnect(true);
+      WiFi.mode(WIFI_OFF);
+      apActive = false;
+    }   
 
     // update USB status
       
