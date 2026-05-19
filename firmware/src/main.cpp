@@ -109,17 +109,12 @@ const char index_html[] PROGMEM = R"rawliteral(
       </div>
     </div>
     <div class="card">
-      <h3>🧠 Memory</h3>
-      <div class="val">%HEAP_FREE%</div>
-      <div class="stats">
-        <span><span class="stat-label">Min:</span>%HEAP_MIN%</span>
-        <span><span class="stat-label">Stack:</span>%STACK_FREE%</span>
-      </div>
-    </div>
-    <div class="card">
       <h3>⚙️ System</h3>
       <div class="system-list">
         <div><span class="stat-label">Uptime:</span> %UPTIME%</div>
+        <div><spam class="stat-label">Heap Free:</span> %HEAP_FREE%</div>
+        <div><span class="stat-label">Heap Min:</span> %HEAP_MIN%</div>
+        <div><span class="stat-label">Stack Free:</span> %STACK_FREE%</div>
         <div><span class="stat-label">Reset:</span> %RESET_REASON%</div>
         <div><span class="stat-label">Build:</span> %BUILD%</div>
       </div>
