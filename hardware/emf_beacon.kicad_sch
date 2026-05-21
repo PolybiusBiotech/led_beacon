@@ -228,16 +228,6 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 63.5) (xy 101.6 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8096792e-292b-4f8c-8ff2-e1585ff66e63")
-	)
-	(wire
-		(pts
 			(xy 158.75 62.23) (xy 158.75 87.63)
 		)
 		(stroke
@@ -298,16 +288,6 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 80.01) (xy 121.92 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bbf360db-b5a2-41e3-b9ac-139fc2f5df19")
-	)
-	(wire
-		(pts
 			(xy 116.84 68.58) (xy 116.84 85.09)
 		)
 		(stroke
@@ -358,16 +338,6 @@
 	)
 	(wire
 		(pts
-			(xy 127 80.01) (xy 121.92 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ef8b4310-644d-4f52-bd27-b3f93da75996")
-	)
-	(wire
-		(pts
 			(xy 111.76 90.17) (xy 127 90.17)
 		)
 		(stroke
@@ -395,6 +365,36 @@
 			(type default)
 		)
 		(uuid "f5791e4c-953a-4682-9f49-a3a15d5bf6dd")
+	)
+	(label "I2C_~{INT}"
+		(at 135.89 58.42 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a0df2c3f-31eb-4730-b998-04b6ddea5524")
+	)
+	(label "I2C_SCL"
+		(at 135.89 53.34 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ac1be3b1-5f23-41c9-9ebf-4106a554e990")
+	)
+	(label "I2C_SDA"
+		(at 135.89 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b66c7ccf-77a6-45f8-8d0c-c2b124ced535")
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
@@ -471,15 +471,6 @@
 			)
 		)
 		(property "MPN" ""
-			(at 172.72 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rotation_offset" ""
 			(at 172.72 184.15 0)
 			(effects
 				(font
@@ -580,15 +571,6 @@
 				(hide yes)
 			)
 		)
-		(property "Rotation_offset" ""
-			(at 172.72 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(instances
 			(project ""
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
@@ -673,15 +655,6 @@
 			)
 		)
 		(property "MPN" ""
-			(at 172.72 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rotation_offset" ""
 			(at 172.72 177.8 0)
 			(effects
 				(font
@@ -782,15 +755,6 @@
 				(hide yes)
 			)
 		)
-		(property "Rotation_offset" ""
-			(at 172.72 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(instances
 			(project "home_emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
@@ -844,7 +808,7 @@
 	)
 	(sheet
 		(at 127 76.2)
-		(size 25.4 50.8)
+		(size 25.4 25.4)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -868,7 +832,7 @@
 			)
 		)
 		(property "Sheetfile" "ctrl.kicad_sch"
-			(at 127 127.5846 0)
+			(at 127 102.1846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -944,16 +908,6 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
-			)
-		)
-		(pin "WIFI_~{ENABLE}" input
-			(at 127 80.01 180)
-			(uuid "c8c4197e-a5af-4907-a263-100be2c4236b")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 			)
 		)
 		(instances
@@ -1051,16 +1005,6 @@
 		(pin "I2C_SCL" input
 			(at 101.6 53.34 0)
 			(uuid "0765aa06-fd6d-42c0-b3c6-48b12f0fed27")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "WIFI_~{ENABLE}" output
-			(at 101.6 63.5 0)
-			(uuid "4f547761-38dc-42f0-8355-62da3d54ef6a")
 			(effects
 				(font
 					(size 1.27 1.27)

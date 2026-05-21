@@ -5232,7 +5232,7 @@
 				(hide yes)
 			)
 		)
-		(property "Rotation_offset" "180"
+		(property "Rotation Offset" "180"
 			(at 38.1 83.82 0)
 			(effects
 				(font
@@ -5345,15 +5345,6 @@
 			)
 		)
 		(property "LCSC" "C23162"
-			(at 144.78 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rotation_offset" ""
 			(at 144.78 58.42 0)
 			(effects
 				(font
@@ -5583,15 +5574,6 @@
 			)
 		)
 		(property "LCSC" "C15850"
-			(at 237.49 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rotation_offset" ""
 			(at 237.49 46.99 0)
 			(effects
 				(font
@@ -5831,15 +5813,6 @@
 				(hide yes)
 			)
 		)
-		(property "Rotation_offset" ""
-			(at 175.26 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "2"
 			(uuid "ceed1a91-e8b4-45fa-a600-97da30fabdea")
 		)
@@ -5978,15 +5951,6 @@
 			)
 		)
 		(property "LCSC" "C25804"
-			(at 223.52 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rotation_offset" ""
 			(at 223.52 78.74 0)
 			(effects
 				(font
@@ -6149,15 +6113,6 @@
 			)
 		)
 		(property "LCSC" "C17927"
-			(at 52.07 100.33 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rotation_offset" ""
 			(at 52.07 100.33 90)
 			(effects
 				(font
@@ -6394,15 +6349,6 @@
 				(hide yes)
 			)
 		)
-		(property "Rotation_offset" ""
-			(at 52.07 111.76 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "f7f3f038-78bf-4378-862e-d276970d1ed5")
 		)
@@ -6495,15 +6441,6 @@
 			)
 		)
 		(property "MPN" ""
-			(at 142.24 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rotation_offset" ""
 			(at 142.24 139.7 0)
 			(effects
 				(font
@@ -6802,7 +6739,7 @@
 				(hide yes)
 			)
 		)
-		(property "Rotation_offset" "180"
+		(property "Rotation Offset" "180"
 			(at 38.1 53.34 0)
 			(effects
 				(font
@@ -6982,15 +6919,6 @@
 			)
 		)
 		(property "LCSC" "C14663"
-			(at 223.52 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rotation_offset" ""
 			(at 223.52 46.99 0)
 			(effects
 				(font
@@ -7225,15 +7153,6 @@
 				(hide yes)
 			)
 		)
-		(property "Rotation_offset" ""
-			(at 168.91 142.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "0205b56d-984d-491e-b5e2-12e838685234")
 		)
@@ -7390,15 +7309,6 @@
 			)
 		)
 		(property "LCSC" "C15850"
-			(at 161.29 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rotation_offset" ""
 			(at 161.29 46.99 0)
 			(effects
 				(font
@@ -7702,15 +7612,6 @@
 				(hide yes)
 			)
 		)
-		(property "Rotation_offset" ""
-			(at 148.59 109.22 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "2"
 			(uuid "009a807a-1c91-424f-becc-ffd3437b4df4")
 		)
@@ -7863,15 +7764,6 @@
 			)
 		)
 		(property "LCSC" "C25804"
-			(at 168.91 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rotation_offset" ""
 			(at 168.91 129.54 90)
 			(effects
 				(font
@@ -8102,15 +7994,6 @@
 			)
 		)
 		(property "MPN" ""
-			(at 199.39 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rotation_offset" ""
 			(at 199.39 67.31 0)
 			(effects
 				(font
@@ -8523,15 +8406,6 @@
 				(hide yes)
 			)
 		)
-		(property "Rotation_offset" ""
-			(at 116.84 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "2"
 			(uuid "2bca3e94-2096-4e70-b596-7406319b6df4")
 		)
@@ -8632,15 +8506,6 @@
 				(hide yes)
 			)
 		)
-		(property "Rotation_offset" ""
-			(at 144.78 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "7568d7cd-b2e4-4ba3-8978-3c8500bc2dd2")
 		)
@@ -8728,15 +8593,6 @@
 			)
 		)
 		(property "MPN" ""
-			(at 82.55 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rotation_offset" ""
 			(at 82.55 154.94 0)
 			(effects
 				(font

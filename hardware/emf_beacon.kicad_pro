@@ -145,7 +145,7 @@
       "teardrop_options": [
         {
           "td_onpthpad": true,
-          "td_onroundshapesonly": false,
+          "td_onroundshapesonly": true,
           "td_onsmdpad": true,
           "td_ontrackend": false,
           "td_onvia": true
@@ -488,7 +488,7 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
+        "track_width": 0.5,
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
@@ -560,7 +560,7 @@
           "group_by": true,
           "label": "Exclude from BOM",
           "name": "${EXCLUDE_FROM_BOM}",
-          "show": false
+          "show": true
         },
         {
           "group_by": true,
@@ -630,12 +630,12 @@
         },
         {
           "group_by": false,
-          "label": "Rotation_offset",
-          "name": "Rotation_offset",
-          "show": false
+          "label": "Rotation Offset",
+          "name": "Rotation Offset",
+          "show": true
         }
       ],
-      "filter_string": "C",
+      "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
       "name": "",
