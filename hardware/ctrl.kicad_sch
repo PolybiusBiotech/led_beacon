@@ -2641,17 +2641,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "ROTATE"
-		(exclude_from_sim no)
-		(at 88.138 134.112 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-				(color 255 0 0 1)
-			)
-		)
-		(uuid "07e3ad1d-cdb0-457d-aea6-719a1f2d7846")
-	)
 	(text "Auto reset"
 		(exclude_from_sim no)
 		(at 43.434 153.924 0)
@@ -3922,6 +3911,17 @@
 			(justify left)
 		)
 		(uuid "1850bf5b-ea2d-4a58-9366-b6de16ec52ac")
+	)
+	(hierarchical_label "LED_~{PGD}"
+		(shape input)
+		(at 180.34 102.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "557c36e3-3cc4-4e6f-9828-428d9afeb282")
 	)
 	(hierarchical_label "DMX_TX"
 		(shape output)
