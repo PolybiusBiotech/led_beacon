@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "emf_beacon_ibrary")(type "KiCad")(uri "${KIPRJMOD}/emf_beacon_ibrary.kicad_sym")(options "")(descr ""))
+)

@@ -10,7 +10,7 @@
 		(company "Wires & Bits")
 	)
 	(lib_symbols
-		(symbol "Mechanical:MountingHole"
+		(symbol "emf_beacon_ibrary:MountingHole"
 			(pin_names
 				(offset 1.016)
 			)
@@ -138,16 +138,6 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 114.3) (xy 163.83 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "171eeaf5-68fa-419c-9cf8-7c340dee1e61")
-	)
-	(wire
-		(pts
 			(xy 116.84 85.09) (xy 127 85.09)
 		)
 		(stroke
@@ -165,16 +155,6 @@
 			(type default)
 		)
 		(uuid "1c791802-af37-499f-8713-b816d32a4328")
-	)
-	(wire
-		(pts
-			(xy 177.8 114.3) (xy 163.83 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1ea77ca7-3ce8-49e1-a4c6-6d28b0098263")
 	)
 	(wire
 		(pts
@@ -225,16 +205,6 @@
 			(type default)
 		)
 		(uuid "515273a2-8d4c-468c-a03d-7ce10085be1f")
-	)
-	(wire
-		(pts
-			(xy 152.4 95.25) (xy 163.83 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "517da634-6f9a-48fd-85e0-408d62e2d36c")
 	)
 	(wire
 		(pts
@@ -427,7 +397,7 @@
 		(uuid "b66c7ccf-77a6-45f8-8d0c-c2b124ced535")
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
+		(lib_id "emf_beacon_ibrary:MountingHole")
 		(at 172.72 184.15 0)
 		(mirror y)
 		(unit 1)
@@ -519,7 +489,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
+		(lib_id "emf_beacon_ibrary:MountingHole")
 		(at 172.72 171.45 0)
 		(mirror y)
 		(unit 1)
@@ -611,7 +581,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
+		(lib_id "emf_beacon_ibrary:MountingHole")
 		(at 172.72 177.8 0)
 		(mirror y)
 		(unit 1)
@@ -703,7 +673,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
+		(lib_id "emf_beacon_ibrary:MountingHole")
 		(at 172.72 190.5 0)
 		(mirror y)
 		(unit 1)
@@ -828,16 +798,6 @@
 				(justify left top)
 			)
 		)
-		(pin "LED_~{PGD}" output
-			(at 177.8 114.3 180)
-			(uuid "ba1be60f-e299-4a85-9e22-28a4a7ba9095")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(instances
 			(project "emf_beacon"
 				(path "/0654b480-d862-4382-88d5-1ac411bf5574"
@@ -943,16 +903,6 @@
 		(pin "I2C_~{INT}" input
 			(at 152.4 90.17 0)
 			(uuid "d3505c04-a63b-4d51-810c-8545591b1732")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "LED_~{PGD}" input
-			(at 152.4 95.25 0)
-			(uuid "aaed4509-5c35-4670-a4d2-49b0eb8565ea")
 			(effects
 				(font
 					(size 1.27 1.27)

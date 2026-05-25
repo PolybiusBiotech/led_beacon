@@ -10,31 +10,54 @@
 		(company "Wires & Bits")
 	)
 	(lib_symbols
-		(symbol "Connector_Generic:Conn_01x02"
+		(symbol "emf_beacon_ibrary:AO3400A"
 			(pin_names
-				(offset 1.016)
+				(offset 0)
 				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "J"
-				(at 0 2.54 0)
+			(property "Reference" "Q"
+				(at 5.08 1.905 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Value" "Conn_01x02"
-				(at 0 -5.08 0)
+			(property "Value" "AO3400A"
+				(at 5.08 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 5.08 -1.905 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.aosmd.com/pdfs/datasheet/AO3400A.pdf"
+				(at 5.08 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Description" "30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"
 				(at 0 0 0)
 				(effects
 					(font
@@ -43,7 +66,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "~"
+			(property "ki_keywords" "N-Channel MOSFET"
 				(at 0 0 0)
 				(effects
 					(font
@@ -52,7 +75,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(property "ki_fp_filters" "SOT?23*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -61,62 +84,178 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "connector"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
+			(symbol "AO3400A_0_1"
+				(polyline
+					(pts
+						(xy 0.254 1.905) (xy 0.254 -1.905)
 					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Conn_01x02_1_1"
-				(rectangle
-					(start -1.27 1.27)
-					(end 1.27 -3.81)
 					(stroke
 						(width 0.254)
 						(type default)
 					)
 					(fill
-						(type background)
+						(type none)
 					)
 				)
-				(rectangle
-					(start -1.27 0.127)
-					(end 0 -0.127)
+				(polyline
+					(pts
+						(xy 0.254 0) (xy -2.54 0)
+					)
 					(stroke
-						(width 0.1524)
+						(width 0)
 						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
-				(rectangle
-					(start -1.27 -2.413)
-					(end 0 -2.667)
+				(polyline
+					(pts
+						(xy 0.762 2.286) (xy 0.762 1.27)
+					)
 					(stroke
-						(width 0.1524)
+						(width 0.254)
 						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
-				(pin passive line
+				(polyline
+					(pts
+						(xy 0.762 0.508) (xy 0.762 -0.508)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.27) (xy 0.762 -2.286)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.778) (xy 3.302 -1.778) (xy 3.302 1.778) (xy 0.762 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 0) (xy 2.032 0.381) (xy 2.032 -0.381) (xy 1.016 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(circle
+					(center 1.651 0)
+					(radius 2.794)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 2.54) (xy 2.54 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.54 1.778)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(circle
+					(center 2.54 -1.778)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.921 0.381) (xy 3.683 0.381)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.302 0.381) (xy 2.921 -0.254) (xy 3.683 -0.254) (xy 3.302 0.381)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "AO3400A_1_1"
+				(pin input line
 					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_1"
+					(length 2.54)
+					(name "G"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -132,9 +271,27 @@
 					)
 				)
 				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_2"
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "D"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -5.08 90)
+					(length 2.54)
+					(name "S"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -152,7 +309,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:C"
+		(symbol "emf_beacon_ibrary:C"
 			(pin_numbers
 				(hide yes)
 			)
@@ -291,7 +448,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:C_Polarized"
+		(symbol "emf_beacon_ibrary:C_Polarized"
 			(pin_numbers
 				(hide yes)
 			)
@@ -452,26 +609,24 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:R"
-			(pin_numbers
-				(hide yes)
-			)
+		(symbol "emf_beacon_ibrary:Conn_01x02"
 			(pin_names
-				(offset 0)
+				(offset 1.016)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "R"
-				(at 2.032 0 90)
+			(property "Reference" "J"
+				(at 0 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "R"
-				(at 0 0 90)
+			(property "Value" "Conn_01x02"
+				(at 0 -5.08 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -479,7 +634,7 @@
 				)
 			)
 			(property "Footprint" ""
-				(at -1.778 0 90)
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -496,7 +651,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Resistor"
+			(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
 				(at 0 0 0)
 				(effects
 					(font
@@ -505,7 +660,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "R res resistor"
+			(property "ki_keywords" "connector"
 				(at 0 0 0)
 				(effects
 					(font
@@ -514,7 +669,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "R_*"
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -523,24 +678,44 @@
 					(hide yes)
 				)
 			)
-			(symbol "R_0_1"
+			(symbol "Conn_01x02_1_1"
 				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
+					(start -1.27 1.27)
+					(end 1.27 -3.81)
 					(stroke
 						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
 						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
-			)
-			(symbol "R_1_1"
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name "~"
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -556,9 +731,9 @@
 					)
 				)
 				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name "~"
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -576,7 +751,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Driver_LED:PCA9685PW"
+		(symbol "emf_beacon_ibrary:PCA9685PW"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1165,54 +1340,42 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Transistor_FET:AO3400A"
+		(symbol "emf_beacon_ibrary:R"
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
-				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "Q"
-				(at 5.08 1.905 0)
+			(property "Reference" "R"
+				(at 2.032 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
-			(property "Value" "AO3400A"
-				(at 5.08 0 0)
+			(property "Value" "R"
+				(at 0 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-				(at 5.08 -1.905 0)
+			(property "Footprint" ""
+				(at -1.778 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
-						(italic yes)
 					)
-					(justify left)
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "http://www.aosmd.com/pdfs/datasheet/AO3400A.pdf"
-				(at 5.08 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Description" "30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"
+			(property "Datasheet" "~"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1221,7 +1384,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "N-Channel MOSFET"
+			(property "Description" "Resistor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1230,7 +1393,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "SOT?23*"
+			(property "ki_keywords" "R res resistor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1239,166 +1402,21 @@
 					(hide yes)
 				)
 			)
-			(symbol "AO3400A_0_1"
-				(polyline
-					(pts
-						(xy 0.254 1.905) (xy 0.254 -1.905)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
 					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
 					(stroke
 						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.254 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 2.286) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 0.508) (xy 0.762 -0.508)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -1.27) (xy 0.762 -2.286)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -1.778) (xy 3.302 -1.778) (xy 3.302 1.778) (xy 0.762 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 0) (xy 2.032 0.381) (xy 2.032 -0.381) (xy 1.016 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center 1.651 0)
-					(radius 2.794)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 2.54) (xy 2.54 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.54 1.778)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center 2.54 -1.778)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.921 0.381) (xy 3.683 0.381)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.302 0.381) (xy 2.921 -0.254) (xy 3.683 -0.254) (xy 3.302 0.381)
-					)
-					(stroke
-						(width 0)
 						(type default)
 					)
 					(fill
@@ -1406,11 +1424,11 @@
 					)
 				)
 			)
-			(symbol "AO3400A_1_1"
-				(pin input line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "G"
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1426,27 +1444,9 @@
 					)
 				)
 				(pin passive line
-					(at 2.54 5.08 270)
-					(length 2.54)
-					(name "D"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -5.08 90)
-					(length 2.54)
-					(name "S"
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3968,7 +3968,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
+		(lib_id "emf_beacon_ibrary:Conn_01x02")
 		(at 262.89 115.57 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4065,7 +4065,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "emf_beacon_ibrary:C")
 		(at 222.25 121.92 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4208,7 +4208,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 232.41 114.3 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4304,12 +4304,11 @@
 			)
 		)
 		(property "Value" "+6V5"
-			(at 257.81 25.3999 0)
+			(at 255.27 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -4552,7 +4551,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 92.71 107.95 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4713,7 +4712,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:AO3400A")
+		(lib_id "emf_beacon_ibrary:AO3400A")
 		(at 114.3 67.31 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4816,7 +4815,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "emf_beacon_ibrary:C")
 		(at 222.25 53.34 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4893,7 +4892,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 92.71 67.31 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4988,7 +4987,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 27.94 72.39 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5150,7 +5149,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:AO3400A")
+		(lib_id "emf_beacon_ibrary:AO3400A")
 		(at 195.58 148.59 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5253,7 +5252,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 232.41 99.06 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5330,7 +5329,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "emf_beacon_ibrary:C")
 		(at 222.25 83.82 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5474,7 +5473,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 92.71 77.47 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5568,7 +5567,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:AO3400A")
+		(lib_id "emf_beacon_ibrary:AO3400A")
 		(at 185.42 138.43 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5671,7 +5670,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 92.71 87.63 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5965,7 +5964,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "emf_beacon_ibrary:C")
 		(at 222.25 91.44 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6042,7 +6041,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:AO3400A")
+		(lib_id "emf_beacon_ibrary:AO3400A")
 		(at 134.62 87.63 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6212,7 +6211,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "emf_beacon_ibrary:C")
 		(at 222.25 106.68 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6289,7 +6288,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:AO3400A")
+		(lib_id "emf_beacon_ibrary:AO3400A")
 		(at 154.94 107.95 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6392,7 +6391,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:AO3400A")
+		(lib_id "emf_beacon_ibrary:AO3400A")
 		(at 104.14 57.15 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6495,7 +6494,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Driver_LED:PCA9685PW")
+		(lib_id "emf_beacon_ibrary:PCA9685PW")
 		(at 50.8 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6747,7 +6746,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 232.41 83.82 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6824,7 +6823,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "emf_beacon_ibrary:C")
 		(at 222.25 68.58 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7034,7 +7033,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
+		(lib_id "emf_beacon_ibrary:Conn_01x02")
 		(at 262.89 92.71 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7131,7 +7130,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
+		(lib_id "emf_beacon_ibrary:Conn_01x02")
 		(at 262.89 107.95 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7294,7 +7293,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
+		(lib_id "emf_beacon_ibrary:Conn_01x02")
 		(at 262.89 69.85 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7391,7 +7390,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 232.41 53.34 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7468,7 +7467,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 232.41 76.2 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7611,7 +7610,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:AO3400A")
+		(lib_id "emf_beacon_ibrary:AO3400A")
 		(at 175.26 128.27 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7714,7 +7713,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
+		(lib_id "emf_beacon_ibrary:Conn_01x02")
 		(at 262.89 46.99 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7811,7 +7810,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
+		(lib_id "emf_beacon_ibrary:Conn_01x02")
 		(at 262.89 54.61 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7908,7 +7907,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 92.71 138.43 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8003,7 +8002,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "emf_beacon_ibrary:C")
 		(at 222.25 114.3 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8146,7 +8145,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
+		(lib_id "emf_beacon_ibrary:Conn_01x02")
 		(at 262.89 85.09 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8243,7 +8242,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "emf_beacon_ibrary:C")
 		(at 222.25 60.96 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8320,7 +8319,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:AO3400A")
+		(lib_id "emf_beacon_ibrary:AO3400A")
 		(at 144.78 97.79 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8423,7 +8422,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 232.41 60.96 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8566,7 +8565,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "emf_beacon_ibrary:C")
 		(at 222.25 99.06 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8643,7 +8642,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 92.71 148.59 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8738,7 +8737,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 232.41 91.44 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8815,7 +8814,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
+		(lib_id "emf_beacon_ibrary:Conn_01x02")
 		(at 262.89 62.23 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8978,7 +8977,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 92.71 57.15 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9073,7 +9072,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 232.41 121.92 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9150,7 +9149,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:AO3400A")
+		(lib_id "emf_beacon_ibrary:AO3400A")
 		(at 124.46 77.47 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9319,7 +9318,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 232.41 68.58 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9463,7 +9462,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Polarized")
+		(lib_id "emf_beacon_ibrary:C_Polarized")
 		(at 250.19 35.56 0)
 		(mirror y)
 		(unit 1)
@@ -9541,7 +9540,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
+		(lib_id "emf_beacon_ibrary:Conn_01x02")
 		(at 262.89 77.47 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9839,7 +9838,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "emf_beacon_ibrary:C")
 		(at 44.45 68.58 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9934,7 +9933,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 232.41 106.68 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10077,7 +10076,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:AO3400A")
+		(lib_id "emf_beacon_ibrary:AO3400A")
 		(at 165.1 118.11 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10180,7 +10179,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
+		(lib_id "emf_beacon_ibrary:Conn_01x02")
 		(at 262.89 100.33 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10277,7 +10276,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 30.48 95.25 0)
 		(mirror y)
 		(unit 1)
@@ -10374,7 +10373,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "emf_beacon_ibrary:C")
 		(at 222.25 76.2 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10451,7 +10450,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 92.71 97.79 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10546,7 +10545,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 92.71 118.11 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10641,7 +10640,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "emf_beacon_ibrary:R")
 		(at 92.71 128.27 90)
 		(unit 1)
 		(exclude_from_sim no)
