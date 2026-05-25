@@ -1,0 +1,211 @@
+(footprint "LED_Stick"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(locked yes)
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at -0.000001 -5 180)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "e32e02d4-74da-462d-8b32-c8a275dd3754")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "Conn_01x02"
+		(at 0 -3.5 180)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "29bcb1a7-09a4-49bc-8a33-ec07032cd5cb")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "~"
+		(at 0 0 180)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f2217947-a1e8-4940-9357-7f9861514203")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+		(at 0 0 180)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "20bd0211-92c3-4274-9cf0-bc6c8b97ab36")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "LCSC" "~"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "930b9823-0ea3-4584-8d32-c3720d76b76e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MFR" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c704b0b9-5d6d-42f5-bf67-693f5d9e12e8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MPN" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "540c4181-7783-4d30-a97e-358d71ca5f82")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Rotation_offset" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ed4a9ca3-0670-4b33-9835-3cdc7b839cc1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start 3.2 -0.4)
+		(end 3.2 0.4)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "71693446-4538-4c5d-94eb-7f51d8173354")
+	)
+	(fp_line
+		(start 2.7 0.9)
+		(end -2.7 0.9)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "3dadc549-d20a-4ff5-bb2e-cd54221b9e47")
+	)
+	(fp_line
+		(start -2.7 -0.9)
+		(end 2.7 -0.9)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "b1b1116a-dadc-4e99-a608-90a37ac96421")
+	)
+	(fp_line
+		(start -3.2 0.4)
+		(end -3.2 -0.4)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "50c02195-9569-4636-b241-292361dddd3b")
+	)
+	(fp_arc
+		(start 3.2 0.4)
+		(mid 3.053553 0.753553)
+		(end 2.7 0.9)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "028dee17-5099-4072-b30f-0293542e016e")
+	)
+	(fp_arc
+		(start 2.7 -0.9)
+		(mid 3.053553 -0.753553)
+		(end 3.2 -0.4)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "1465946f-2b64-4614-9ce2-e01ed5927820")
+	)
+	(fp_arc
+		(start -2.7 0.9)
+		(mid -3.053553 0.753553)
+		(end -3.2 0.4)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "e84e9c6b-cfe7-4db5-80fe-156951f81256")
+	)
+	(fp_arc
+		(start -3.2 -0.4)
+		(mid -3.053553 -0.753553)
+		(end -2.7 -0.9)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "3a403588-1e71-4465-b2e8-7d8104211f2a")
+	)
+	(pad "1" smd roundrect
+		(at -1.5 2.25 180)
+		(size 2.5 2.5)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.1)
+		(uuid "fc870924-9bf4-4a37-a12b-84ddd57cfb06")
+	)
+	(pad "2" smd roundrect
+		(at 1.5 2.25 180)
+		(size 2.5 2.5)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.1)
+		(uuid "0e4a77b7-bae3-41a1-8112-bbfee5149907")
+	)
+	(embedded_fonts no)
+)
