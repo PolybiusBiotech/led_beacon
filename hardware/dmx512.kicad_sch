@@ -5221,6 +5221,16 @@
 		)
 		(uuid "d983d85f-bdb9-4f9f-9e79-5d841e86436e")
 	)
+	(label "DMX_SHLD"
+		(at 43.18 120.65 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "dad1f830-8efd-48d5-9758-74f34874a6e7")
+	)
 	(label "DMX_ADDR7"
 		(at 92.71 160.02 0)
 		(effects
