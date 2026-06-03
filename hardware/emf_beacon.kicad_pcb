@@ -14628,7 +14628,7 @@
 		(path "/47676e1e-c686-4542-ba08-5a0ba3501dcc/8d9f4c1b-399c-4579-b641-eb3aea861963")
 		(sheetname "/POWER/")
 		(sheetfile "power.kicad_sch")
-		(attr smd)
+		(attr through_hole)
 		(fp_line
 			(start -5 -7.25)
 			(end 3.5 -7.25)
