@@ -3327,6 +3327,16 @@
 		)
 		(uuid "4ad7deb7-32ca-4bb4-85f7-dbef2668d7f0")
 	)
+	(text "CA-IS3092W has pin 14 as NC\nbut to maintain compatibility\nwith CA-IS3092VW it's \nconnected to 3V3_ISO"
+		(exclude_from_sim no)
+		(at 199.898 99.568 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "587349c1-b291-4c6d-962c-745e394100c4")
+	)
 	(text "To XLRs"
 		(exclude_from_sim no)
 		(at 35.306 50.8 0)
@@ -3436,7 +3446,7 @@
 		(uuid "5186978a-d642-4737-86a4-bcd1da37b7ce")
 	)
 	(junction
-		(at 161.29 40.64)
+		(at 175.26 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "54bcc55f-66cc-408d-814a-72d07b10bde4")
@@ -3458,12 +3468,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "634998ef-3d37-43a0-92b3-ca7abc5476db")
-	)
-	(junction
-		(at 175.26 40.64)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "655cbf34-9a67-4b06-9aff-aae906315894")
 	)
 	(junction
 		(at 55.88 121.92)
@@ -3823,7 +3827,7 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 40.64) (xy 161.29 40.64)
+			(xy 161.29 40.64) (xy 175.26 40.64)
 		)
 		(stroke
 			(width 0)
@@ -4113,7 +4117,7 @@
 	)
 	(wire
 		(pts
-			(xy 161.29 43.18) (xy 161.29 40.64)
+			(xy 175.26 43.18) (xy 175.26 40.64)
 		)
 		(stroke
 			(width 0)
@@ -4153,7 +4157,7 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 43.18) (xy 147.32 40.64)
+			(xy 161.29 43.18) (xy 161.29 40.64)
 		)
 		(stroke
 			(width 0)
@@ -4263,16 +4267,6 @@
 	)
 	(wire
 		(pts
-			(xy 175.26 50.8) (xy 175.26 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8034b43b-e568-49b4-a4e1-d6d352516b50")
-	)
-	(wire
-		(pts
 			(xy 181.61 82.55) (xy 181.61 87.63)
 		)
 		(stroke
@@ -4353,7 +4347,7 @@
 	)
 	(wire
 		(pts
-			(xy 161.29 50.8) (xy 161.29 53.34)
+			(xy 175.26 50.8) (xy 175.26 53.34)
 		)
 		(stroke
 			(width 0)
@@ -4473,7 +4467,7 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 50.8) (xy 147.32 53.34)
+			(xy 161.29 50.8) (xy 161.29 53.34)
 		)
 		(stroke
 			(width 0)
@@ -4513,7 +4507,7 @@
 	)
 	(wire
 		(pts
-			(xy 161.29 40.64) (xy 175.26 40.64)
+			(xy 175.26 40.64) (xy 181.61 40.64)
 		)
 		(stroke
 			(width 0)
@@ -4550,16 +4544,6 @@
 			(type default)
 		)
 		(uuid "a8edf2be-a8df-4931-9c32-daeeea51e697")
-	)
-	(wire
-		(pts
-			(xy 175.26 43.18) (xy 175.26 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ab89465c-61a1-475c-a5ed-e1ccbb2ba875")
 	)
 	(wire
 		(pts
@@ -4870,16 +4854,6 @@
 			(type default)
 		)
 		(uuid "dc0cfb3b-4f1b-4b6c-9d2b-05cca91e7d2b")
-	)
-	(wire
-		(pts
-			(xy 175.26 40.64) (xy 181.61 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dcfa9ca0-700f-416f-9ae2-d0b2f774c2bd")
 	)
 	(wire
 		(pts
@@ -5892,7 +5866,7 @@
 	)
 	(symbol
 		(lib_id "emf_beacon_ibrary:C")
-		(at 161.29 46.99 0)
+		(at 175.26 46.99 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5902,7 +5876,7 @@
 		(fields_autoplaced yes)
 		(uuid "345329cb-83a6-4041-8743-0268be6d00ee")
 		(property "Reference" "C8"
-			(at 157.48 45.7199 0)
+			(at 171.45 45.7199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5911,7 +5885,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 157.48 48.2599 0)
+			(at 171.45 48.2599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5920,7 +5894,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 160.3248 50.8 0)
+			(at 174.2948 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5929,7 +5903,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 161.29 46.99 0)
+			(at 175.26 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5938,7 +5912,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 161.29 46.99 0)
+			(at 175.26 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5947,7 +5921,7 @@
 			)
 		)
 		(property "MFR" ""
-			(at 161.29 46.99 0)
+			(at 175.26 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5956,7 +5930,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 161.29 46.99 0)
+			(at 175.26 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5965,7 +5939,7 @@
 			)
 		)
 		(property "LCSC" "C14663"
-			(at 161.29 46.99 0)
+			(at 175.26 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6939,72 +6913,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND1")
-		(at 175.26 53.34 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7ea9f78e-e17e-4f24-8755-e0e9b09a0759")
-		(property "Reference" "#PWR030"
-			(at 175.26 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND_ISO"
-			(at 175.26 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 175.26 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 175.26 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 175.26 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d7b999b7-fa56-4ca6-ad34-df33f0141999")
-		)
-		(instances
-			(project "emf_beacon"
-				(path "/0654b480-d862-4382-88d5-1ac411bf5574/ef912ffd-e5d9-46a9-9fff-0bf3d4ccd370"
-					(reference "#PWR030")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "emf_beacon_ibrary:C")
 		(at 223.52 46.99 0)
 		(unit 1)
@@ -7251,7 +7159,7 @@
 				)
 			)
 		)
-		(property "Value" "CA-IS3092VW"
+		(property "Value" "CA-IS3092W"
 			(at 199.39 49.53 0)
 			(effects
 				(font
@@ -7286,7 +7194,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C7422574"
+		(property "LCSC" "C2890051"
 			(at 199.39 67.31 0)
 			(effects
 				(font
@@ -7448,7 +7356,7 @@
 	)
 	(symbol
 		(lib_id "power:GND1")
-		(at 147.32 53.34 0)
+		(at 161.29 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7457,7 +7365,7 @@
 		(fields_autoplaced yes)
 		(uuid "a88cf802-6c5b-4877-ab23-052555c504a7")
 		(property "Reference" "#PWR023"
-			(at 147.32 59.69 0)
+			(at 161.29 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7466,7 +7374,7 @@
 			)
 		)
 		(property "Value" "GND_ISO"
-			(at 147.32 58.42 0)
+			(at 161.29 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7474,7 +7382,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 147.32 53.34 0)
+			(at 161.29 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7483,7 +7391,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 147.32 53.34 0)
+			(at 161.29 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7492,7 +7400,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 147.32 53.34 0)
+			(at 161.29 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7514,7 +7422,7 @@
 	)
 	(symbol
 		(lib_id "emf_beacon_ibrary:C")
-		(at 147.32 46.99 0)
+		(at 161.29 46.99 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7523,7 +7431,7 @@
 		(dnp no)
 		(uuid "aa9dbd7a-78e1-4630-9b79-73d011c96645")
 		(property "Reference" "C7"
-			(at 143.51 45.7199 0)
+			(at 157.48 45.7199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7532,7 +7440,7 @@
 			)
 		)
 		(property "Value" "10uF 25V"
-			(at 143.51 48.2599 0)
+			(at 157.48 48.2599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7541,7 +7449,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 146.3548 50.8 0)
+			(at 160.3248 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7550,7 +7458,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 147.32 46.99 0)
+			(at 161.29 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7559,7 +7467,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 147.32 46.99 0)
+			(at 161.29 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7568,7 +7476,7 @@
 			)
 		)
 		(property "MFR" ""
-			(at 147.32 46.99 0)
+			(at 161.29 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7577,7 +7485,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 147.32 46.99 0)
+			(at 161.29 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7586,7 +7494,7 @@
 			)
 		)
 		(property "LCSC" "C15850"
-			(at 147.32 46.99 0)
+			(at 161.29 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8198,104 +8106,6 @@
 		)
 	)
 	(symbol
-		(lib_id "emf_beacon_ibrary:C")
-		(at 175.26 46.99 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cf70b81d-ca90-4793-b88a-d7e0c61e1867")
-		(property "Reference" "C23"
-			(at 171.45 45.7199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF"
-			(at 171.45 48.2599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 174.2948 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 175.26 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 175.26 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MFR" ""
-			(at 175.26 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" ""
-			(at 175.26 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C14663"
-			(at 175.26 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "3266ec1a-8a0e-4c64-8b1b-a517c898aa61")
-		)
-		(pin "1"
-			(uuid "d1f76601-bddb-409a-9c15-18e224009b40")
-		)
-		(instances
-			(project "emf_beacon"
-				(path "/0654b480-d862-4382-88d5-1ac411bf5574/ef912ffd-e5d9-46a9-9fff-0bf3d4ccd370"
-					(reference "C23")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3V3")
 		(at 217.17 38.1 0)
 		(unit 1)
@@ -8431,7 +8241,7 @@
 	)
 	(symbol
 		(lib_id "power:GND1")
-		(at 161.29 53.34 0)
+		(at 175.26 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8440,7 +8250,7 @@
 		(fields_autoplaced yes)
 		(uuid "e8a64e31-dadc-4c00-a4f2-ae1cd0ecf55f")
 		(property "Reference" "#PWR025"
-			(at 161.29 59.69 0)
+			(at 175.26 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8449,7 +8259,7 @@
 			)
 		)
 		(property "Value" "GND_ISO"
-			(at 161.29 58.42 0)
+			(at 175.26 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8457,7 +8267,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 161.29 53.34 0)
+			(at 175.26 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8466,7 +8276,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 161.29 53.34 0)
+			(at 175.26 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8475,7 +8285,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 161.29 53.34 0)
+			(at 175.26 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
