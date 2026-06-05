@@ -5,8 +5,9 @@
 	(uuid "74a77497-02fb-4fa6-ad0d-b7482f11b7e1")
 	(paper "A4")
 	(title_block
-		(date "2026-04-10")
-		(rev "0")
+		(title "LEDs")
+		(date "2026-06-05")
+		(rev "1")
 		(company "Wires & Bits")
 	)
 	(lib_symbols

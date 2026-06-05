@@ -5,8 +5,9 @@
 	(uuid "441a5727-d80c-4da7-a011-5f7d0820533d")
 	(paper "A4")
 	(title_block
-		(date "2026-04-10")
-		(rev "0")
+		(title "Controller")
+		(date "2026-06-05")
+		(rev "1")
 		(company "Wires & Bits")
 	)
 	(lib_symbols

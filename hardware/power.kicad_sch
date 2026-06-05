@@ -5,8 +5,9 @@
 	(uuid "cad25b7c-dc93-47f0-ac5d-227a2e17121e")
 	(paper "A4")
 	(title_block
-		(date "2026-04-10")
-		(rev "0")
+		(title "Power")
+		(date "2026-06-05")
+		(rev "1")
 		(company "Wires & Bits")
 	)
 	(lib_symbols

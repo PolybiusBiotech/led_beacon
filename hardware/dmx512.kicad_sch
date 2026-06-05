@@ -5,8 +5,9 @@
 	(uuid "28ff35c9-221d-4bbe-b570-1d546e113067")
 	(paper "A4")
 	(title_block
-		(date "2026-04-10")
-		(rev "0")
+		(title "DMX512")
+		(date "2026-06-05")
+		(rev "1")
 		(company "Wires & Bits")
 	)
 	(lib_symbols

@@ -5,8 +5,9 @@
 	(uuid "0654b480-d862-4382-88d5-1ac411bf5574")
 	(paper "A4")
 	(title_block
-		(date "2026-04-10")
-		(rev "0")
+		(title "LED Beacon")
+		(date "2026-06-05")
+		(rev "1")
 		(company "Wires & Bits")
 	)
 	(lib_symbols
