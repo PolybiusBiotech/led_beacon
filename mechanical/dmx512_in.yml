@@ -21,7 +21,7 @@ connectors:
     additional_components:
       -
         type: heatshrink
-        subtype: 1.6mm dia, 5mm long
+        subtype: 3.2mm dia, 10mm long
         qty_multiplier: populated
 
   J:
@@ -45,7 +45,7 @@ cables:
     gauge: 26 AWG
     length: 10 cm
     colors: [BK,RD,WH,YE,OG,GN]
-    notes: "Twist wires 2 &amp; 3 together.\nTwist wires 4 &amp; 5 together."
+    #notes: "Twist wires 2 &amp; 3 together.\nTwist wires 4 &amp; 5 together."
 
 connections:
   -

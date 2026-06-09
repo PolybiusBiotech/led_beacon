@@ -15,7 +15,7 @@ connectors:
     subtype: Socket
     manufacturer: '<a href="https://www.rean-connectors.com/en">Neutrik REAN</a>'
     mpn: '<a href="https://www.rean-connectors.com/en/product/rrx5f-z">RRX5F-Z-002-0</a>'
-    pinlabels: [GND,DMX+,DMX-,AUX-,AUX+,SHIELD]
+    pinlabels: [GND,DMX+,DMX-,AUX-,AUX+]
     show_pincount: false
     #image:
     additional_components:
@@ -27,7 +27,7 @@ connectors:
   J:
     type: JST PH 6way
     subtype: Housing
-    pinlabels: [GND,DMX+,DMX-,AUX-,AUX+,SHIELD]
+    pinlabels: [GND,DMX+,DMX-,AUX-,AUX+,NC]
     manufacturer: '<a href="https://www.jst-mfg.com/index_e.php">JST</a>'
     mpn: '<a href="https://www.jst-mfg.com/product/index.php?series=199">PHR-6</a>'
     #image:
@@ -44,11 +44,11 @@ cables:
     category: bundle
     gauge: 26 AWG
     length: 10 cm
-    colors: [BK,RD,WH,YE,OG,GN]
-    notes: "Twist wires 2 &amp; 3 together.\nTwist wires 4 &amp; 5 together."
+    colors: [BK,RD,WH,YE,OG]
+    #notes: "Twist wires 2 &amp; 3 together.\nTwist wires 4 &amp; 5 together."
 
 connections:
   -
-   - X: [1-6]
-   - W: [1-6]
-   - J: [1-6]
+   - X: [1-5]
+   - W: [1-5]
+   - J: [1-5]
