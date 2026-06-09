@@ -1,0 +1,58 @@
+name: Generate WireViz Diagrams
+
+on:
+  push:
+    paths:
+      - 'mechanical/**.yml'
+  workflow_dispatch: # Allows you to run this manually from the Actions tab
+
+jobs:
+  build-harnesses:
+    runs-on: ubuntu-latest
+
+    # Gives the action permission to write and commit files back to the repository
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Graphviz and WireViz
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y graphviz
+          pip install wireviz
+
+      - name: Create docs directory
+        run: mkdir -p ./docs
+
+      - name: Batch Process WireViz Files to PDF
+        run: |
+          # 1. Let WireViz natively compile all .yml files to .gv files
+          wireviz ./mechanical/*.yml -f g
+
+          # 2. Use Graphviz (dot) to process all .gv files into PDFs
+          # -O forces Graphviz to retain original file names
+          dot -Tpdf ./mechanical/*.gv -O
+
+          # 3. Move the generated PDFs into the docs directory and clean up
+          mv ./mechanical/*.gv.pdf ./docs/
+          rm -f ./mechanical/*.gv
+
+          # 4. Strip the intermediate '.gv' from the final PDF filenames
+          for file in ./docs/*.gv.pdf; do
+            [ -e "$file" ] || continue
+            mv "$file" "${file/.gv.pdf/.pdf}"
+          done
+
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-generate WireViz PDFs from mechanical/ [skip ci]"
+          file_pattern: 'docs/*.pdf'
