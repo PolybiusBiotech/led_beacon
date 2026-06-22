@@ -8,15 +8,17 @@
 #include <ESPAsyncWebServer.h>
 #include <AsyncTCP.h>
 
-// OTA
+// OTA?
 
 /** Settings **/
 const uint32_t led_count = 10;
-const uint32_t slot_count = led_count * 2; // 2 slots per LED
-const uint32_t ctrl_loop = 5000; // control loop duration in ms
-const uint32_t hold_last = 4000; // how long to keep last value in ms
-const int32_t warning_temp = 500000; // temp to disable LEDs in millicelcius
-const bool wifi_override_enable = true; // ignores the WiFi disable switch
+const uint32_t slot_count = led_count * 2;  // 2 slots per LED
+const uint32_t ctrl_loop = 5000;  // control loop duration in ms
+const uint32_t hold_last = 4000;  // how long to keep last value in ms
+const int32_t warning_temp = 500000;  // temp to disable LEDs in millicelcius
+const int32_t warning_volts = 6000;  // voltage to disable LEDs in millivolts
+const bool led_test_pattern_enable = true;  // sets up a test pattern on the LEDs
+const bool wifi_override_enable = false;  // ignores the WiFi disable switch
 const int wifi_channel = 1;
 
 /** Pin Map **/
@@ -28,12 +30,9 @@ const int wifi_channel = 1;
 #define PIN_WIFI_EN   (5)
 #define PIN_DMX_EN    (6)
 #define PIN_LED_OE    (7)
-#define PIN_LED       (8)
-//#define PIN_DMX_RX   (20)
-//#define PIN_DMX_TX   (21)
-// ESP32-C3-DEVKITM-1 uses a USB↔Serial converter attached to IO20/21 not USB on IO18/19!
-#define PIN_DMX_RX   (19)
-#define PIN_DMX_TX   (18)
+#define PIN_STATE_LED (8)
+#define PIN_DMX_RX   (20)
+#define PIN_DMX_TX   (21)
 
 /** Hardware instantiations  **/
 Adafruit_PWMServoDriver leds = Adafruit_PWMServoDriver(0x40);
@@ -50,6 +49,7 @@ uint32_t current_uptime = 0x00;
 uint32_t dmx_address = 0x00;
 uint8_t dmx_data[slot_count] = {0x00};
 bool wifi_enable = true;
+uint8_t test_pattern_cntr = 0x00;
 uint16_t led_brightness[led_count] = {0x00};
 uint32_t led_half_period[led_count] = {0x00};
 volatile uint32_t led_strobe_cnt[led_count] = {0x00};
@@ -90,7 +90,7 @@ const char index_html[] PROGMEM = R"rawliteral(
   <header><h1 style="margin:0; font-size: 1.5rem;">LED Beacon</h1></header>
   <div class="grid">
     <div class="card">
-      <h3>📟 DMX Status</h3>
+      <h3>📟 DMX Address</h3>
       <div class="val">%DMX_ADDR%</div>
       <div class="stats"><span><span class="stat-label">Last:</span>%LAST_DMX%</span></div>
     </div>
@@ -114,7 +114,7 @@ const char index_html[] PROGMEM = R"rawliteral(
       <h3>⚙️ System</h3>
       <div class="system-list">
         <div><span class="stat-label">Uptime:</span> %UPTIME%</div>
-        <div><spam class="stat-label">Heap Free:</span> %HEAP_FREE%</div>
+        <div><span class="stat-label">Heap Free:</span> %HEAP_FREE%</div>
         <div><span class="stat-label">Heap Min:</span> %HEAP_MIN%</div>
         <div><span class="stat-label">Stack Free:</span> %STACK_FREE%</div>
         <div><span class="stat-label">Reset:</span> %RESET_REASON%</div>
@@ -138,24 +138,23 @@ void setup(void) {
   pinMode(PIN_LED_OE, OUTPUT);
   pinMode(PIN_DMX_EN, OUTPUT);
   pinMode(PIN_WIFI_EN, INPUT_PULLUP);
-  pinMode(PIN_LED, OUTPUT);
+  pinMode(PIN_STATE_LED, OUTPUT);
   digitalWrite(PIN_LED_OE, HIGH);
   digitalWrite(PIN_DMX_EN, LOW);
-  digitalWrite(PIN_LED, LOW);
+  digitalWrite(PIN_STATE_LED, LOW);
   analogSetAttenuation(ADC_11db);
   Serial.println("GPIO initialised...");
- 
+
   // init Timer
-  led_timer = timerBegin(1, 80, true); // 80Mhz/80 = 1M ticks/sec for 1us resolution
+  led_timer = timerBegin(1, 80, true);  // 80Mhz/80 = 1M ticks/sec for 1us resolution
   timerAttachInterrupt(led_timer, &onTimer, true);
-  timerAlarmWrite(led_timer, 1000, true); // trigger every 1000us
+  timerAlarmWrite(led_timer, 1000, true);  // trigger every 1000us
   timerAlarmEnable(led_timer);
   Serial.println("Timer initialised...");
 
   // init I2C
   Wire.begin(PIN_SDA, PIN_SCL);
-  //Wire.setClock(1000000);
-  Wire.setClock(400000); // because of crap breadboard
+  Wire.setClock(800000);  // MCP23017 can't do 1MHz unless it's powered from 5V
   Serial.println("I²C initialised...");
 
   /*
@@ -181,9 +180,9 @@ void setup(void) {
   // init MCP23017
   mcp.begin_I2C(0x20, &Wire);
   mcp.setupInterrupts(true, true, LOW);
-  for(int i = 0; i < 16; i++) {
+  for (int i = 0; i < 16; i++) {
     mcp.pinMode(i, INPUT_PULLUP);
-    if (i == 7 or i > 9) continue; // only configures 0→6 & 8→9
+    if (i == 7 || i > 9) continue;  // only configures 0→6 & 8→9
     mcp.setupInterruptPin(i, CHANGE);
   }
   Serial.println("MCP23017 initialised...");
@@ -191,30 +190,30 @@ void setup(void) {
   // init PCA9685
   leds.begin();
   leds.setPWMFreq(1000);
-  leds.setOutputMode(true); // LEDs driven by external NMOS
+  leds.setOutputMode(true);  // LEDs driven by external NMOS
   for (int i = 0; i < led_count; i++) leds.setPWM(i, 410*i, 0);
-  digitalWrite(PIN_LED_OE, LOW); // enable LEDs!
+  digitalWrite(PIN_LED_OE, LOW);  // enable LEDs!
   Serial.println("PCA9685 initialised...");
 
   // init DMX
   dmx_config_t config = DMX_CONFIG_DEFAULT;
   static dmx_personality_t personalities[] {
-    {20, "10-Light Mode"} // 20 slots, custom name
+    {20, "10-Light Mode"}  // 20 slots, custom name
   };
   int personality_count = 1;
   dmx_driver_install(dmx_num, &config, personalities, personality_count);
   dmx_set_pin(dmx_num, PIN_DMX_TX, PIN_DMX_RX, PIN_DMX_EN);
   Serial.println("DMX initialised...");
-  
+
   // init Watchdog
-  
+
   // init WiFi
   WiFi.softAP("LED_Beacon_Status", "password123", wifi_channel);
   IPAddress IP = WiFi.softAPIP();
   Serial.print("AP IP Address: ");
   Serial.println(IP);
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
-    //Serial.println("Request received!");
+    // Serial.println("Request received!");
     // The 'processor' argument tells the server to swap out the %VARIABLES%
     request->send(200, "text/html", index_html, processor);
   });
@@ -234,17 +233,15 @@ void setup(void) {
 }
 
 void loop(void) {
-  
   // Get DMX packet and update LEDs
   dmx_packet_t packet;
   if (dmx_receive(dmx_num, &packet, 0)) {
     if (!packet.err) {
-      dmx_read_offset(dmx_num, dmx_address, dmx_data, slot_count);
+      uint32_t slot_max = min(512 - dmx_address + 1, slot_count);  // check to see how many valid slots are left
+      dmx_read_offset(dmx_num, dmx_address, dmx_data, slot_max);
+      memset(&dmx_data[slot_max], 0x00, slot_count - slot_max);  // zero out the invalid slots
       last_valid_dmx = millis();
-      //dmxSignalLost = false;
-
-      Serial.write(0xFE);
-      Serial.write(dmx_data, slot_count);
+      // dmxSignalLost = false;
 
       uint16_t new_brightness;
       uint32_t new_half_period;
@@ -262,7 +259,7 @@ void loop(void) {
             // force an update if LED is to be fully on
             led_update_req[i] = true;
           }
-        }          
+        }
       }
     }
   }
@@ -279,16 +276,31 @@ void loop(void) {
     }
   }
 
+  // inject test pattern
+  if (led_test_pattern_enable == true) {
+    if (millis() - last_ctrl_update >= ctrl_loop) {
+      uint8_t test_brightness = (test_pattern_cntr < 128) ? (test_pattern_cntr << 1) : (~test_pattern_cntr << 1);
+      uint16_t new_brightness = map_led_brightness(test_brightness);
+
+      for (int i = 0; i < led_count; i++) {
+        led_update_req[i] = true;
+        led_brightness[i] = new_brightness;
+      }
+
+      test_pattern_cntr++;
+    }
+  } else {
+    test_pattern_cntr = 0x00;
+  }
+
   // update LEDs
   for (int i = 0; i < led_count; i++) {
     if (led_update_req[i]) {
       led_update_req[i] = false;
-
       uint16_t on_time = 410 * i;
       uint16_t off_time;
-      
       if (led_state[i] && led_brightness[i] > 0x00) {
-        if(led_brightness[i] == 4095) {
+        if (led_brightness[i] == 4095) {
           // special PCA9685 'always on' mode
           on_time = 4096;
           off_time = 0;
@@ -299,11 +311,11 @@ void loop(void) {
         // 'always off' mode
         off_time = on_time;
       }
-     
       leds.setPWM(i, on_time, off_time);
     }
   }
-  
+
+  // update control loop
   if (millis() - last_ctrl_update >= ctrl_loop) {
     last_ctrl_update = millis();
 
@@ -311,7 +323,7 @@ void loop(void) {
     current_volts = get_volts();
     current_temp = get_temp();
 
-    // update min/max temp/volts    
+    // update min/max temp/volts
     if (current_temp > -50000 && current_temp < 150000) {
       // but only if temp is between -50°C and 150°C
       min_temp = min(min_temp, current_temp);
@@ -322,59 +334,63 @@ void loop(void) {
 
     // dealing with excessive temp
     if (current_temp >= warning_temp) {
-      digitalWrite(PIN_LED_OE, HIGH); // disable LEDs while too hot!
+      digitalWrite(PIN_LED_OE, HIGH);  // disable LEDs while too hot!
     } else if (current_temp <= (warning_temp - 5000)) {
-      digitalWrite(PIN_LED_OE, LOW); // enable LEDs now it's cooler
+      digitalWrite(PIN_LED_OE, LOW);  // enable LEDs now it's cooler
     }
-    
-    // not sure what actions to take on:      
-      // under voltage
-      // over voltage
-    
+
+    // not sure what actions to take on over voltage
+
+    // dealing with under voltage
+    if (current_volts <= warning_volts) {
+      digitalWrite(PIN_LED_OE, HIGH);  // disable LEDs if input voltage is too low!
+    } else if (current_volts <= (warning_volts + 3000)) {
+      digitalWrite(PIN_LED_OE, LOW);  // enable LEDs now input voltage is higher
+    }
+
     current_uptime = esp_timer_get_time() / 1000000;
-       
     // check MCP and update DMX address & WiFi AP
     if (digitalRead(PIN_I2C_INT) == LOW) {
       uint16_t dmx_adr_switches, wifi_en_switches;
-      uint16_t mcp_pin_values = ~mcp.readGPIOAB(); // read and flip switch states from ACTIVE_LOW to ACTIVE_HIGH
-      
-      dmx_adr_switches = (mcp_pin_values & 0x7F) | ((mcp_pin_values & 0x0300) >> 1);  // keep 0→6 & 8→9 and concatenate to remove 7
-      dmx_address = dmx_adr_switches + 1; // offset and save DMX address
+      uint16_t mcp_pin_values = ~mcp.readGPIOAB();  // read and flip switch states from ACTIVE_LOW to ACTIVE_HIGH
 
-      wifi_en_switches = (mcp_pin_values >> ?) & 0x01;
+      // keep 0→6 & 8→9 and concatenate to remove 7
+      dmx_adr_switches = (mcp_pin_values & 0x7F) | ((mcp_pin_values & 0x0300) >> 1);
+      dmx_address = dmx_adr_switches;  // save DMX address
 
-      if (wifi_override_enable || wifi_en_switches) wifi_enable = true;
-      else wifi_enable = false;
+      wifi_en_switches = (mcp_pin_values >> 10) & 0x01;
+
+      if (wifi_override_enable || wifi_en_switches) {
+        wifi_enable = true;
+      } else {
+        wifi_enable = false;
+      }
     }
 
     // enable/disable WiFi AP
     if (wifi_enable && !wifi_ap_active) {
       WiFi.softAP("LED_Beacon_Ctrl", "password123");
       server.begin();
-      apActive = true;
-    } 
-    else if (!wifi_enable && wifi_ap_active) {
+      wifi_ap_active = true;
+    } else if (!wifi_enable && wifi_ap_active) {
       server.end();
       WiFi.softAPdisconnect(true);
       WiFi.mode(WIFI_OFF);
-      apActive = false;
-    }   
+      wifi_ap_active = false;
+    }
 
     // update USB status
-      
   }
-
 }
 
 void IRAM_ATTR onTimer(void) {
   for (int i = 0; i < 10; i++) {
-    
     if (led_half_period[i] == 0) {
-      if (!led_state[i]) { 
+      if (!led_state[i]) {
         led_state[i] = true;
         led_update_req[i] = true;
       }
-      led_strobe_cnt[i] = 0; // Keep counter reset
+      led_strobe_cnt[i] = 0;  // Keep counter reset
       continue;
     }
 
@@ -410,7 +426,6 @@ static const uint16_t gamma12_table[] PROGMEM = {
 };
 
 uint16_t map_led_brightness(uint8_t brightness) {
-  
   return gamma12_table[brightness];
 }
 
@@ -441,30 +456,30 @@ uint32_t map_led_period(uint8_t period) {
   // msg: 0 = solid, 1 = slow, 255 = fast
   // DMX 1   = 5.000 seconds
   // DMX 255 = 0.033 seconds
-  
+
   return strobe_half_period_table[period];
 }
 
 String processor(const String& var) {
-  if(var == "DMX_ADDR") return String(dmx_address);
-  if(var == "LAST_DMX") return String((millis() - last_valid_dmx)/1000) + "s ago";
-  if(var == "VOLT")     return String(((float)current_volts/1000), 2) + "V";
-  if(var == "VOLT_MIN") return String(((float)min_volts/1000), 2) + "V";
-  if(var == "VOLT_MAX") return String(((float)max_volts/1000), 2) + "V";
-  if(var == "TEMP")     return String(((float)current_temp/1000), 2) + "&deg;C";
-  if(var == "TEMP_MIN") return String(((float)min_temp/1000), 2) + "&deg;C";
-  if(var == "TEMP_MAX") return String(((float)max_temp/1000), 2) + "&deg;C";
-  if(var == "BUILD")    return String(__DATE__) + " " + String(__TIME__);
-  if(var == "HEAP_FREE") return String(ESP.getFreeHeap() / 1024.0, 1) + " KB";
-  if(var == "HEAP_MIN")  return String(ESP.getMinFreeHeap() / 1024.0, 1) + " KB";
-  if(var == "STACK_FREE") return String(uxTaskGetStackHighWaterMark(NULL)) + " bytes";
-  if(var == "UPTIME") {
+  if (var == "DMX_ADDR") return String(dmx_address);
+  if (var == "LAST_DMX") return String((millis() - last_valid_dmx)/1000) + "s ago";
+  if (var == "VOLT")     return String(((float)current_volts/1000), 2) + "V";
+  if (var == "VOLT_MIN") return String(((float)min_volts/1000), 2) + "V";
+  if (var == "VOLT_MAX") return String(((float)max_volts/1000), 2) + "V";
+  if (var == "TEMP")     return String(((float)current_temp/1000), 2) + "&deg;C";
+  if (var == "TEMP_MIN") return String(((float)min_temp/1000), 2) + "&deg;C";
+  if (var == "TEMP_MAX") return String(((float)max_temp/1000), 2) + "&deg;C";
+  if (var == "BUILD")    return String(__DATE__) + " " + String(__TIME__);
+  if (var == "HEAP_FREE") return String(ESP.getFreeHeap() / 1024.0, 1) + " KB";
+  if (var == "HEAP_MIN")  return String(ESP.getMinFreeHeap() / 1024.0, 1) + " KB";
+  if (var == "STACK_FREE") return String(uxTaskGetStackHighWaterMark(NULL)) + " bytes";
+  if (var == "UPTIME") {
     uint32_t t = current_uptime;
     uint32_t s = t % 60;
     uint32_t m = (t / 60) % 60;
     uint32_t h = (t / 3600) % 24;
     uint32_t d = t / 86400;
-  
+
     String res = "";
     if (d > 0) res += String(d) + "d ";
     if (h > 0 || d > 0) res += String(h) + "h ";
@@ -472,7 +487,7 @@ String processor(const String& var) {
     res += String(s) + "s";
     return res;
   }
-  if(var == "RESET_REASON") {
+  if (var == "RESET_REASON") {
     esp_reset_reason_t reason = esp_reset_reason();
     switch (reason) {
       case ESP_RST_POWERON: return "Power On";
@@ -501,14 +516,13 @@ struct TempPoint {
 
 // LUT for: 3.3V -> 10k Resistor -> IO0 -> Thermistor + 1uF -> GND
 const TempPoint lut[] = {
-    {3115, -10}, {2703, 0},  {2263, 10}, {1850, 20}, 
-    {1485, 30},  {1176, 40}, {924, 50},  {724, 60}, 
+    {3115, -10}, {2703, 0},  {2263, 10}, {1850, 20},
+    {1485, 30},  {1176, 40}, {924, 50},  {724, 60},
     {568, 70},   {449, 80},  {356, 90},  {286, 100}
 };
 const size_t LUT_SIZE = sizeof(lut) / sizeof(lut[0]);
 
 int32_t get_temp(void) {
-
   int32_t raw_temp = 0x00;
 
   for (int i = 0; i < 8; i++) {
@@ -518,7 +532,7 @@ int32_t get_temp(void) {
   raw_temp /= 8;
 
   // Failsafe: Thermistor shorted to 3.3V (Vout low)
-  if (raw_temp  < 50) return 300000; 
+  if (raw_temp  < 50) return 300000;
   // Failsafe: Thermistor open/disconnected (Vout high)
   if (raw_temp > 4050) return -300000;
 
@@ -527,7 +541,7 @@ int32_t get_temp(void) {
     if (raw_temp <= lut[i+1].adc) {
       int32_t x0 = lut[i].adc;
       int32_t x1 = lut[i+1].adc;
-      int32_t y0 = lut[i].temp * 1000; // Convert to millidegrees
+      int32_t y0 = lut[i].temp * 1000;  // Convert to millidegrees
       int32_t y1 = lut[i+1].temp * 1000;
 
       // millidegrees = y0 + (raw_temp - x0) * (y1 - y0) / (x1 - x0)
@@ -535,11 +549,11 @@ int32_t get_temp(void) {
     }
   }
 
-  return 300000; // Out of range high
+  return 300000;  // Out of range high
 }
 
 uint32_t get_volts(void) {
-  const uint32_t lsb_2_uvolts = 5802; // Vadc × ((62kΩ + 10kΩ) ÷ 10kΩ) = VCC
+  const uint32_t lsb_2_uvolts = 5802;  // Vadc × ((62kΩ + 10kΩ) ÷ 10kΩ) = VCC
   uint32_t raw_volts = 0x00;
 
   for (int i = 0; i < 8; i++) {
@@ -549,7 +563,7 @@ uint32_t get_volts(void) {
   raw_volts /= 8;
 
   // convert to millivolts
-  raw_volts = ((raw_volts * lsb_2_uvolts) + 500) / 1000; // outputs millivolts
+  raw_volts = ((raw_volts * lsb_2_uvolts) + 500) / 1000;  // outputs millivolts
 
   return raw_volts;
 }
