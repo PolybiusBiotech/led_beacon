@@ -17,9 +17,9 @@ const uint32_t ctrl_loop = 5000;  // control loop duration in ms
 const uint32_t hold_last = 4000;  // how long to keep last value in ms
 const int32_t warning_temp = 500000;  // temp to disable LEDs in millicelcius
 const int32_t warning_volts = 6000;  // voltage to disable LEDs in millivolts
-const bool led_test_pattern_enable = true;  // sets up a test pattern on the LEDs
-const bool wifi_override_enable = false;  // ignores the WiFi disable switch
 const int wifi_channel = 1;
+const char* wifi_ssid = "LED_Beacon_Status";
+const char* wifi_pass = "password123";
 
 /** Pin Map **/
 #define PIN_TEMP_MON  (0)
@@ -48,7 +48,9 @@ uint32_t current_volts = 0x00, min_volts, max_volts;
 uint32_t current_uptime = 0x00;
 uint32_t dmx_address = 0x00;
 uint8_t dmx_data[slot_count] = {0x00};
-bool wifi_enable = true;
+bool wifi_enable = false;
+bool test_pattern_enable = false;  // sets up a test pattern on the LEDs
+uint32_t test_pattern_id = 0;
 uint8_t test_pattern_cntr = 0x00;
 uint16_t led_brightness[led_count] = {0x00};
 uint32_t led_half_period[led_count] = {0x00};
@@ -84,6 +86,10 @@ const char index_html[] PROGMEM = R"rawliteral(
     .stats { font-size: 0.85rem; color: var(--dim); display: flex; justify-content: space-around; border-top: 1px solid #2a2a2a; padding-top: 10px; margin-top: 5px; }
     .system-list { text-align: left; display: inline-block; font-size: 0.85rem; line-height: 1.6; }
     .stat-label { color: #555; margin-right: 4px; }
+    .btn-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+    .btn { background: #2a2a2a; color: var(--text); border: 1px solid #444; padding: 12px 6px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.2s; font-size: 0.85rem; }
+    .btn:hover { background: #3a3a3a; border-color: var(--accent); }
+    .btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
   </style>
 </head>
 <body>
@@ -121,7 +127,28 @@ const char index_html[] PROGMEM = R"rawliteral(
         <div><span class="stat-label">Build:</span> %BUILD%</div>
       </div>
     </div>
+    <div class="card">
+      <h3>🧪 Test Patterns</h3>
+      <div class="btn-group">
+        <button class="btn %TEST_STATE_0%" onclick="setPattern(0, this)">DMX</button>
+        <button class="btn %TEST_STATE_1%" onclick="setPattern(1, this)">Breathing</button>
+        <button class="btn %TEST_STATE_2%" onclick="setPattern(2, this)">Strobe</button>
+      </div>
+    </div>
   </div>
+
+  <script>
+    function setPattern(id, btn) {
+      fetch('/set_pattern?id=' + id)
+        .then(response => {
+          if (response.ok) {
+            document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+          }
+        })
+        .catch(err => console.error('Error sending test command:', err));
+    }
+  </script>
 </body>
 </html>
 )rawliteral";
@@ -208,16 +235,23 @@ void setup(void) {
   // init Watchdog
 
   // init WiFi
-  WiFi.softAP("LED_Beacon_Status", "password123", wifi_channel);
-  IPAddress IP = WiFi.softAPIP();
-  Serial.print("AP IP Address: ");
-  Serial.println(IP);
-  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
-    // Serial.println("Request received!");
-    // The 'processor' argument tells the server to swap out the %VARIABLES%
+  wifi_ap_active = false;
+
+  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
     request->send(200, "text/html", index_html, processor);
+    Serial.println("Serving webpage...");
   });
-  server.begin();
+  server.on("/set_pattern", HTTP_GET, [](AsyncWebServerRequest *request) {
+    if (request->hasParam("id")) {
+      test_pattern_id = request->getParam("id")->value().toInt();
+      request->send(200, "text/plain", "OK");
+  } else {
+    request->send(400, "text/plain", "Bad Request");
+  }
+  });
+
+
+
 
   // init OTA
 
@@ -229,7 +263,7 @@ void setup(void) {
   min_volts = current_volts;
   max_volts = current_volts;
 
-  Serial.println("Setup complete!\r\nStarting loop...");
+  Serial.println("Setup complete!\r\nStarting loop...\r\n");
 }
 
 void loop(void) {
@@ -264,6 +298,8 @@ void loop(void) {
     }
   }
 
+  delay(1);
+
   // handle DMX timeout
   if (millis() - last_valid_dmx > hold_last) {
     for (int i = 0; i < led_count; i++) {
@@ -277,18 +313,36 @@ void loop(void) {
   }
 
   // inject test pattern
-  if (led_test_pattern_enable == true) {
-    if (millis() - last_ctrl_update >= ctrl_loop) {
-      uint8_t test_brightness = (test_pattern_cntr < 128) ? (test_pattern_cntr << 1) : (~test_pattern_cntr << 1);
-      uint16_t new_brightness = map_led_brightness(test_brightness);
+  if (test_pattern_id > 0) {
+    // animation loop
 
-      for (int i = 0; i < led_count; i++) {
-        led_update_req[i] = true;
-        led_brightness[i] = new_brightness;
-      }
+    uint8_t test_brightness;
+    uint16_t new_brightness;
+    uint32_t new_half_period;
+    switch (test_pattern_id) {
+      case 1:  // breathing
+        test_brightness = (test_pattern_cntr < 128) ? (test_pattern_cntr << 1) : (~test_pattern_cntr << 1);
+        new_brightness = map_led_brightness(test_brightness);
 
-      test_pattern_cntr++;
+        for (int i = 0; i < led_count; i++) {
+          led_brightness[i] = new_brightness;
+          led_update_req[i] = true;
+        }
+        break;
+      case 2:  // strobes
+        new_brightness = map_led_brightness(128);
+        new_half_period = map_led_period(128);
+
+        for (int i = 0; i < led_count; i++) {
+          led_brightness[i] = new_brightness;
+          led_half_period[i] = new_half_period;
+          led_update_req[i] = true;
+        }
+        break;
+      default:
+        break;
     }
+    test_pattern_cntr++;
   } else {
     test_pattern_cntr = 0x00;
   }
@@ -350,33 +404,36 @@ void loop(void) {
 
     current_uptime = esp_timer_get_time() / 1000000;
     // check MCP and update DMX address & WiFi AP
-    if (digitalRead(PIN_I2C_INT) == LOW) {
-      uint16_t dmx_adr_switches, wifi_en_switches;
-      uint16_t mcp_pin_values = ~mcp.readGPIOAB();  // read and flip switch states from ACTIVE_LOW to ACTIVE_HIGH
+    uint16_t dmx_adr_switches, wifi_en_switches;
+    uint16_t mcp_pin_values = ~mcp.readGPIOAB();  // read and flip switch states from ACTIVE_LOW to ACTIVE_HIGH
 
-      // keep 0→6 & 8→9 and concatenate to remove 7
-      dmx_adr_switches = (mcp_pin_values & 0x7F) | ((mcp_pin_values & 0x0300) >> 1);
-      dmx_address = dmx_adr_switches;  // save DMX address
+    Serial.print("MCP reads: 0b");
+    Serial.println(mcp_pin_values, BIN);
 
-      wifi_en_switches = (mcp_pin_values >> 10) & 0x01;
+    // keep 0→6 & 8→9 and concatenate to remove 7
+    dmx_adr_switches = (mcp_pin_values & 0x7F) | ((mcp_pin_values & 0x0300) >> 1);
+    dmx_address = dmx_adr_switches;  // save DMX address
 
-      if (wifi_override_enable || wifi_en_switches) {
-        wifi_enable = true;
-      } else {
-        wifi_enable = false;
-      }
-    }
+    wifi_enable = (mcp_pin_values >> 10) & 0x01;
 
     // enable/disable WiFi AP
     if (wifi_enable && !wifi_ap_active) {
-      WiFi.softAP("LED_Beacon_Ctrl", "password123");
-      server.begin();
+      WiFi.persistent(false);
+      WiFi.disconnect(true);
+      WiFi.mode(WIFI_AP);
+      WiFi.softAP(wifi_ssid, wifi_pass, 1);
       wifi_ap_active = true;
+      server.begin();
+      Serial.print("Enabling WiFi AP with IP: ");
+      Serial.println(WiFi.softAPIP());
     } else if (!wifi_enable && wifi_ap_active) {
       server.end();
+      WiFi.persistent(false);
       WiFi.softAPdisconnect(true);
       WiFi.mode(WIFI_OFF);
       wifi_ap_active = false;
+      test_pattern_id = 0;  // set back to DMX mode
+      Serial.println("Disabling WiFi...");
     }
 
     // update USB status
@@ -501,6 +558,9 @@ String processor(const String& var) {
       default:               return "Unknown";
     }
   }
+  if (var == "TEST_STATE_0") return (test_pattern_id == 0) ? "active" : "";
+  if (var == "TEST_STATE_1") return (test_pattern_id == 1) ? "active" : "";
+  if (var == "TEST_STATE_2") return (test_pattern_id == 2) ? "active" : "";
   return String();
 }
 
