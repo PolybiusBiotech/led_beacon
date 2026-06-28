@@ -13,7 +13,7 @@
 /** Settings **/
 const uint32_t led_count = 10;
 const uint32_t slot_count = led_count * 2;  // 2 slots per LED
-const uint32_t ctrl_loop = 5000;  // control loop duration in ms
+const uint32_t ctrl_loop = 2500;  // control loop duration in ms
 const uint32_t hold_last = 4000;  // how long to keep last value in ms
 const int32_t warning_temp = 500000;  // temp to disable LEDs in millicelcius
 const int32_t warning_volts = 6000;  // voltage to disable LEDs in millivolts
@@ -249,9 +249,8 @@ void setup(void) {
     request->send(400, "text/plain", "Bad Request");
   }
   });
-
-
-
+  WiFi.persistent(false);
+  WiFi.mode(WIFI_OFF); 
 
   // init OTA
 
@@ -301,7 +300,7 @@ void loop(void) {
   delay(1);
 
   // handle DMX timeout
-  if (millis() - last_valid_dmx > hold_last) {
+  if (millis() - last_valid_dmx > hold_last && test_pattern_id == 0) {
     for (int i = 0; i < led_count; i++) {
       if (led_brightness[i] != 0x00) {
         led_brightness[i] = 0x00;
@@ -315,37 +314,39 @@ void loop(void) {
   // inject test pattern
   if (test_pattern_id > 0) {
     // animation loop
+      uint8_t test_brightness;
+      uint16_t new_brightness;
+      uint32_t new_half_period;
+      switch (test_pattern_id) {
+        case 1:  // breathing
+          test_brightness = (test_pattern_cntr < 128) ? (test_pattern_cntr << 1) : (~test_pattern_cntr << 1);
+          new_brightness = map_led_brightness(test_brightness);
 
-    uint8_t test_brightness;
-    uint16_t new_brightness;
-    uint32_t new_half_period;
-    switch (test_pattern_id) {
-      case 1:  // breathing
-        test_brightness = (test_pattern_cntr < 128) ? (test_pattern_cntr << 1) : (~test_pattern_cntr << 1);
-        new_brightness = map_led_brightness(test_brightness);
+          for (int i = 0; i < led_count; i++) {
+            led_brightness[i] = new_brightness;
+            led_update_req[i] = true;
+          }
+          break;
+        case 2:  // strobes
+          new_brightness = map_led_brightness(128);
+          new_half_period = map_led_period(128);
 
-        for (int i = 0; i < led_count; i++) {
-          led_brightness[i] = new_brightness;
-          led_update_req[i] = true;
-        }
-        break;
-      case 2:  // strobes
-        new_brightness = map_led_brightness(128);
-        new_half_period = map_led_period(128);
-
-        for (int i = 0; i < led_count; i++) {
-          led_brightness[i] = new_brightness;
-          led_half_period[i] = new_half_period;
-          led_update_req[i] = true;
-        }
-        break;
-      default:
-        break;
+          for (int i = 0; i < led_count; i++) {
+            if (led_brightness[i] != new_brightness && led_half_period[i] !=  new_half_period) {
+              led_brightness[i] = new_brightness;
+              led_half_period[i] = new_half_period;
+              led_update_req[i] = true;
+            }
+          }
+          break;
+        default:
+          break;
+      }
+      test_pattern_cntr++;
+    } else {
+      test_pattern_cntr = 0x00;
     }
-    test_pattern_cntr++;
-  } else {
-    test_pattern_cntr = 0x00;
-  }
+
 
   // update LEDs
   for (int i = 0; i < led_count; i++) {
@@ -419,9 +420,8 @@ void loop(void) {
     // enable/disable WiFi AP
     if (wifi_enable && !wifi_ap_active) {
       WiFi.persistent(false);
-      WiFi.disconnect(true);
       WiFi.mode(WIFI_AP);
-      WiFi.softAP(wifi_ssid, wifi_pass, 1);
+      WiFi.softAP(wifi_ssid, wifi_pass, wifi_channel);
       wifi_ap_active = true;
       server.begin();
       Serial.print("Enabling WiFi AP with IP: ");
