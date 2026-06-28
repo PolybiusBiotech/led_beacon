@@ -49,7 +49,6 @@ uint32_t current_uptime = 0x00;
 uint32_t dmx_address = 0x00;
 uint8_t dmx_data[slot_count] = {0x00};
 bool wifi_enable = false;
-bool test_pattern_enable = false;  // sets up a test pattern on the LEDs
 uint32_t test_pattern_id = 0;
 uint8_t test_pattern_cntr = 0x00;
 uint16_t led_brightness[led_count] = {0x00};
@@ -166,7 +165,7 @@ void setup(void) {
   pinMode(PIN_DMX_EN, OUTPUT);
   pinMode(PIN_WIFI_EN, INPUT_PULLUP);
   pinMode(PIN_STATE_LED, OUTPUT);
-  digitalWrite(PIN_LED_OE, HIGH);
+  digitalWrite(PIN_LED_OE, HIGH);  // disable LEDs
   digitalWrite(PIN_DMX_EN, LOW);
   digitalWrite(PIN_STATE_LED, LOW);
   analogSetAttenuation(ADC_11db);
@@ -218,7 +217,8 @@ void setup(void) {
   leds.begin();
   leds.setPWMFreq(1000);
   leds.setOutputMode(true);  // LEDs driven by external NMOS
-  for (int i = 0; i < led_count; i++) leds.setPWM(i, 410*i, 0);
+  for (int i = 0; i < led_count; i++) leds.setPWM(i, 0x000, 0x1000);  // sets LED[i]_OFF_H bit
+  delay(1);  // takes a PWM cycle to update
   digitalWrite(PIN_LED_OE, LOW);  // enable LEDs!
   Serial.println("PCA9685 initialised...");
 
@@ -250,7 +250,7 @@ void setup(void) {
   }
   });
   WiFi.persistent(false);
-  WiFi.mode(WIFI_OFF); 
+  WiFi.mode(WIFI_OFF);
 
   // init OTA
 
@@ -263,6 +263,7 @@ void setup(void) {
   max_volts = current_volts;
 
   Serial.println("Setup complete!\r\nStarting loop...\r\n");
+  test_pattern_id = 0;
 }
 
 void loop(void) {
@@ -461,7 +462,7 @@ void IRAM_ATTR onTimer(void) {
 }
 
 /** 8bit to 12bit gamma look up table
- * uint16_t = (uint8_t / (2^8 - 1)) ^ 2.8 * (2^12 - 1)
+ * uint16_t = (uint8_t / (2^8 - 1)) ^ 2.8 * (2^12 - 2)
  */
 static const uint16_t gamma12_table[] PROGMEM = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
@@ -479,7 +480,7 @@ static const uint16_t gamma12_table[] PROGMEM = {
     1850, 1877, 1905, 1932, 1960, 1988, 2017, 2045, 2074, 2103, 2133, 2162, 2192, 2223, 2253, 2284,
     2315, 2346, 2378, 2410, 2442, 2474, 2507, 2540, 2573, 2606, 2640, 2674, 2708, 2743, 2778, 2813,
     2849, 2884, 2920, 2957, 2993, 3030, 3067, 3105, 3143, 3181, 3219, 3258, 3297, 3336, 3376, 3416,
-    3456, 3496, 3537, 3578, 3619, 3661, 3703, 3745, 3788, 3831, 3874, 3918, 3962, 4006, 4050, 4095
+    3456, 3496, 3537, 3578, 3619, 3661, 3703, 3745, 3788, 3831, 3874, 3917, 3961, 4005, 4049, 4094
 };
 
 uint16_t map_led_brightness(uint8_t brightness) {
