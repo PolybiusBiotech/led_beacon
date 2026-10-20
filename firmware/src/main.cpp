@@ -442,7 +442,7 @@ void loop(void) {
 }
 
 void IRAM_ATTR onTimer(void) {
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < led_count; i++) {
     if (led_half_period[i] == 0) {
       if (!led_state[i]) {
         led_state[i] = true;
