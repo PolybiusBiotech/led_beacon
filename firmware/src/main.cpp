@@ -599,7 +599,7 @@ int32_t get_temp(void) {
 
   // Linear Interpolation
   for (size_t i = 0; i < LUT_SIZE - 1; i++) {
-    if (raw_temp <= lut[i+1].adc) {
+    if (raw_temp >= lut[i+1].adc) {
       int32_t x0 = lut[i].adc;
       int32_t x1 = lut[i+1].adc;
       int32_t y0 = lut[i].temp * 1000;  // Convert to millidegrees
