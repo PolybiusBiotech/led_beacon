@@ -6,8 +6,8 @@ Upgrading cheap LED beacons for professional DMX/Art-Net stage control.
 
 ## 🚀 Manufacturing Status
 - **Design:** Completed
-- **Prototyping:** In Progress
-- **Production:** Pending
+- **Prototyping:** Completed
+- **Production:** Completed
 
 
 ## 📋 Quick Specs
@@ -42,11 +42,12 @@ Upgrading cheap LED beacons for professional DMX/Art-Net stage control.
 3. Select a DMX address with the DIP switch
    * This light consumes 20 slots so avoid address above 492.
    * Ensure that this light is >20 slots away from the next lights.
+   * Light checks DIP switch and updated the DMX address every 2.5seconds.
 4. Disable the WiFi AP with the DIP switch unless needed for diagnostics
 5. Use your DMX controller to send packets on the DMX chain.
    * Slots 1 to 10 control the brightness per channel
      * `0x00` is off
-     * `0xFF` is on
+     * `0xFF` is full brightness
    * Slots 11 to 20 control the strobe effect per channel
      * `0x00` is fully on
      * `0x01` strobes at 0.2Hz
